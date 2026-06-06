@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>不動産投資 利回り計算機｜表面利回り・実質利回りを無料計算</title>
+<meta name="description" content="不動産投資の表面利回り・実質利回りを無料で計算できるツールです。物件価格、月額家賃、年間経費を入力するだけで、投資判断に使える利回りを簡単に確認できます。">
+<link rel="canonical" href="https://shacho-keisan.com/real-estate-yield.html">
+
+<style>
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  background:#f8fbff;
+  color:#0f172a;
+  line-height:1.8;
+}
+
+header{
+  background:#0f172a;
+  color:#fff;
+  padding:18px 24px;
+}
+
+header a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:22px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#102a5c,#2563eb);
+  color:white;
+  padding:70px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:clamp(32px,5vw,54px);
+  line-height:1.25;
+  margin:0 0 18px;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:760px;
+  margin:0 auto;
+}
+
+.container{
+  max-width:1000px;
+  margin:0 auto;
+  padding:48px 20px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #dbeafe;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 10px 30px rgba(15,23,42,.06);
+  margin-bottom:32px;
+}
+
+.input-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+label{
+  font-weight:700;
+  display:block;
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  height:54px;
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  padding:0 14px;
+  font-size:17px;
+  box-sizing:border-box;
+}
+
+button{
+  margin-top:24px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:16px;
+  padding:16px 28px;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.result-box{
+  background:#f8fafc;
+  border-left:6px solid #2563eb;
+  border-radius:16px;
+  padding:22px;
+}
+
+.result-box span{
+  display:block;
+  color:#64748b;
+  font-size:14px;
+}
+
+.result-box strong{
+  font-size:28px;
+}
+
+.judgement{
+  margin-top:24px;
+  background:#eff6ff;
+  border-radius:16px;
+  padding:22px;
+  font-weight:700;
+}
+
+h2{
+  font-size:28px;
+  margin-top:48px;
+}
+
+h3{
+  font-size:22px;
+  margin-top:32px;
+}
+
+ul{
+  padding-left:22px;
+}
+
+.related a{
+  display:block;
+  margin:10px 0;
+  color:#2563eb;
+  font-weight:700;
+}
+
+footer{
+  margin-top:60px;
+  background:#0f172a;
+  color:#cbd5e1;
+  padding:30px 20px;
+  text-align:center;
+}
+
+footer a{
+  color:#fff;
+  margin:0 10px;
+}
+
+@media(max-width:800px){
+  .input-grid,
+  .result{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>不動産投資<br>利回り計算機</h1>
+  <p>
+    物件価格・月額家賃・年間経費を入力するだけで、
+    表面利回りと実質利回りを無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>利回りを計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="price">物件価格（円）</label>
+      <input id="price" type="number" placeholder="例：30000000">
+    </div>
+
+    <div>
+      <label for="rent">月額家賃（円）</label>
+      <input id="rent" type="number" placeholder="例：150000">
+    </div>
+
+    <div>
+      <label for="cost">年間経費（円）</label>
+      <input id="cost" type="number" placeholder="例：400000">
+    </div>
+  </div>
+
+  <button onclick="calculateYield()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>年間家賃収入</span>
+      <strong id="annualRent">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>表面利回り</span>
+      <strong id="grossYield">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>実質利回り</span>
+      <strong id="netYield">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    物件情報を入力すると、投資判断の目安が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>不動産投資の利回りとは？</h2>
+  <p>
+    不動産投資の利回りとは、物件価格に対してどれくらいの家賃収入が得られるかを示す指標です。
+    物件購入前の収益性を確認するために使われます。
+  </p>
+
+  <h3>表面利回り</h3>
+  <p>
+    表面利回りは、年間家賃収入を物件価格で割って計算します。
+    経費を考慮しないため、簡易的な収益性の目安として使われます。
+  </p>
+
+  <h3>実質利回り</h3>
+  <p>
+    実質利回りは、年間家賃収入から固定資産税、管理費、修繕費などの経費を差し引いて計算します。
+    実際の投資判断では、表面利回りよりも実質利回りの確認が重要です。
+  </p>
+</section>
+
+<section class="card">
+  <h2>利回りの目安</h2>
+  <ul>
+    <li>10%以上：高利回り。ただし築古・空室リスクに注意</li>
+    <li>8〜10%：比較的良好</li>
+    <li>6〜8%：標準的な水準</li>
+    <li>6%未満：収益性や融資条件の確認が必要</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>不動産投資で注意すべきポイント</h2>
+  <ul>
+    <li>空室リスク</li>
+    <li>修繕費の増加</li>
+    <li>固定資産税</li>
+    <li>管理費・共益費</li>
+    <li>借入返済によるキャッシュフロー悪化</li>
+  </ul>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="cashflow-crisis.html">資金繰りがやばい時に確認すべきこと</a>
+  <a href="too-much-loan.html">借入しすぎると危険な理由</a>
+  <a href="profit-rate.html">利益率の計算方法と改善方法</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateYield(){
+  const price = Number(document.getElementById('price').value);
+  const rent = Number(document.getElementById('rent').value);
+  const cost = Number(document.getElementById('cost').value || 0);
+
+  if(!price || !rent){
+    document.getElementById('judgement').innerText = '物件価格と月額家賃を入力してください。';
+    return;
+  }
+
+  const annualRent = rent * 12;
+  const grossYield = annualRent / price * 100;
+  const netYield = (annualRent - cost) / price * 100;
+
+  document.getElementById('annualRent').innerText = annualRent.toLocaleString() + '円';
+  document.getElementById('grossYield').innerText = grossYield.toFixed(2) + '%';
+  document.getElementById('netYield').innerText = netYield.toFixed(2) + '%';
+
+  let comment = '';
+
+  if(netYield >= 10){
+    comment = '実質利回りは高めです。ただし、高利回り物件は空室・修繕・築古リスクも確認しましょう。';
+  }else if(netYield >= 8){
+    comment = '実質利回りは比較的良好です。融資返済後のキャッシュフローも確認しましょう。';
+  }else if(netYield >= 6){
+    comment = '実質利回りは標準的です。空室率や修繕費を含めて慎重に判断しましょう。';
+  }else{
+    comment = '実質利回りは低めです。購入価格、家賃、経費、融資条件を再確認しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
