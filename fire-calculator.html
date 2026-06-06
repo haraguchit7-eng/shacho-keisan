@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FIRE達成計算機｜必要資産・達成年数を無料シミュレーション</title>
+<meta name="description" content="FIREに必要な資産額、達成までの年数、将来資産を無料で計算できます。現在資産、毎月積立額、想定利回り、年間生活費を入力するだけで簡単にシミュレーションできます。">
+<link rel="canonical" href="https://shacho-keisan.com/fire-calculator.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:780px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:24px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>FIRE達成計算機</h1>
+  <p>
+    現在資産・毎月積立額・想定利回り・年間生活費を入力するだけで、
+    FIREに必要な資産額と達成までの年数を無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>FIRE達成までを計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="currentAsset">現在の資産額（円）</label>
+      <input id="currentAsset" type="number" placeholder="例：3000000">
+    </div>
+
+    <div>
+      <label for="monthlyInvest">毎月の積立額（円）</label>
+      <input id="monthlyInvest" type="number" placeholder="例：100000">
+    </div>
+
+    <div>
+      <label for="returnRate">想定利回り（年率％）</label>
+      <input id="returnRate" type="number" step="0.1" placeholder="例：5">
+    </div>
+
+    <div>
+      <label for="annualExpense">年間生活費（円）</label>
+      <input id="annualExpense" type="number" placeholder="例：3600000">
+    </div>
+  </div>
+
+  <button onclick="calculateFire()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>FIRE必要資産</span>
+      <strong id="fireAsset">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>達成までの年数</span>
+      <strong id="yearsToFire">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>10年後の資産</span>
+      <strong id="asset10">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    条件を入力すると、FIRE達成の目安が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>FIREとは？</h2>
+  <p>
+    FIREとは「Financial Independence, Retire Early」の略で、
+    経済的自立を達成し、働くかどうかを自分で選べる状態を目指す考え方です。
+  </p>
+
+  <p>
+    一般的には、年間生活費の25倍の資産を目安にすることが多く、
+    これは4％ルールと呼ばれる考え方に基づいています。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    本計算は簡易シミュレーションです。実際の運用成績、税金、インフレ、生活費変動などは考慮していません。
+  </div>
+</section>
+
+<section class="card">
+  <h2>FIREに必要な資産の考え方</h2>
+  <p>
+    FIRE必要資産は、年間生活費をどれだけ資産収入でまかなうかによって変わります。
+    このページでは、年間生活費の25倍をFIRE必要資産として計算しています。
+  </p>
+
+  <h3>計算例</h3>
+  <ul>
+    <li>年間生活費300万円 → 必要資産7,500万円</li>
+    <li>年間生活費400万円 → 必要資産1億円</li>
+    <li>年間生活費500万円 → 必要資産1億2,500万円</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>FIRE達成を早める方法</h2>
+  <ul>
+    <li>毎月の積立額を増やす</li>
+    <li>支出を下げて年間生活費を減らす</li>
+    <li>長期で複利運用する</li>
+    <li>副収入や事業収入を作る</li>
+    <li>不動産や配当など複数の収入源を持つ</li>
+  </ul>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="real-estate-yield.html">不動産投資 利回り計算機</a>
+  <a href="real-estate-cashflow.html">不動産キャッシュフロー計算機</a>
+  <a href="real-estate-loan.html">不動産ローン返済シミュレーター</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateFire(){
+  const currentAsset = Number(document.getElementById('currentAsset').value || 0);
+  const monthlyInvest = Number(document.getElementById('monthlyInvest').value || 0);
+  const returnRate = Number(document.getElementById('returnRate').value || 0);
+  const annualExpense = Number(document.getElementById('annualExpense').value);
+
+  if(!annualExpense){
+    document.getElementById('judgement').innerText = '年間生活費を入力してください。';
+    return;
+  }
+
+  const targetAsset = annualExpense * 25;
+  const monthlyRate = returnRate / 100 / 12;
+
+  let asset = currentAsset;
+  let months = 0;
+  const maxMonths = 100 * 12;
+
+  while(asset < targetAsset && months < maxMonths){
+    asset = asset * (1 + monthlyRate) + monthlyInvest;
+    months++;
+  }
+
+  let asset10 = currentAsset;
+  for(let i = 0; i < 120; i++){
+    asset10 = asset10 * (1 + monthlyRate) + monthlyInvest;
+  }
+
+  const yearsToFire = months / 12;
+
+  document.getElementById('fireAsset').innerText = Math.round(targetAsset).toLocaleString() + '円';
+  document.getElementById('asset10').innerText = Math.round(asset10).toLocaleString() + '円';
+
+  if(months >= maxMonths){
+    document.getElementById('yearsToFire').innerText = '100年以上';
+  }else{
+    document.getElementById('yearsToFire').innerText = yearsToFire.toFixed(1) + '年';
+  }
+
+  let comment = '';
+
+  if(months >= maxMonths){
+    comment = '現在の条件ではFIRE達成までかなり時間がかかります。積立額、利回り、生活費の見直しを検討しましょう。';
+  }else if(yearsToFire <= 10){
+    comment = 'かなり早いペースでFIRE達成が見込めます。リスク管理と分散投資も意識しましょう。';
+  }else if(yearsToFire <= 25){
+    comment = '現実的なペースでFIREを目指せます。継続積立と生活費管理が重要です。';
+  }else{
+    comment = 'FIRE達成まで時間がかかります。毎月積立額を増やす、支出を下げる、収入源を増やすことが有効です。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
