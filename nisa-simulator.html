@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NISA積立シミュレーター｜将来資産・運用益を無料計算</title>
+<meta name="description" content="NISAの積立シミュレーションができる無料ツールです。現在資産、毎月積立額、想定利回り、運用年数を入力するだけで、将来資産・元本合計・運用益を簡単に計算できます。">
+<link rel="canonical" href="https://shacho-keisan.com/nisa-simulator.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:780px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:24px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>NISA積立シミュレーター</h1>
+  <p>
+    現在資産・毎月積立額・想定利回り・運用年数を入力するだけで、
+    将来資産・元本合計・運用益を無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>NISA積立をシミュレーションする</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="currentAsset">現在の運用資産（円）</label>
+      <input id="currentAsset" type="number" placeholder="例：1000000">
+    </div>
+
+    <div>
+      <label for="monthlyInvest">毎月の積立額（円）</label>
+      <input id="monthlyInvest" type="number" placeholder="例：50000">
+    </div>
+
+    <div>
+      <label for="returnRate">想定利回り（年率％）</label>
+      <input id="returnRate" type="number" step="0.1" placeholder="例：5">
+    </div>
+
+    <div>
+      <label for="years">運用年数（年）</label>
+      <input id="years" type="number" placeholder="例：20">
+    </div>
+  </div>
+
+  <button onclick="calculateNisa()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>将来資産</span>
+      <strong id="futureAsset">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>元本合計</span>
+      <strong id="principal">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>運用益</span>
+      <strong id="profit">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    条件を入力すると、NISA積立の将来資産が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>NISA積立シミュレーターとは？</h2>
+  <p>
+    NISA積立シミュレーターは、毎月の積立額と想定利回りから、
+    将来の資産額を簡単に確認できる計算ツールです。
+  </p>
+
+  <p>
+    長期運用では、元本だけでなく運用益にも運用益が生まれる「複利効果」が大きくなります。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    本シミュレーションは将来の運用成果を保証するものではありません。
+    実際の運用結果は市場環境、手数料、税制変更などにより変動します。
+  </div>
+</section>
+
+<section class="card">
+  <h2>NISAで確認すべきポイント</h2>
+  <ul>
+    <li>毎月いくら積み立てるか</li>
+    <li>何年間運用するか</li>
+    <li>想定利回りを高く見積もりすぎていないか</li>
+    <li>生活防衛資金を残しているか</li>
+    <li>長期で継続できる金額か</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>積立額別の考え方</h2>
+
+  <h3>毎月1万円</h3>
+  <p>
+    少額から始めたい方向けです。無理なく習慣化しやすく、投資初心者にも向いています。
+  </p>
+
+  <h3>毎月3万円</h3>
+  <p>
+    長期で続けることで、将来資産に大きな差が出やすい水準です。
+  </p>
+
+  <h3>毎月5万円以上</h3>
+  <p>
+    資産形成スピードを高めたい方向けです。家計とのバランスを見ながら継続できる金額を設定しましょう。
+  </p>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="fire-calculator.html">FIRE達成計算機</a>
+  <a href="real-estate-yield.html">不動産投資 利回り計算機</a>
+  <a href="real-estate-cashflow.html">不動産キャッシュフロー計算機</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateNisa(){
+  const currentAsset = Number(document.getElementById('currentAsset').value || 0);
+  const monthlyInvest = Number(document.getElementById('monthlyInvest').value || 0);
+  const returnRate = Number(document.getElementById('returnRate').value || 0);
+  const years = Number(document.getElementById('years').value);
+
+  if(!years){
+    document.getElementById('judgement').innerText = '運用年数を入力してください。';
+    return;
+  }
+
+  const months = years * 12;
+  const monthlyRate = returnRate / 100 / 12;
+
+  let futureAsset = currentAsset;
+
+  for(let i = 0; i < months; i++){
+    futureAsset = futureAsset * (1 + monthlyRate) + monthlyInvest;
+  }
+
+  const principal = currentAsset + monthlyInvest * months;
+  const profit = futureAsset - principal;
+
+  document.getElementById('futureAsset').innerText = Math.round(futureAsset).toLocaleString() + '円';
+  document.getElementById('principal').innerText = Math.round(principal).toLocaleString() + '円';
+  document.getElementById('profit').innerText = Math.round(profit).toLocaleString() + '円';
+
+  let comment = '';
+
+  if(profit > principal * 0.5){
+    comment = '複利効果が大きく出ています。長期積立の効果が期待できる条件です。';
+  }else if(profit > 0){
+    comment = '運用益が見込まれます。積立期間を長くすると複利効果が大きくなりやすいです。';
+  }else{
+    comment = '利回りが低い、または積立期間が短いため、運用益は限定的です。長期運用も検討しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
