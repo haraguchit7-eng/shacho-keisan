@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>不動産ローン返済シミュレーター｜毎月返済額・総返済額を無料計算</title>
+<meta name="description" content="不動産投資ローンの毎月返済額、年間返済額、総返済額、利息総額を無料で計算できます。借入金額、金利、返済年数を入力するだけで簡単にシミュレーションできます。">
+<link rel="canonical" href="https://shacho-keisan.com/real-estate-loan.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:780px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:24px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>不動産ローン<br>返済シミュレーター</h1>
+  <p>
+    借入金額・金利・返済年数を入力するだけで、
+    毎月返済額・総返済額・利息総額を無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>ローン返済額を計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="loanAmount">借入金額（円）</label>
+      <input id="loanAmount" type="number" placeholder="例：30000000">
+    </div>
+
+    <div>
+      <label for="interestRate">金利（％）</label>
+      <input id="interestRate" type="number" step="0.01" placeholder="例：2.0">
+    </div>
+
+    <div>
+      <label for="years">返済年数（年）</label>
+      <input id="years" type="number" placeholder="例：35">
+    </div>
+  </div>
+
+  <button onclick="calculateLoan()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>毎月返済額</span>
+      <strong id="monthlyPayment">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>年間返済額</span>
+      <strong id="annualPayment">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>総返済額</span>
+      <strong id="totalPayment">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>利息総額</span>
+      <strong id="totalInterest">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    借入条件を入力すると、返済負担の目安が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>不動産ローン返済シミュレーターとは？</h2>
+  <p>
+    不動産ローン返済シミュレーターは、借入金額・金利・返済年数から、
+    毎月の返済額や総返済額を確認できる計算ツールです。
+  </p>
+
+  <p>
+    不動産投資では、利回りが高く見えても、ローン返済額が大きいと
+    キャッシュフローが悪化することがあります。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    物件購入前には、利回りだけでなく、ローン返済後の手残りを確認することが重要です。
+  </div>
+</section>
+
+<section class="card">
+  <h2>不動産ローンで確認すべきポイント</h2>
+  <ul>
+    <li>毎月返済額が家賃収入に対して重すぎないか</li>
+    <li>金利上昇時にも返済できるか</li>
+    <li>空室時の返済余力があるか</li>
+    <li>固定資産税や修繕費を考慮しているか</li>
+    <li>ローン返済後のキャッシュフローがプラスか</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>返済負担が重い物件の注意点</h2>
+  <p>
+    毎月返済額が高すぎる物件は、空室や修繕費が発生した際に資金繰りが悪化しやすくなります。
+  </p>
+
+  <p>
+    不動産投資では、表面利回りだけで判断せず、ローン返済後のキャッシュフローを確認しましょう。
+  </p>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="real-estate-yield.html">不動産投資 利回り計算機</a>
+  <a href="real-estate-cashflow.html">不動産キャッシュフロー計算機</a>
+  <a href="too-much-loan.html">借入しすぎると危険な理由</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateLoan(){
+  const loanAmount = Number(document.getElementById('loanAmount').value);
+  const interestRate = Number(document.getElementById('interestRate').value);
+  const years = Number(document.getElementById('years').value);
+
+  if(!loanAmount || !years){
+    document.getElementById('judgement').innerText = '借入金額と返済年数を入力してください。';
+    return;
+  }
+
+  const months = years * 12;
+  const monthlyRate = interestRate / 100 / 12;
+
+  let monthlyPayment;
+
+  if(monthlyRate === 0){
+    monthlyPayment = loanAmount / months;
+  }else{
+    monthlyPayment = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
+  }
+
+  const annualPayment = monthlyPayment * 12;
+  const totalPayment = monthlyPayment * months;
+  const totalInterest = totalPayment - loanAmount;
+
+  document.getElementById('monthlyPayment').innerText = Math.round(monthlyPayment).toLocaleString() + '円';
+  document.getElementById('annualPayment').innerText = Math.round(annualPayment).toLocaleString() + '円';
+  document.getElementById('totalPayment').innerText = Math.round(totalPayment).toLocaleString() + '円';
+  document.getElementById('totalInterest').innerText = Math.round(totalInterest).toLocaleString() + '円';
+
+  let comment = '';
+
+  if(annualPayment / loanAmount < 0.04){
+    comment = '返済負担は比較的抑えられています。家賃収入や経費を含めてキャッシュフローも確認しましょう。';
+  }else if(annualPayment / loanAmount < 0.07){
+    comment = '返済負担は標準的です。空室時や修繕費発生時の余力も確認しましょう。';
+  }else{
+    comment = '返済負担がやや重い可能性があります。家賃収入、空室率、経費を含めて慎重に確認しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
