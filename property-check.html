@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>不動産投資購入判定計算機｜この物件は買うべき？</title>
+
+<meta name="description" content="物件価格・家賃・管理費・修繕費・金利を入力するだけ。不動産投資の収益性と毎月のキャッシュフローを自動計算し、買うべき物件か診断します。">
+
+<link rel="canonical" href="https://shacho-keisan.com/property-check.html">
+
+<style>
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+background:#f8fafc;
+color:#111827;
+line-height:1.8;
+}
+
+header{
+background:#0f172a;
+padding:18px 24px;
+}
+
+header a{
+color:#fff;
+text-decoration:none;
+font-weight:700;
+font-size:22px;
+}
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#2563eb);
+color:#fff;
+padding:80px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:clamp(32px,5vw,56px);
+margin-bottom:20px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:50px 20px;
+}
+
+.card{
+background:#fff;
+border-radius:20px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+label{
+display:block;
+font-weight:700;
+margin-bottom:8px;
+}
+
+input{
+width:100%;
+height:52px;
+padding:0 14px;
+border:1px solid #d1d5db;
+border-radius:12px;
+font-size:16px;
+box-sizing:border-box;
+}
+
+button{
+margin-top:20px;
+background:#2563eb;
+color:white;
+border:none;
+padding:16px 30px;
+border-radius:14px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+background:#eff6ff;
+border-radius:16px;
+}
+
+.result h3{
+margin-top:0;
+}
+
+.score{
+font-size:40px;
+font-weight:800;
+margin-top:10px;
+}
+
+.buy{
+color:#16a34a;
+}
+
+.consider{
+color:#2563eb;
+}
+
+.caution{
+color:#d97706;
+}
+
+.ng{
+color:#dc2626;
+}
+
+footer{
+margin-top:50px;
+padding:30px;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+
+<h1>不動産投資購入判定計算機</h1>
+
+<p>
+その物件、本当に買うべき？
+<br>
+利回り・返済額・キャッシュフローから診断します。
+</p>
+
+</section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>物件情報を入力</h2>
+
+<div class="grid">
+
+<div>
+<label>物件価格（万円）</label>
+<input type="number" id="price" placeholder="3000">
+</div>
+
+<div>
+<label>月額家賃（円）</label>
+<input type="number" id="rent" placeholder="150000">
+</div>
+
+<div>
+<label>管理費（月額）</label>
+<input type="number" id="manage" placeholder="5000">
+</div>
+
+<div>
+<label>修繕積立（月額）</label>
+<input type="number" id="repair" placeholder="5000">
+</div>
+
+<div>
+<label>固定資産税（年額）</label>
+<input type="number" id="tax" placeholder="100000">
+</div>
+
+<div>
+<label>自己資金（万円）</label>
+<input type="number" id="cash" placeholder="300">
+</div>
+
+<div>
+<label>金利（%）</label>
+<input type="number" id="rate" placeholder="2.0">
+</div>
+
+<div>
+<label>借入年数</label>
+<input type="number" id="years" placeholder="35">
+</div>
+
+</div>
+
+<button onclick="judgeProperty()">
+診断する
+</button>
+
+<div class="result" id="result">
+
+診断結果がここに表示されます
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>判定基準</h2>
+
+<ul>
+
+<li>◎買い：実質利回り7%以上 & キャッシュフロー良好</li>
+
+<li>○検討：実質利回り5〜7%</li>
+
+<li>△微妙：実質利回り4〜5%</li>
+
+<li>✕見送り：キャッシュフローがマイナス</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>関連ツール</h2>
+
+<p><a href="real-estate-yield.html">不動産投資 利回り計算機</a></p>
+
+<p><a href="real-estate-cashflow.html">不動産キャッシュフロー計算機</a></p>
+
+<p><a href="real-estate-loan.html">不動産ローン返済シミュレーター</a></p>
+
+<p><a href="fire-calculator.html">FIRE達成計算機</a></p>
+
+</div>
+
+</div>
+
+<footer>
+
+© 社長の計算機
+
+</footer>
+
+<script>
+
+function judgeProperty(){
+
+const price =
+Number(document.getElementById("price").value) * 10000;
+
+const rent =
+Number(document.getElementById("rent").value);
+
+const manage =
+Number(document.getElementById("manage").value);
+
+const repair =
+Number(document.getElementById("repair").value);
+
+const tax =
+Number(document.getElementById("tax").value);
+
+const cash =
+Number(document.getElementById("cash").value) * 10000;
+
+const rate =
+Number(document.getElementById("rate").value)/100/12;
+
+const years =
+Number(document.getElementById("years").value);
+
+const loan =
+price - cash;
+
+const n =
+years * 12;
+
+const payment =
+loan * rate * Math.pow(1+rate,n)
+/
+(Math.pow(1+rate,n)-1);
+
+const annualRent =
+rent * 12;
+
+const annualCost =
+(manage+repair)*12 + tax;
+
+const grossYield =
+annualRent / price *100;
+
+const netYield =
+(annualRent-annualCost)/price*100;
+
+const monthlyCF =
+rent - manage - repair - payment - (tax/12);
+
+let rank="";
+let css="";
+
+if(monthlyCF <0){
+
+rank="✕ 見送り";
+css="ng";
+
+}else if(netYield >=7){
+
+rank="◎ 買い";
+css="buy";
+
+}else if(netYield >=5){
+
+rank="○ 検討";
+css="consider";
+
+}else if(netYield >=4){
+
+rank="△ 微妙";
+css="caution";
+
+}else{
+
+rank="✕ 見送り";
+css="ng";
+
+}
+
+document.getElementById("result").innerHTML = `
+
+<h3>診断結果</h3>
+
+<p>表面利回り：${grossYield.toFixed(2)}%</p>
+
+<p>実質利回り：${netYield.toFixed(2)}%</p>
+
+<p>毎月返済額：約 ${Math.round(payment).toLocaleString()} 円</p>
+
+<p>毎月キャッシュフロー：約 ${Math.round(monthlyCF).toLocaleString()} 円</p>
+
+<div class="score ${css}">
+${rank}
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
