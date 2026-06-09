@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>配当金生活シミュレーター｜月10万円・月20万円に必要な資産を計算</title>
+<meta name="description" content="配当金生活に必要な資産額を無料で計算できます。毎月欲しい配当金と想定配当利回りを入力するだけで、必要資産額・年間配当金・達成難易度をシミュレーションできます。">
+<link rel="canonical" href="https://shacho-keisan.com/dividend-income.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:780px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:24px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>配当金生活シミュレーター</h1>
+  <p>
+    毎月欲しい配当金と想定配当利回りを入力するだけで、
+    配当金生活に必要な資産額を無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>配当金生活に必要な資産を計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="monthlyDividend">毎月欲しい配当金（円）</label>
+      <input id="monthlyDividend" type="number" placeholder="例：100000">
+    </div>
+
+    <div>
+      <label for="yieldRate">想定配当利回り（年率％）</label>
+      <input id="yieldRate" type="number" step="0.1" placeholder="例：4">
+    </div>
+  </div>
+
+  <button onclick="calculateDividend()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>必要資産額</span>
+      <strong id="requiredAsset">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>年間配当金</span>
+      <strong id="annualDividend">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>月間配当金</span>
+      <strong id="monthlyResult">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    条件を入力すると、配当金生活に必要な資産額が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>配当金生活とは？</h2>
+  <p>
+    配当金生活とは、株式やETFなどから得られる配当金を生活費の一部または全部に充てる考え方です。
+  </p>
+
+  <p>
+    例えば、毎月10万円の配当金を得たい場合、年間では120万円の配当金が必要になります。
+    配当利回り4％で考えると、必要資産額は約3,000万円です。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    配当金は企業業績や市場環境によって減配・無配になる可能性があります。
+    本シミュレーションは将来の配当金を保証するものではありません。
+  </div>
+</section>
+
+<section class="card">
+  <h2>配当金生活に必要な資産額の目安</h2>
+
+  <ul>
+    <li>月5万円の配当金：年間60万円</li>
+    <li>月10万円の配当金：年間120万円</li>
+    <li>月20万円の配当金：年間240万円</li>
+    <li>月30万円の配当金：年間360万円</li>
+  </ul>
+
+  <p>
+    必要資産額は、想定する配当利回りによって大きく変わります。
+    利回りを高く見積もりすぎると、リスクの高い投資判断につながる可能性があります。
+  </p>
+</section>
+
+<section class="card">
+  <h2>配当利回り別の考え方</h2>
+
+  <h3>利回り3％</h3>
+  <p>
+    比較的保守的な想定です。安定性を重視する場合の目安になります。
+  </p>
+
+  <h3>利回り4％</h3>
+  <p>
+    配当金生活を考える際によく使われる水準です。
+    ただし、銘柄分散や減配リスクへの備えが必要です。
+  </p>
+
+  <h3>利回り5％以上</h3>
+  <p>
+    高配当ですが、減配リスクや株価下落リスクも高まりやすくなります。
+    利回りだけで判断しないことが重要です。
+  </p>
+</section>
+
+<section class="card">
+  <h2>配当金生活を目指す前に確認したいこと</h2>
+  <ul>
+    <li>生活費をいくらに抑えるか</li>
+    <li>配当利回りを高く見積もりすぎていないか</li>
+    <li>減配・無配リスクを考慮しているか</li>
+    <li>十分に分散投資しているか</li>
+    <li>NISAや長期積立も併用するか</li>
+  </ul>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="fire-calculator.html">FIRE達成計算機</a>
+  <a href="nisa-simulator.html">NISA積立シミュレーター</a>
+  <a href="real-estate-yield.html">不動産投資 利回り計算機</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateDividend(){
+  const monthlyDividend = Number(document.getElementById('monthlyDividend').value);
+  const yieldRate = Number(document.getElementById('yieldRate').value);
+
+  if(!monthlyDividend || !yieldRate){
+    document.getElementById('judgement').innerText = '毎月欲しい配当金と想定配当利回りを入力してください。';
+    return;
+  }
+
+  const annualDividend = monthlyDividend * 12;
+  const requiredAsset = annualDividend / (yieldRate / 100);
+
+  document.getElementById('requiredAsset').innerText = Math.round(requiredAsset).toLocaleString() + '円';
+  document.getElementById('annualDividend').innerText = annualDividend.toLocaleString() + '円';
+  document.getElementById('monthlyResult').innerText = monthlyDividend.toLocaleString() + '円';
+
+  let comment = '';
+
+  if(monthlyDividend <= 50000){
+    comment = '月5万円前後の配当金は、長期的な資産形成で現実的に目指しやすい水準です。';
+  }else if(monthlyDividend <= 100000){
+    comment = '月10万円の配当金は大きな目標ですが、長期積立と高配当投資を組み合わせることで目指せる水準です。';
+  }else if(monthlyDividend <= 200000){
+    comment = '月20万円の配当金には大きな資産が必要です。利回りだけでなく、分散投資とリスク管理が重要です。';
+  }else{
+    comment = '月30万円以上の配当金生活には非常に大きな資産が必要です。減配リスクや生活費の見直しも含めて慎重に計画しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
