@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>相続税概算計算機｜基礎控除・相続税の目安を無料計算</title>
+<meta name="description" content="相続財産、借入金・葬式費用、法定相続人の数を入力するだけで、相続税の基礎控除額、課税対象額、相続税の概算額を無料で計算できます。">
+<link rel="canonical" href="https://shacho-keisan.com/inheritance-tax.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:780px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:22px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>相続税概算計算機</h1>
+  <p>
+    相続財産・債務・法定相続人の数を入力するだけで、
+    基礎控除額、課税対象額、相続税の概算額を確認できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>相続税をざっくり計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="asset">相続財産の総額（円）</label>
+      <input id="asset" type="number" placeholder="例：100000000">
+    </div>
+
+    <div>
+      <label for="debt">借入金・葬式費用など（円）</label>
+      <input id="debt" type="number" placeholder="例：10000000">
+    </div>
+
+    <div>
+      <label for="heirs">法定相続人の数（人）</label>
+      <input id="heirs" type="number" placeholder="例：3">
+    </div>
+
+    <div>
+      <label for="taxableGift">生前贈与加算など（円）</label>
+      <input id="taxableGift" type="number" placeholder="例：0">
+    </div>
+  </div>
+
+  <button onclick="calculateInheritanceTax()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>基礎控除額</span>
+      <strong id="deduction">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>課税対象額</span>
+      <strong id="taxableAmount">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>相続税の概算額</span>
+      <strong id="taxAmount">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    数字を入力すると、相続税の概算額が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>相続税の基礎控除とは？</h2>
+  <p>
+    相続税には基礎控除があります。
+    基礎控除額は「3,000万円＋600万円×法定相続人の数」で計算します。
+  </p>
+
+  <p>
+    相続財産から債務や葬式費用などを差し引いた金額が基礎控除以下であれば、
+    相続税がかからない可能性があります。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    本ツールは簡易計算です。配偶者控除、小規模宅地等の特例、生命保険の非課税枠、相続時精算課税、生前贈与加算などは個別に考慮していません。
+    実際の申告要否や税額は税理士等へ確認してください。
+  </div>
+</section>
+
+<section class="card">
+  <h2>相続税が発生しやすいケース</h2>
+  <ul>
+    <li>不動産を複数所有している</li>
+    <li>現預金や有価証券が多い</li>
+    <li>自社株を保有している</li>
+    <li>生命保険金が大きい</li>
+    <li>法定相続人が少ない</li>
+    <li>相続財産が基礎控除を超えている</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>相続税対策で確認したいこと</h2>
+  <ul>
+    <li>相続財産の総額を把握する</li>
+    <li>不動産評価額を確認する</li>
+    <li>借入金や債務を整理する</li>
+    <li>法定相続人の数を確認する</li>
+    <li>生前贈与や生命保険の活用を検討する</li>
+    <li>事業承継・自社株評価も確認する</li>
+  </ul>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="retirement-fund.html">老後資金計算機</a>
+  <a href="company-valuation.html">会社売却価値診断計算機</a>
+  <a href="real-estate-yield.html">不動産投資 利回り計算機</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function inheritanceTaxByTable(amount){
+  if(amount <= 0) return 0;
+
+  if(amount <= 10000000){
+    return amount * 0.10;
+  }else if(amount <= 30000000){
+    return amount * 0.15 - 500000;
+  }else if(amount <= 50000000){
+    return amount * 0.20 - 2000000;
+  }else if(amount <= 100000000){
+    return amount * 0.30 - 7000000;
+  }else if(amount <= 200000000){
+    return amount * 0.40 - 17000000;
+  }else if(amount <= 300000000){
+    return amount * 0.45 - 27000000;
+  }else if(amount <= 600000000){
+    return amount * 0.50 - 42000000;
+  }else{
+    return amount * 0.55 - 72000000;
+  }
+}
+
+function calculateInheritanceTax(){
+  const asset = Number(document.getElementById('asset').value || 0);
+  const debt = Number(document.getElementById('debt').value || 0);
+  const heirs = Number(document.getElementById('heirs').value || 0);
+  const taxableGift = Number(document.getElementById('taxableGift').value || 0);
+
+  if(!asset || !heirs){
+    document.getElementById('judgement').innerText = '相続財産の総額と法定相続人の数を入力してください。';
+    return;
+  }
+
+  const netAsset = Math.max(asset - debt + taxableGift, 0);
+  const deduction = 30000000 + 6000000 * heirs;
+  const taxableAmount = Math.max(netAsset - deduction, 0);
+
+  const perHeirTaxable = taxableAmount / heirs;
+  const taxPerHeir = inheritanceTaxByTable(perHeirTaxable);
+  const estimatedTax = taxPerHeir * heirs;
+
+  document.getElementById('deduction').innerText = Math.round(deduction).toLocaleString() + '円';
+  document.getElementById('taxableAmount').innerText = Math.round(taxableAmount).toLocaleString() + '円';
+  document.getElementById('taxAmount').innerText = Math.round(estimatedTax).toLocaleString() + '円';
+
+  let comment = '';
+
+  if(taxableAmount <= 0){
+    comment = '基礎控除の範囲内のため、相続税がかからない可能性があります。ただし申告要否は個別事情により異なります。';
+  }else if(estimatedTax <= 1000000){
+    comment = '相続税の概算額は比較的小さめですが、不動産評価や特例適用の有無を確認しましょう。';
+  }else if(estimatedTax <= 10000000){
+    comment = '相続税負担が発生する可能性があります。納税資金や分割方法を早めに確認しましょう。';
+  }else{
+    comment = '相続税負担が大きくなる可能性があります。税理士や専門家に相談し、相続対策・納税資金を検討しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
