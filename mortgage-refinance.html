@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>住宅ローン借換シミュレーター｜借換メリット・削減額を無料計算</title>
+<meta name="description" content="住宅ローンの借換メリットを無料で計算できます。現在の借入残高、金利、残り返済年数、借換後金利、諸費用を入力するだけで、総返済額や削減額の目安を確認できます。">
+<link rel="canonical" href="https://shacho-keisan.com/mortgage-refinance.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:780px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:22px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>住宅ローン借換<br>シミュレーター</h1>
+  <p>
+    現在の借入残高・金利・残り返済年数・借換後金利を入力するだけで、
+    借換による削減額の目安を無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>住宅ローン借換メリットを計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="balance">現在の借入残高（円）</label>
+      <input id="balance" type="number" placeholder="例：30000000">
+    </div>
+
+    <div>
+      <label for="currentRate">現在の金利（年率％）</label>
+      <input id="currentRate" type="number" step="0.01" placeholder="例：1.5">
+    </div>
+
+    <div>
+      <label for="newRate">借換後の金利（年率％）</label>
+      <input id="newRate" type="number" step="0.01" placeholder="例：0.8">
+    </div>
+
+    <div>
+      <label for="years">残り返済年数（年）</label>
+      <input id="years" type="number" placeholder="例：25">
+    </div>
+
+    <div>
+      <label for="cost">借換諸費用（円）</label>
+      <input id="cost" type="number" placeholder="例：800000">
+    </div>
+
+    <div>
+      <label for="bonus">ボーナス返済（月換算・円）</label>
+      <input id="bonus" type="number" placeholder="例：0">
+    </div>
+  </div>
+
+  <button onclick="calculateRefinance()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>毎月削減額</span>
+      <strong id="monthlySaving">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>総削減額</span>
+      <strong id="totalSaving">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>諸費用差引後メリット</span>
+      <strong id="netBenefit">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    条件を入力すると、借換メリットの目安が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>住宅ローン借換とは？</h2>
+  <p>
+    住宅ローン借換とは、現在借りている住宅ローンを別の金融機関や別の金利条件に変更することです。
+  </p>
+
+  <p>
+    金利が下がると毎月返済額や総返済額が減る可能性がありますが、
+    借換には事務手数料、保証料、登記費用などの諸費用がかかります。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    本ツールは簡易計算です。実際の借換効果は、返済方式、保証料、団信、手数料、金利タイプ、金融機関条件により異なります。
+  </div>
+</section>
+
+<section class="card">
+  <h2>借換を検討しやすいケース</h2>
+  <ul>
+    <li>現在の金利と借換後金利に差がある</li>
+    <li>借入残高が大きい</li>
+    <li>残り返済年数が長い</li>
+    <li>毎月返済額を下げたい</li>
+    <li>固定金利・変動金利を見直したい</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>借換で注意すべきポイント</h2>
+  <ul>
+    <li>借換諸費用を含めてもメリットがあるか</li>
+    <li>金利タイプが自分に合っているか</li>
+    <li>団体信用生命保険の条件が変わらないか</li>
+    <li>返済期間を延ばしすぎていないか</li>
+    <li>毎月返済額だけでなく総返済額を見る</li>
+  </ul>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="real-estate-loan.html">不動産ローン返済シミュレーター</a>
+  <a href="retirement-fund.html">老後資金計算機</a>
+  <a href="nisa-simulator.html">NISA積立シミュレーター</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calcMonthlyPayment(principal, annualRate, years){
+  const months = years * 12;
+  const monthlyRate = annualRate / 100 / 12;
+
+  if(months <= 0) return 0;
+
+  if(monthlyRate === 0){
+    return principal / months;
+  }
+
+  return principal * monthlyRate * Math.pow(1 + monthlyRate, months) /
+    (Math.pow(1 + monthlyRate, months) - 1);
+}
+
+function calculateRefinance(){
+  const balance = Number(document.getElementById('balance').value || 0);
+  const currentRate = Number(document.getElementById('currentRate').value || 0);
+  const newRate = Number(document.getElementById('newRate').value || 0);
+  const years = Number(document.getElementById('years').value || 0);
+  const cost = Number(document.getElementById('cost').value || 0);
+  const bonus = Number(document.getElementById('bonus').value || 0);
+
+  if(!balance || !years){
+    document.getElementById('judgement').innerText = '借入残高と残り返済年数を入力してください。';
+    return;
+  }
+
+  const months = years * 12;
+  const currentMonthly = calcMonthlyPayment(balance, currentRate, years) + bonus;
+  const newMonthly = calcMonthlyPayment(balance, newRate, years) + bonus;
+
+  const monthlySaving = currentMonthly - newMonthly;
+  const totalSaving = monthlySaving * months;
+  const netBenefit = totalSaving - cost;
+
+  document.getElementById('monthlySaving').innerText = Math.round(monthlySaving).toLocaleString() + '円';
+  document.getElementById('totalSaving').innerText = Math.round(totalSaving).toLocaleString() + '円';
+  document.getElementById('netBenefit').innerText = Math.round(netBenefit).toLocaleString() + '円';
+
+  let comment = '';
+
+  if(netBenefit > 1000000){
+    comment = '借換メリットが大きい可能性があります。実際の諸費用や金利条件を金融機関に確認してみましょう。';
+  }else if(netBenefit > 0){
+    comment = '借換メリットはありますが、諸費用や手続き負担も含めて慎重に確認しましょう。';
+  }else{
+    comment = '諸費用を含めると、借換メリットは小さい可能性があります。金利差や残り返済年数を再確認しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
