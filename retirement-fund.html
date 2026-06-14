@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>老後資金計算機｜老後にいくら必要か無料シミュレーション</title>
+<meta name="description" content="老後資金にいくら必要かを無料で計算できます。現在年齢、引退年齢、想定寿命、毎月生活費、年金受給額を入力するだけで、老後資金の不足額をシミュレーションできます。">
+<link rel="canonical" href="https://shacho-keisan.com/retirement-fund.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:780px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:24px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>老後資金計算機</h1>
+  <p>
+    現在年齢・引退年齢・想定寿命・生活費・年金額を入力するだけで、
+    老後に必要な資金額と不足額を無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>老後資金を計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="currentAge">現在年齢（歳）</label>
+      <input id="currentAge" type="number" placeholder="例：40">
+    </div>
+
+    <div>
+      <label for="retireAge">引退年齢（歳）</label>
+      <input id="retireAge" type="number" placeholder="例：65">
+    </div>
+
+    <div>
+      <label for="lifeAge">想定寿命（歳）</label>
+      <input id="lifeAge" type="number" placeholder="例：90">
+    </div>
+
+    <div>
+      <label for="monthlyExpense">老後の毎月生活費（円）</label>
+      <input id="monthlyExpense" type="number" placeholder="例：250000">
+    </div>
+
+    <div>
+      <label for="monthlyPension">毎月の年金見込み額（円）</label>
+      <input id="monthlyPension" type="number" placeholder="例：150000">
+    </div>
+
+    <div>
+      <label for="currentAsset">現在の老後資金（円）</label>
+      <input id="currentAsset" type="number" placeholder="例：5000000">
+    </div>
+  </div>
+
+  <button onclick="calculateRetirement()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>必要老後資金</span>
+      <strong id="requiredFund">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>不足額</span>
+      <strong id="shortage">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>毎月不足額</span>
+      <strong id="monthlyShortage">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    条件を入力すると、老後資金の目安が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>老後資金はいくら必要？</h2>
+  <p>
+    老後資金は、引退後の生活費と年金収入の差額によって大きく変わります。
+  </p>
+
+  <p>
+    たとえば、毎月の生活費が25万円、年金収入が15万円の場合、
+    毎月10万円の不足が発生します。
+    65歳から90歳まで25年間続くと、必要資金は約3,000万円になります。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    本シミュレーションは簡易計算です。実際には医療費、介護費、住居費、インフレ、税金、運用益などによって必要額は変動します。
+  </div>
+</section>
+
+<section class="card">
+  <h2>老後資金を考えるポイント</h2>
+  <ul>
+    <li>毎月の生活費をどれくらいにするか</li>
+    <li>年金収入をどの程度見込めるか</li>
+    <li>何歳まで資金が必要か</li>
+    <li>医療費・介護費を考慮しているか</li>
+    <li>NISAやiDeCoなどで資産形成しているか</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>老後資金不足を減らす方法</h2>
+  <ul>
+    <li>早めに積立投資を始める</li>
+    <li>生活費を見直す</li>
+    <li>定年後も収入源を持つ</li>
+    <li>年金受給額を確認する</li>
+    <li>FIREやサイドFIREではなく、段階的な引退も検討する</li>
+  </ul>
+</section>
+
+<section class="card related">
+  <h2>関連ツール</h2>
+  <a href="nisa-simulator.html">NISA積立シミュレーター</a>
+  <a href="fire-calculator.html">FIRE達成計算機</a>
+  <a href="dividend-income.html">配当金生活シミュレーター</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateRetirement(){
+  const currentAge = Number(document.getElementById('currentAge').value);
+  const retireAge = Number(document.getElementById('retireAge').value);
+  const lifeAge = Number(document.getElementById('lifeAge').value);
+  const monthlyExpense = Number(document.getElementById('monthlyExpense').value);
+  const monthlyPension = Number(document.getElementById('monthlyPension').value || 0);
+  const currentAsset = Number(document.getElementById('currentAsset').value || 0);
+
+  if(!retireAge || !lifeAge || !monthlyExpense){
+    document.getElementById('judgement').innerText = '引退年齢・想定寿命・毎月生活費を入力してください。';
+    return;
+  }
+
+  const retirementYears = lifeAge - retireAge;
+  const monthlyGap = monthlyExpense - monthlyPension;
+  const requiredFund = monthlyGap > 0 ? monthlyGap * 12 * retirementYears : 0;
+  const shortage = requiredFund - currentAsset;
+  const yearsUntilRetire = retireAge - currentAge;
+  const monthlyShortage = yearsUntilRetire > 0 && shortage > 0 ? shortage / (yearsUntilRetire * 12) : 0;
+
+  document.getElementById('requiredFund').innerText = Math.round(requiredFund).toLocaleString() + '円';
+  document.getElementById('shortage').innerText = Math.round(Math.max(shortage,0)).toLocaleString() + '円';
+  document.getElementById('monthlyShortage').innerText = Math.round(Math.max(monthlyShortage,0)).toLocaleString() + '円';
+
+  let comment = '';
+
+  if(monthlyGap <= 0){
+    comment = '年金収入で生活費をまかなえる想定です。ただし医療費・介護費・住居費なども考慮しましょう。';
+  }else if(shortage <= 0){
+    comment = '現在の老後資金で不足額をカバーできる可能性があります。インフレや予備費も確認しましょう。';
+  }else if(monthlyShortage <= 50000){
+    comment = '毎月の積立で現実的に準備しやすい水準です。NISAや長期積立の活用も検討しましょう。';
+  }else if(monthlyShortage <= 100000){
+    comment = '老後資金の準備には計画的な積立が必要です。生活費や引退時期の見直しも有効です。';
+  }else{
+    comment = '老後資金の不足額が大きい可能性があります。収入源の追加、生活費見直し、引退年齢の調整を検討しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
