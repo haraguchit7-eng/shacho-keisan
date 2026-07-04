@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NISAで配当金は非課税？受取方法を間違えると課税される？｜社長の計算機</title>
+<meta name="description" content="NISAで配当金は非課税になるのか、国内株式の配当金で注意すべき株式数比例配分方式、課税されるケースを初心者向けにわかりやすく解説します。">
+<meta name="author" content="社長の計算機">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0f172a">
+
+<link rel="canonical" href="https://shacho-keisan.com/nisa-dividend-tax.html">
+<link rel="icon" href="/favicon.ico">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FETE0W66W2');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339" crossorigin="anonymous"></script>
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="社長の計算機">
+<meta property="og:title" content="NISAで配当金は非課税？受取方法を間違えると課税される？">
+<meta property="og:description" content="NISAで配当金が非課税になる条件と、株式数比例配分方式の注意点を解説します。">
+<meta property="og:url" content="https://shacho-keisan.com/nisa-dividend-tax.html">
+<meta property="og:image" content="https://shacho-keisan.com/favicon.ico">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"社長の計算機",
+  "url":"https://shacho-keisan.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"NISAで配当金は非課税？受取方法を間違えると課税される？",
+  "description":"NISAで配当金は非課税になるのか、国内株式の配当金で注意すべき株式数比例配分方式、課税されるケースを初心者向けに解説します。",
+  "author":{
+    "@type":"Organization",
+    "name":"社長の計算機"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"社長の計算機"
+  },
+  "mainEntityOfPage":"https://shacho-keisan.com/nisa-dividend-tax.html"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"ホーム",
+      "item":"https://shacho-keisan.com/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"資産形成・NISA",
+      "item":"https://shacho-keisan.com/nisa-simulator.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"NISAで配当金は非課税？",
+      "item":"https://shacho-keisan.com/nisa-dividend-tax.html"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"NISAで配当金は非課税になりますか？",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"NISA口座で保有する株式や投資信託から得られる配当金・分配金は、条件を満たせば非課税になります。ただし、国内上場株式の配当金は受取方法に注意が必要です。"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"NISA口座なのに配当金が課税されることはありますか？",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"国内上場株式の配当金について、株式数比例配分方式以外で受け取る場合、NISA口座で保有していても課税されることがあります。"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"株式数比例配分方式とは何ですか？",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"株式数比例配分方式とは、証券会社の口座で配当金を受け取る方式です。NISA口座で国内上場株式の配当金を非課税で受け取るには、この方式を選択する必要があります。"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  background:#f8fafc;
+  color:#1e293b;
+  line-height:1.9;
+}
+header{
+  background:#0f172a;
+  padding:18px 20px;
+}
+header a{
+  color:#fff;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:800;
+}
+.container{
+  max-width:960px;
+  margin:auto;
+  padding:40px 20px;
+}
+.breadcrumb{
+  font-size:14px;
+  color:#64748b;
+  margin-bottom:18px;
+}
+.breadcrumb a{
+  color:#2563eb;
+  text-decoration:none;
+}
+.article{
+  background:#fff;
+  padding:42px;
+  border-radius:22px;
+  box-shadow:0 8px 30px rgba(15,23,42,.06);
+}
+h1{
+  font-size:clamp(32px,5vw,46px);
+  line-height:1.3;
+  margin-top:0;
+}
+h2{
+  margin-top:52px;
+  border-left:6px solid #2563eb;
+  padding-left:14px;
+  font-size:28px;
+}
+h3{
+  margin-top:32px;
+  font-size:22px;
+}
+p{margin:18px 0}
+ul,ol{padding-left:24px}
+.box{
+  background:#eff6ff;
+  padding:22px;
+  border-radius:14px;
+  margin:30px 0;
+}
+.warning{
+  background:#fff7ed;
+  border:1px solid #fdba74;
+  padding:22px;
+  border-radius:14px;
+  margin:30px 0;
+}
+.point{
+  background:#f8fafc;
+  border:1px solid #dbeafe;
+  padding:22px;
+  border-radius:14px;
+  margin:30px 0;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:30px 0;
+}
+th,td{
+  border:1px solid #dbeafe;
+  padding:14px;
+  text-align:left;
+}
+th{
+  background:#2563eb;
+  color:#fff;
+}
+.toc{
+  background:#f8fafc;
+  border:1px solid #dbeafe;
+  padding:24px;
+  border-radius:16px;
+  margin:34px 0;
+}
+.toc a{
+  display:block;
+  color:#2563eb;
+  font-weight:700;
+  text-decoration:none;
+  margin:8px 0;
+}
+.cta{
+  background:linear-gradient(135deg,#0f172a,#2563eb);
+  color:#fff;
+  padding:28px;
+  border-radius:18px;
+  margin:44px 0;
+}
+.cta a{
+  display:inline-block;
+  background:#fff;
+  color:#2563eb;
+  font-weight:800;
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:12px;
+  margin-top:12px;
+}
+.related{
+  margin-top:60px;
+  padding:28px;
+  background:#f8fafc;
+  border-radius:18px;
+}
+.related a{
+  display:block;
+  margin:12px 0;
+  font-weight:700;
+  text-decoration:none;
+  color:#2563eb;
+}
+footer{
+  margin-top:60px;
+  padding:30px;
+  background:#0f172a;
+  text-align:center;
+  color:#fff;
+}
+footer a{
+  color:#fff;
+  margin:0 10px;
+}
+@media(max-width:700px){
+  .article{padding:24px}
+  table{font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="index.html">ホーム</a> ＞ 
+    <a href="nisa-simulator.html">NISA積立シミュレーター</a> ＞ 
+    NISAで配当金は非課税？
+  </div>
+
+  <article class="article">
+
+    <h1>NISAで配当金は非課税？受取方法を間違えると課税される？</h1>
+
+    <p>
+      NISA口座で株式や投資信託を保有していると、「配当金も非課税になるのか？」と疑問に思う方は多いです。
+    </p>
+
+    <p>
+      結論から言えば、NISA口座で得られる配当金や分配金は、条件を満たせば非課税になります。
+      ただし、国内上場株式の配当金については、受取方法を間違えるとNISA口座で保有していても課税される場合があります。
+    </p>
+
+    <div class="box">
+      <strong>結論：</strong><br>
+      NISA口座の配当金・分配金は原則非課税です。
+      ただし、国内上場株式の配当金を非課税で受け取るには、配当金の受取方式を
+      <strong>「株式数比例配分方式」</strong>にしておく必要があります。
+    </div>
+
+    <div class="toc">
+      <strong>この記事でわかること</strong>
+      <a href="#nisa-tax-free">NISAで配当金が非課税になる仕組み</a>
+      <a href="#wrong-setting">NISAでも課税されるケース</a>
+      <a href="#method">株式数比例配分方式とは</a>
+      <a href="#check">受取方法の確認ポイント</a>
+      <a href="#foreign">外国株の配当金の注意点</a>
+      <a href="#faq">よくある質問</a>
+    </div>
+
+    <h2 id="nisa-tax-free">NISAで配当金は非課税になる？</h2>
+
+    <p>
+      NISAは、投資で得られる利益に税金がかからない制度です。
+      通常、株式の売却益や配当金には税金がかかりますが、NISA口座で条件を満たせば非課税になります。
+    </p>
+
+    <p>
+      通常の課税口座では、配当金に対して約20％の税金がかかります。
+      NISAを活用すれば、この税負担を抑えられる可能性があります。
+    </p>
+
+    <table>
+      <tr>
+        <th>口座区分</th>
+        <th>配当金の税金</th>
+      </tr>
+      <tr>
+        <td>特定口座・一般口座</td>
+        <td>通常は課税対象</td>
+      </tr>
+      <tr>
+        <td>NISA口座</td>
+        <td>条件を満たせば非課税</td>
+      </tr>
+    </table>
+
+    <h2 id="wrong-setting">NISA口座でも配当金が課税されるケース</h2>
+
+    <p>
+      注意したいのは、国内上場株式の配当金です。
+      NISA口座で国内株式を保有していても、配当金の受取方法によっては非課税にならない場合があります。
+    </p>
+
+    <p>
+      特に、銀行口座で配当金を受け取る方法や、配当金領収証で受け取る方法を選んでいる場合は、
+      NISA口座で保有している株式の配当金でも課税される可能性があります。
+    </p>
+
+    <div class="warning">
+      <strong>注意：</strong>
+      NISA口座で国内上場株式を保有しているだけでは、配当金が必ず非課税になるとは限りません。
+      非課税で受け取るには、配当金の受取方式が重要です。
+    </div>
+
+    <h2 id="method">株式数比例配分方式とは？</h2>
+
+    <p>
+      株式数比例配分方式とは、配当金を証券会社の口座で受け取る方法です。
+      複数の証券会社で株式を保有している場合、それぞれの保有数量に応じて配当金が証券口座に入金されます。
+    </p>
+
+    <p>
+      NISA口座で国内上場株式の配当金を非課税で受け取りたい場合、この株式数比例配分方式を選択しておく必要があります。
+    </p>
+
+    <div class="box">
+      国内上場株式の配当金をNISAで非課税にしたい場合<br>
+      → <strong>株式数比例配分方式を選択</strong>
+    </div>
+
+    <h2 id="check">配当金の受取方法を確認するポイント</h2>
+
+    <p>
+      証券会社のマイページなどで、配当金の受取方法を確認できます。
+      表示名は証券会社によって少し異なる場合がありますが、確認すべきポイントは
+      「株式数比例配分方式」になっているかどうかです。
+    </p>
+
+    <div class="point">
+      <strong>確認するポイント</strong>
+      <ul>
+        <li>配当金受取方式が「株式数比例配分方式」になっているか</li>
+        <li>銀行口座受取や配当金領収証方式になっていないか</li>
+        <li>権利確定日前に設定が完了しているか</li>
+        <li>複数の証券会社を使っている場合も設定が反映されているか</li>
+      </ul>
+    </div>
+
+    <h2>受取方式の変更は早めに行う</h2>
+
+    <p>
+      配当金の受取方式は、権利確定日直前に変更しても間に合わないことがあります。
+      証券会社や手続きのタイミングによって反映まで時間がかかる場合があるため、早めに確認しておくのがおすすめです。
+    </p>
+
+    <p>
+      NISAで国内株式の配当金を非課税で受け取りたい場合は、購入後ではなく、できれば投資を始める前に設定を確認しておきましょう。
+    </p>
+
+    <h2 id="foreign">外国株の配当金はどうなる？</h2>
+
+    <p>
+      外国株の配当金については、国内株式とは扱いが異なる場合があります。
+      たとえば米国株では、現地で源泉徴収されたうえで、日本側の税制や口座区分に応じた扱いになります。
+    </p>
+
+    <p>
+      NISA口座で外国株を保有している場合でも、外国で課税される税金まで完全に非課税になるとは限りません。
+      外国株の配当金は、国や証券会社によって取り扱いが異なるため、事前に確認しましょう。
+    </p>
+
+    <div class="warning">
+      外国株の配当金は、国内株式とは税金の扱いが異なる場合があります。
+      正確な扱いは、証券会社や税務署などで確認してください。
+    </div>
+
+    <h2>配当金生活を目指すならNISAの活用は重要</h2>
+
+    <p>
+      配当金生活を目指す場合、税引後の手取り額が重要です。
+      通常口座では配当金に税金がかかるため、同じ配当金額でも手取りが減ります。
+    </p>
+
+    <p>
+      NISAを活用すると、非課税で受け取れる部分を増やせるため、配当金生活やFIREを目指す人にとって有効な制度です。
+    </p>
+
+    <div class="cta">
+      <strong>配当金生活に必要な資産を計算してみましょう</strong>
+      <p>
+        NISAを使う場合と通常口座の場合では、税引後の手取りが変わります。
+        まずは目標配当金から必要資産を確認してみましょう。
+      </p>
+      <a href="dividend-income.html">配当金生活シミュレーターを使う</a>
+    </div>
+
+    <h2 id="faq">よくある質問</h2>
+
+    <h3>NISAで配当金は本当に非課税ですか？</h3>
+    <p>
+      NISA口座で保有する株式や投資信託から得られる配当金・分配金は、条件を満たせば非課税になります。
+      ただし、国内上場株式の配当金は受取方法に注意が必要です。
+    </p>
+
+    <h3>NISA口座なのに配当金が課税されることはありますか？</h3>
+    <p>
+      はい。国内上場株式の配当金を株式数比例配分方式以外で受け取る場合、NISA口座で保有していても課税されることがあります。
+    </p>
+
+    <h3>株式数比例配分方式はどこで設定できますか？</h3>
+    <p>
+      多くの場合、証券会社のログイン後画面から配当金受取方式を確認・変更できます。
+      詳細な手順は利用している証券会社で確認してください。
+    </p>
+
+    <h3>投資信託の分配金もNISAで非課税ですか？</h3>
+    <p>
+      NISA口座で保有する投資信託の分配金も、制度の条件を満たせば非課税対象になります。
+      ただし、商品や分配方針によって実際の受取額は異なります。
+    </p>
+
+    <h2>まとめ</h2>
+
+    <p>
+      NISA口座で得られる配当金や分配金は、条件を満たせば非課税になります。
+      ただし、国内上場株式の配当金を非課税で受け取るには、配当金の受取方式を株式数比例配分方式にしておく必要があります。
+    </p>
+
+    <p>
+      受取方式を間違えると、NISA口座で保有していても配当金が課税される場合があります。
+      配当金生活や高配当株投資を考えている方は、証券会社の設定を早めに確認しておきましょう。
+    </p>
+
+    <div class="related">
+      <h2>関連記事</h2>
+
+      <a href="dividend-income.html">配当金生活シミュレーター</a>
+      <a href="dividend-tax.html">配当金にかかる税金とは？NISAなら非課税になる？</a>
+      <a href="nisa-simulator.html">NISA積立シミュレーター</a>
+      <a href="dividend-50man.html">配当金生活で月50万円に必要な資産はいくら？</a>
+      <a href="dividend-30man.html">配当金生活で月30万円に必要な資産はいくら？</a>
+      <a href="high-dividend-stocks.html">高配当株とは？初心者向けに選び方・メリット・注意点を解説</a>
+      <a href="dividend-yield.html">配当利回りとは？計算方法・目安・高いほど良いのかを解説</a>
+      <a href="index.html">社長の計算機トップページ</a>
+    </div>
+
+  </article>
+
+</div>
+
+<footer>
+  <p>© 社長の計算機</p>
+  <p>
+    <a href="about.html">運営者情報</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </p>
+</footer>
+
+</body>
+</html>
