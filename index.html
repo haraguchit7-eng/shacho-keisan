@@ -251,6 +251,76 @@ footer a{color:#2563eb;text-decoration:none}
 @media(max-width:700px){
   .site-stats{grid-template-columns:1fr}
 }
+  .hero-inner{
+  max-width:1100px;
+  margin:auto;
+}
+
+.hero-text{
+  max-width:820px;
+  margin:0 auto 28px;
+  font-size:18px;
+  line-height:1.9;
+  opacity:.95;
+}
+
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:28px 0;
+}
+
+.main-btn,.sub-btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.main-btn{
+  background:#fff;
+  color:#2563eb;
+}
+
+.sub-btn{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.35);
+}
+
+.site-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  max-width:720px;
+  margin:36px auto 0;
+}
+
+.site-stats div{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:16px;
+  padding:18px;
+}
+
+.site-stats strong{
+  display:block;
+  font-size:30px;
+}
+
+.site-stats span{
+  font-size:13px;
+  opacity:.9;
+}
+
+@media(max-width:700px){
+  .site-stats{
+    grid-template-columns:1fr;
+  }
+}
 </style>
   <meta name="google-site-verification" content="mxR28nraWJeMXbMJNDwXmBQf5WPAwXpH_DG5QEhhu-o" />
 </head>
@@ -274,23 +344,35 @@ footer a{color:#2563eb;text-decoration:none}
   <div class="hero-inner">
     <p class="badge">無料シミュレーター × 実務解説</p>
 
-    <h1>経営・税金・資産形成を、<br>数字で判断できる無料シミュレーター集</h1>
+    <h1>
+      経営・税金・資産形成を、<br>
+      数字で判断できる無料シミュレーター集
+    </h1>
 
     <p class="hero-text">
       社長の計算機は、中小企業経営者・個人事業主・投資初心者向けに、
-      資金繰り、借入、法人税、役員報酬、配当金、NISA、M&Aなどを
+      資金繰り、借入返済、法人税、役員報酬、配当金、NISA、M&Aなどを
       無料で試算できるシミュレーターサイトです。
     </p>
 
     <div class="hero-actions">
       <a href="#popular" class="main-btn">人気シミュレーターを見る</a>
-      <a href="#guide" class="sub-btn">目的別に探す</a>
+      <a href="#seoGuide" class="sub-btn">目的別に記事を探す</a>
     </div>
 
     <div class="site-stats">
-      <div><strong>40+</strong><span>無料計算ツール</span></div>
-      <div><strong>100+</strong><span>解説記事</span></div>
-      <div><strong>5</strong><span>主要カテゴリー</span></div>
+      <div>
+        <strong>40+</strong>
+        <span>無料計算ツール</span>
+      </div>
+      <div>
+        <strong>100+</strong>
+        <span>解説記事</span>
+      </div>
+      <div>
+        <strong>5</strong>
+        <span>主要カテゴリー</span>
+      </div>
     </div>
   </div>
 </section>
