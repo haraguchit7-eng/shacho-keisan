@@ -118,9 +118,139 @@
     footer{background:#0f172a;color:#cbd5e1;padding:42px 20px;text-align:center}footer a{color:#fff;text-decoration:none;margin:0 8px;font-weight:800}footer a:hover{text-decoration:underline}.footer-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
     .search-box{max-width:680px;margin:28px auto 0;background:#fff;border-radius:16px;padding:10px;display:flex;box-shadow:0 20px 44px rgba(0,0,0,.22)}.search-box input{border:0;margin:0;outline:none;flex:1}.search-box button{border:0;background:#2563eb;color:white;border-radius:12px;font-weight:900;padding:0 20px;cursor:pointer}
     @media(max-width:900px){nav{display:none}.grid,.grid-4,.link-list,.form{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.container{padding:54px 18px}.search-box{flex-direction:column}.search-box button{padding:13px;margin-top:8px}}
+    .site-header{
+  background:#0f172a;
+  color:#fff;
+  padding:18px 20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 4px 16px rgba(15,23,42,.12);
+}
+
+.site-header-inner{
+  width:min(1180px,100%);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.site-logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+
+.site-nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.site-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  opacity:.9;
+  transition:.2s;
+}
+
+.site-nav a:hover{
+  opacity:1;
+}
+
+.site-footer{
+  margin-top:72px;
+  padding:48px 20px 28px;
+  background:#0f172a;
+  color:#cbd5e1;
+}
+
+.site-footer-inner{
+  width:min(1180px,100%);
+  margin:auto;
+  text-align:center;
+}
+
+.footer-brand a{
+  color:#fff;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:800;
+}
+
+.footer-brand p{
+  max-width:680px;
+  margin:12px auto 26px;
+  color:#94a3b8;
+  font-size:14px;
+}
+
+.footer-nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px 20px;
+  margin-bottom:28px;
+}
+
+.footer-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.footer-nav a:hover{
+  text-decoration:underline;
+}
+
+.footer-note{
+  max-width:760px;
+  margin:0 auto 20px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.12);
+  color:#94a3b8;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.copyright{
+  margin:0;
+  color:#64748b;
+  font-size:12px;
+}
+
+@media(max-width:760px){
+  .site-header-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .site-nav{
+    width:100%;
+    overflow-x:auto;
+    gap:16px;
+    padding-bottom:4px;
+  }
+
+  .site-nav a{
+    white-space:nowrap;
+  }
+
+  .site-footer{
+    margin-top:52px;
+  }
+}
   </style>
 </head>
 <body id="top">
+  
   <header class="site-header">
     <div class="header-inner">
       <div class="logo"><a href="index.html">社長の計算機</a></div>
@@ -308,5 +438,34 @@
     function calcConsumptionTax(){const amount=val("ctAmount"), rate=val("ctRate")/100, type=document.getElementById("ctType").value; if(!amount) return alert("金額を入力してください"); let tax, base, total; if(type==="taxIncluded"){base=amount/(1+rate); tax=amount-base; total=amount;}else{base=amount; tax=amount*rate; total=amount+tax;} document.getElementById("ctResult").innerHTML="税抜金額は <strong>"+yen(base)+"</strong>、消費税は <strong>"+yen(tax)+"</strong>、税込金額は <strong>"+yen(total)+"</strong> です。";}
     function calcCorporateTax(){const profit=val("corpProfit"), rate=val("corpRate")/100; if(!profit) return alert("税引前利益を入力してください"); const tax=profit*rate, after=profit-tax; document.getElementById("corpResult").innerHTML="概算税額は <strong>"+yen(tax)+"</strong>、税引後利益は <strong>"+yen(after)+"</strong> です。";}
   </script>
+  <footer class="site-footer">
+  <div class="site-footer-inner">
+
+    <div class="footer-brand">
+      <a href="index.html">社長の計算機</a>
+      <p>
+        経営・税金・資産形成に役立つ無料シミュレーターと実務解説を提供しています。
+      </p>
+    </div>
+
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="index.html">トップページ</a>
+      <a href="about.html">運営者情報</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="editorial-policy.html">編集ポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+
+    <p class="footer-note">
+      本サイトの計算結果は簡易試算です。税務・投資・融資・会計等の最終判断は専門家へご確認ください。
+    </p>
+
+    <p class="copyright">
+      © 社長の計算機
+    </p>
+
+  </div>
+</footer>
 </body>
 </html>
