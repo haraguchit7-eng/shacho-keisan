@@ -192,4 +192,9 @@
   <url>
   <loc>https://shacho-keisan.com/haitou.html</loc>
 </url>
+  <url>
+    <loc>https://shacho-keisan.com/nisa-etf.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+</url>
 </urlset>
