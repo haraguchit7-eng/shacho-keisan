@@ -1,221 +1,600 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FETE0W66W2');
-</script>
-<link rel="icon" href="favicon.ico">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>配当金生活シミュレーター｜月10万円・月20万円に必要な資産を計算</title>
-<meta name="description" content="配当金生活に必要な資産額を無料で計算できます。毎月欲しい配当金と想定配当利回りを入力するだけで、必要資産額・年間配当金・達成難易度をシミュレーションできます。">
+<title>配当金生活シミュレーター｜月5万・10万・20万円に必要な資産を計算｜社長の計算機</title>
+<meta name="description" content="配当金生活に必要な資産額を無料で計算。毎月ほしい配当金と想定利回りから必要資産・年間配当・税引後の参考額を試算し、月5万・10万・20万円の目安やNISA、高配当投資の注意点まで解説します。">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://shacho-keisan.com/dividend-income.html">
+<link rel="icon" href="/favicon.ico">
+
+<meta property="og:site_name" content="社長の計算機">
+<meta property="og:title" content="配当金生活シミュレーター｜必要資産を無料計算">
+<meta property="og:description" content="毎月ほしい配当金と想定利回りから、配当金生活に必要な資産額を試算できます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shacho-keisan.com/dividend-income.html">
+<meta name="twitter:card" content="summary">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FETE0W66W2');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339" crossorigin="anonymous"></script>
 
 <style>
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
-header{background:#0f172a;color:#fff;padding:18px 24px}
-header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
-.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
-.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
-.hero p{font-size:18px;max-width:780px;margin:0 auto}
-.container{max-width:1000px;margin:0 auto;padding:48px 20px}
-.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
-.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-label{font-weight:700;display:block;margin-bottom:8px}
-input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
-button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
-.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
-.result-box span{display:block;color:#64748b;font-size:14px}
-.result-box strong{font-size:24px}
-.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
-.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
-h2{font-size:28px;margin-top:48px}
-h3{font-size:22px;margin-top:32px}
-ul{padding-left:22px}
-.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
-footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
-footer a{color:#fff;margin:0 10px}
-@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+:root{
+  --navy:#0f172a;
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --blue-soft:#eff6ff;
+  --green:#047857;
+  --green-soft:#ecfdf5;
+  --orange:#c2410c;
+  --orange-soft:#fff7ed;
+  --text:#1e293b;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --bg:#f6f8fb;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Noto Sans JP",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+}
+a{color:var(--blue)}
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(15,23,42,.98);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header-inner{
+  width:min(1180px,calc(100% - 40px));
+  min-height:68px;margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.logo a{color:#fff;text-decoration:none;font-size:22px;font-weight:900}
+.site-nav{display:flex;gap:20px}
+.site-nav a{color:#fff;text-decoration:none;font-size:14px;opacity:.9}
+
+.hero{
+  padding:78px 20px 70px;
+  color:#fff;text-align:center;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(96,165,250,.34),transparent 28%),
+    linear-gradient(135deg,#0f172a 0%,#172554 48%,#1d4ed8 100%);
+}
+.hero-inner{width:min(1000px,100%);margin:auto}
+.eyebrow{
+  display:inline-block;padding:6px 13px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;background:rgba(255,255,255,.1);
+  font-size:13px;font-weight:800;
+}
+.hero h1{
+  max-width:900px;margin:18px auto 20px;
+  font-size:clamp(34px,5.5vw,56px);line-height:1.25;
+}
+.hero p{max-width:780px;margin:auto;color:#dbeafe;font-size:18px}
+.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:50px;padding:12px 22px;border-radius:12px;
+  text-decoration:none;font-weight:850;border:0;cursor:pointer;
+}
+.btn-primary{background:#fff;color:var(--blue-dark)}
+.btn-secondary{color:#fff;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+
+.container{width:min(1000px,calc(100% - 40px));margin:auto;padding:48px 0 80px}
+.breadcrumb{margin-bottom:26px;color:var(--muted);font-size:13px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+
+.disclosure{
+  margin:0 0 28px;padding:17px 20px;
+  border-left:5px solid #f59e0b;border-radius:12px;
+  background:var(--orange-soft);color:#7c2d12;font-size:14px;
+}
+.card{
+  margin-bottom:28px;padding:30px;
+  border:1px solid var(--line);border-radius:20px;background:#fff;
+  box-shadow:0 8px 24px rgba(15,23,42,.05);
+}
+h2{
+  margin:56px 0 20px;padding-left:14px;border-left:6px solid var(--blue);
+  font-size:clamp(26px,4vw,34px);line-height:1.45;
+}
+.card > h2:first-child{margin-top:0}
+h3{margin:28px 0 10px;font-size:21px;line-height:1.5}
+
+.input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+label{display:block;margin-bottom:7px;font-weight:800}
+input,select{
+  width:100%;min-height:54px;padding:0 14px;
+  border:1px solid #cbd5e1;border-radius:13px;background:#fff;
+  color:var(--text);font-size:17px;
+}
+.calc-button{
+  width:100%;margin-top:20px;min-height:56px;
+  border:0;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;font-size:18px;font-weight:900;cursor:pointer;
+}
+.quick-buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.quick-buttons button{
+  padding:8px 12px;border:1px solid #bfdbfe;border-radius:999px;
+  background:var(--blue-soft);color:#1d4ed8;font-weight:800;cursor:pointer;
+}
+.result{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;margin-top:24px;
+}
+.result-box{
+  min-height:118px;padding:19px;
+  border:1px solid #dbeafe;border-radius:15px;background:#f8fafc;
+}
+.result-box span{display:block;color:var(--muted);font-size:13px}
+.result-box strong{display:block;margin-top:5px;font-size:clamp(19px,2.5vw,25px);line-height:1.4}
+.result-box.main{border:2px solid #93c5fd;background:var(--blue-soft)}
+.judgement{
+  margin-top:20px;padding:21px;border-radius:15px;
+  background:var(--green-soft);border:1px solid #a7f3d0;
+}
+.judgement strong{color:#065f46}
+
+.summary{
+  padding:23px;border:1px solid #bfdbfe;border-radius:16px;background:var(--blue-soft);
+}
+.summary strong{color:#1e40af}
+.warning{
+  margin:22px 0;padding:21px;
+  border:1px solid #fed7aa;border-radius:15px;background:var(--orange-soft);
+}
+.table-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:16px;background:#fff}
+table{width:100%;min-width:720px;border-collapse:collapse}
+th,td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:left}
+thead th{background:var(--navy);color:#fff}
+tbody th{background:#f8fafc}
+.good{color:var(--green);font-weight:850}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mini-card{padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.mini-card h3{margin-top:0}
+.check-list{padding:23px 25px 23px 46px;border:1px solid var(--line);border-radius:15px;background:#fff}
+.check-list li{margin:7px 0}
+
+.affiliate-box{
+  margin:34px 0;padding:30px;border-radius:20px;
+  border:1px solid #bfdbfe;background:linear-gradient(135deg,#eff6ff,#f8fafc);
+  text-align:center;
+}
+.affiliate-box .label{
+  display:inline-block;margin-bottom:9px;padding:4px 10px;
+  border-radius:999px;background:#e2e8f0;color:#475569;font-size:12px;font-weight:800;
+}
+.affiliate-box h2{margin:0 0 10px;padding:0;border:0;font-size:27px}
+.affiliate-box p{max-width:700px;margin:0 auto 18px}
+.affiliate-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:54px;padding:13px 24px;border-radius:13px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;text-decoration:none;font-weight:900;
+}
+.affiliate-note{margin-top:11px;color:var(--muted);font-size:12px}
+
+.related{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;
+}
+.related a{
+  display:block;padding:14px 15px;border:1px solid var(--line);
+  border-radius:12px;background:#f8fafc;color:var(--text);text-decoration:none;font-weight:750;
+}
+
+.faq{margin:14px 0;padding:21px;border:1px solid var(--line);border-radius:15px;background:#fff}
+.faq h3{margin:0 0 7px;font-size:19px}
+
+.source-note{font-size:13px;color:var(--muted)}
+.site-footer{padding:46px 20px 30px;color:#cbd5e1;text-align:center;background:var(--navy)}
+.footer-inner{width:min(1100px,100%);margin:auto}
+.footer-logo{color:#fff;text-decoration:none;font-size:22px;font-weight:900}
+.footer-description{max-width:680px;margin:12px auto 22px;color:#94a3b8;font-size:14px}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 18px}
+.footer-nav a{color:#fff;text-decoration:none;font-size:13px}
+.footer-note{
+  max-width:760px;margin:20px auto 0;padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.12);color:#94a3b8;font-size:12px;
+}
+.copyright{margin:17px 0 0;color:#64748b;font-size:12px}
+
+@media(max-width:900px){
+  .input-grid,.grid,.related{grid-template-columns:1fr}
+  .result{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .site-nav{display:none}
+  .header-inner,.container{width:min(100% - 28px,1000px)}
+  .hero{padding:58px 18px 54px}
+  .card{padding:22px}
+  .result{grid-template-columns:1fr}
+}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"配当金生活シミュレーター",
+  "url":"https://shacho-keisan.com/dividend-income.html",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Web",
+  "isAccessibleForFree":true,
+  "description":"毎月ほしい配当金と想定配当利回りから、配当金生活に必要な資産額を試算する無料シミュレーター。"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"月10万円の配当金にはいくら必要ですか？",
+      "acceptedAnswer":{"@type":"Answer","text":"税引前で年間120万円の配当金が必要です。利回り3％なら約4,000万円、4％なら約3,000万円、5％なら約2,400万円が単純計算の目安です。"}
+    },
+    {
+      "@type":"Question",
+      "name":"配当金には税金がかかりますか？",
+      "acceptedAnswer":{"@type":"Answer","text":"課税口座で受け取る上場株式等の配当等には、一般的に20.315％が源泉徴収されます。個別の申告方法や配当の種類によって扱いが異なる場合があります。"}
+    },
+    {
+      "@type":"Question",
+      "name":"NISAなら配当金は非課税ですか？",
+      "acceptedAnswer":{"@type":"Answer","text":"NISA口座の対象商品では一定の条件で非課税になります。国内上場株式等の配当を非課税で受け取るには、株式数比例配分方式を選ぶ必要があります。"}
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
-
-<header>
-  <a href="index.html">社長の計算機</a>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo"><a href="index.html">社長の計算機</a></div>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="#calculator">計算</a>
+      <a href="#guide">目安</a>
+      <a href="#tax">税金</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <h1>配当金生活シミュレーター</h1>
-  <p>
-    毎月欲しい配当金と想定配当利回りを入力するだけで、
-    配当金生活に必要な資産額を無料で計算できます。
-  </p>
+  <div class="hero-inner">
+    <span class="eyebrow">無料シミュレーター × 配当投資ガイド</span>
+    <h1>配当金生活に必要な資産はいくら？</h1>
+    <p>月5万円・10万円・20万円など、毎月ほしい配当金と想定利回りから必要資産をすぐ試算。税引後の参考額やNISA、高配当投資の考え方まで一緒に確認できます。</p>
+    <div class="hero-actions">
+      <a href="#calculator" class="btn btn-primary">今すぐ計算する</a>
+      <a href="#guide" class="btn btn-secondary">必要資産の目安を見る</a>
+    </div>
+  </div>
 </section>
 
 <main class="container">
+  <div class="breadcrumb"><a href="index.html">トップページ</a> ＞ 配当金生活シミュレーター</div>
 
-<section class="card">
-  <h2>配当金生活に必要な資産を計算する</h2>
-
-  <div class="input-grid">
-    <div>
-      <label for="monthlyDividend">毎月欲しい配当金（円）</label>
-      <input id="monthlyDividend" type="number" placeholder="例：100000">
-    </div>
-
-    <div>
-      <label for="yieldRate">想定配当利回り（年率％）</label>
-      <input id="yieldRate" type="number" step="0.1" placeholder="例：4">
-    </div>
+  <div class="disclosure">
+    <strong>広告・免責：</strong>
+    当ページにはアフィリエイト広告を含みます。本シミュレーターは一般的な試算であり、特定銘柄・金融商品の購入を推奨するものではありません。
   </div>
 
-  <button onclick="calculateDividend()">計算する</button>
+  <section id="calculator" class="card">
+    <h2>配当金生活に必要な資産を計算</h2>
+    <p>「毎月いくら配当がほしいか」と「想定配当利回り」を入力してください。課税口座を選ぶと、上場株式等の配当に一般的に適用される20.315％の源泉徴収を使った参考税引後額も表示します。</p>
 
-  <div class="result">
-    <div class="result-box">
-      <span>必要資産額</span>
-      <strong id="requiredAsset">-</strong>
+    <div class="input-grid">
+      <div>
+        <label for="monthlyDividend">毎月ほしい配当金（税引前・円）</label>
+        <input id="monthlyDividend" type="number" min="1" step="1000" value="100000">
+      </div>
+      <div>
+        <label for="yieldRate">想定配当利回り（年率％）</label>
+        <input id="yieldRate" type="number" min="0.1" step="0.1" value="4">
+      </div>
+      <div>
+        <label for="accountType">受取口座の参考設定</label>
+        <select id="accountType">
+          <option value="taxable">課税口座（参考税率20.315％）</option>
+          <option value="nisa">NISA（国内課税0％の参考）</option>
+        </select>
+      </div>
+      <div>
+        <label for="safetyMargin">減配への余裕</label>
+        <select id="safetyMargin">
+          <option value="0">余裕を見ない</option>
+          <option value="10">10％多めに必要資産を確保</option>
+          <option value="20" selected>20％多めに必要資産を確保</option>
+        </select>
+      </div>
     </div>
 
-    <div class="result-box">
-      <span>年間配当金</span>
-      <strong id="annualDividend">-</strong>
+    <div class="quick-buttons" aria-label="目標配当のクイック入力">
+      <button type="button" onclick="setMonthly(50000)">月5万円</button>
+      <button type="button" onclick="setMonthly(100000)">月10万円</button>
+      <button type="button" onclick="setMonthly(200000)">月20万円</button>
+      <button type="button" onclick="setMonthly(300000)">月30万円</button>
     </div>
 
-    <div class="result-box">
-      <span>月間配当金</span>
-      <strong id="monthlyResult">-</strong>
+    <button class="calc-button" onclick="calculateDividend()">必要資産を計算する</button>
+
+    <div class="result" aria-live="polite">
+      <div class="result-box main">
+        <span>必要資産額</span>
+        <strong id="requiredAsset">-</strong>
+      </div>
+      <div class="result-box">
+        <span>余裕を含む必要資産</span>
+        <strong id="safeAsset">-</strong>
+      </div>
+      <div class="result-box">
+        <span>年間配当金（税引前）</span>
+        <strong id="annualDividend">-</strong>
+      </div>
+      <div class="result-box">
+        <span>月間配当金（税引後参考）</span>
+        <strong id="afterTaxMonthly">-</strong>
+      </div>
     </div>
-  </div>
 
-  <div class="judgement" id="judgement">
-    条件を入力すると、配当金生活に必要な資産額が表示されます。
-  </div>
-</section>
+    <div class="judgement" id="judgement">
+      <strong>結果の読み方：</strong> 条件を入力して計算してください。
+    </div>
+  </section>
 
-<section class="card">
-  <h2>配当金生活とは？</h2>
-  <p>
-    配当金生活とは、株式やETFなどから得られる配当金を生活費の一部または全部に充てる考え方です。
-  </p>
+  <section class="summary">
+    <strong>先に結論</strong><br>
+    配当金生活では「高い利回りを探す」より、必要生活費から逆算して、無理のない利回り・十分な分散・減配への余裕を持つことが重要です。同じ月10万円でも、利回り3％なら必要資産は約4,000万円、4％なら約3,000万円、5％なら約2,400万円と大きく変わります。
+  </section>
 
-  <p>
-    例えば、毎月10万円の配当金を得たい場合、年間では120万円の配当金が必要になります。
-    配当利回り4％で考えると、必要資産額は約3,000万円です。
-  </p>
+  <section id="guide">
+    <h2>月5万・10万・20万円に必要な資産の目安</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>毎月ほしい配当</th>
+            <th>年間配当</th>
+            <th>利回り3％</th>
+            <th>利回り4％</th>
+            <th>利回り5％</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>月5万円</th><td>60万円</td><td>2,000万円</td><td>1,500万円</td><td>1,200万円</td></tr>
+          <tr><th>月10万円</th><td>120万円</td><td>4,000万円</td><td class="good">3,000万円</td><td>2,400万円</td></tr>
+          <tr><th>月20万円</th><td>240万円</td><td>8,000万円</td><td>6,000万円</td><td>4,800万円</td></tr>
+          <tr><th>月30万円</th><td>360万円</td><td>1億2,000万円</td><td>9,000万円</td><td>7,200万円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">※単純計算による税引前の目安。売買手数料、為替、外国税、減配、株価変動等は考慮していません。</p>
+  </section>
 
-  <div class="warning">
-    <strong>注意：</strong>
-    配当金は企業業績や市場環境によって減配・無配になる可能性があります。
-    本シミュレーションは将来の配当金を保証するものではありません。
-  </div>
-</section>
+  <section>
+    <h2>配当金生活を「利回りだけ」で考えると危険な理由</h2>
+    <div class="grid">
+      <article class="mini-card">
+        <h3>高利回りは株価下落の結果かもしれない</h3>
+        <p>配当額が同じでも株価が下がれば配当利回りは上がります。高利回りの背景に業績悪化や減配懸念がないか確認が必要です。</p>
+      </article>
+      <article class="mini-card">
+        <h3>配当は保証されない</h3>
+        <p>企業やETFの分配方針、市場環境によって、減配・無配になる可能性があります。生活費を100％配当に依存する設計は余裕を持たせる必要があります。</p>
+      </article>
+      <article class="mini-card">
+        <h3>株価変動も資産全体に影響する</h3>
+        <p>配当を受け取れても、保有資産の価格が大きく下落すれば資産全体ではマイナスになることがあります。</p>
+      </article>
+      <article class="mini-card">
+        <h3>税金・外国税も確認する</h3>
+        <p>課税口座、NISA、国内株、海外ETFなどで税の扱いが異なります。手取りベースで必要金額を考えることが重要です。</p>
+      </article>
+    </div>
+  </section>
 
-<section class="card">
-  <h2>配当金生活に必要な資産額の目安</h2>
+  <section id="tax">
+    <h2>配当金の税金とNISA</h2>
+    <p>国税庁によると、大口株主等を除く上場株式等の配当等は、一般的に所得税等15.315％と住民税5％、合計20.315％が源泉徴収されます。</p>
+    <p>NISA口座の対象商品では一定の条件で国内課税が非課税になります。金融庁は、国内上場株式等の配当金をNISAで非課税にするには、配当の受取方法として「株式数比例配分方式」を選ぶ必要があると案内しています。</p>
 
-  <ul>
-    <li>月5万円の配当金：年間60万円</li>
-    <li>月10万円の配当金：年間120万円</li>
-    <li>月20万円の配当金：年間240万円</li>
-    <li>月30万円の配当金：年間360万円</li>
-  </ul>
+    <div class="warning">
+      <strong>海外ETFの分配金には注意</strong><br>
+      NISAを利用していても、投資先の国で課される外国税が残ることがあります。国内株と海外ETFでは扱いが同じとは限りません。
+    </div>
 
-  <p>
-    必要資産額は、想定する配当利回りによって大きく変わります。
-    利回りを高く見積もりすぎると、リスクの高い投資判断につながる可能性があります。
-  </p>
-</section>
+    <p class="source-note">
+      参考：国税庁「株式・配当・利子と税」、金融庁「NISAを利用する皆さまへ」。税務上の扱いは個別事情によって異なるため、必要に応じて税務署・税理士等へご確認ください。
+    </p>
+  </section>
 
-<section class="card">
-  <h2>配当利回り別の考え方</h2>
+  <section>
+    <h2>配当金生活を目指す5ステップ</h2>
+    <ol class="check-list">
+      <li><strong>生活費を把握する：</strong>まず「月いくら必要か」を固定費・変動費に分けて確認。</li>
+      <li><strong>配当で賄う割合を決める：</strong>生活費100％ではなく、まず月3万・5万円から目標にする方法もあります。</li>
+      <li><strong>想定利回りを保守的に置く：</strong>利回りを高く置くほど必要資産は減りますが、リスクも高くなりやすい点に注意。</li>
+      <li><strong>減配余力を確保する：</strong>この計算機の「減配への余裕」で10〜20％の余白を持たせて再計算。</li>
+      <li><strong>積立と再投資を続ける：</strong>受け取った配当を再投資する期間を作ると、資産形成を加速できる可能性があります。</li>
+    </ol>
+  </section>
 
-  <h3>利回り3％</h3>
-  <p>
-    比較的保守的な想定です。安定性を重視する場合の目安になります。
-  </p>
+  <section>
+    <h2>配当投資と相性のある主な選択肢</h2>
+    <div class="grid">
+      <article class="mini-card">
+        <h3>個別の高配当株</h3>
+        <p>企業ごとの配当方針・業績・財務を分析して投資します。銘柄選定の自由度が高い一方、分散管理が必要です。</p>
+        <a href="high-dividend-stocks.html">高配当株の基本を見る →</a>
+      </article>
+      <article class="mini-card">
+        <h3>高配当ETF</h3>
+        <p>複数銘柄へまとめて投資できるため、個別株より分散しやすい選択肢です。VYM・HDV・SPYD・SCHDなどは特徴が異なります。</p>
+        <a href="high-dividend-etf.html">高配当ETFを詳しく見る →</a>
+      </article>
+      <article class="mini-card">
+        <h3>NISA</h3>
+        <p>一定の条件で運用益や配当等を非課税にできる制度です。配当投資だけでなく、長期の資産形成全体で考えます。</p>
+        <a href="nisa.html">NISAの基本を見る →</a>
+      </article>
+      <article class="mini-card">
+        <h3>配当再投資</h3>
+        <p>生活費として使わない期間は、配当を再投資して保有資産を増やす考え方があります。</p>
+        <a href="dividend-reinvestment.html">配当再投資を詳しく見る →</a>
+      </article>
+    </div>
+  </section>
 
-  <h3>利回り4％</h3>
-  <p>
-    配当金生活を考える際によく使われる水準です。
-    ただし、銘柄分散や減配リスクへの備えが必要です。
-  </p>
+  <section class="affiliate-box">
+    <span class="label">PR / アフィリエイト広告</span>
+    <h2>実際に投資を始める前に証券会社も比較</h2>
+    <p>手数料、NISA、取扱商品、サポートなどは証券会社によって異なります。まず比較ページで自分に合う口座を確認してください。</p>
+    <p><a href="securities-comparison.html">主要証券会社の比較を見る</a></p>
+    <a
+      class="affiliate-btn"
+      href="https://ad2.trafficgate.net/t/r/27/6012/318497_398019"
+      target="_blank"
+      rel="nofollow sponsored noopener">
+      松井証券の日本株取引を見る
+    </a>
+    <div class="affiliate-note">※上記リンクはアフィリエイトリンクです。口座開設・投資判断は各社の最新条件を確認のうえご自身でご判断ください。</div>
+  </section>
 
-  <h3>利回り5％以上</h3>
-  <p>
-    高配当ですが、減配リスクや株価下落リスクも高まりやすくなります。
-    利回りだけで判断しないことが重要です。
-  </p>
-</section>
+  <section id="faq">
+    <h2>配当金生活のよくある質問</h2>
 
-<section class="card">
-  <h2>配当金生活を目指す前に確認したいこと</h2>
-  <ul>
-    <li>生活費をいくらに抑えるか</li>
-    <li>配当利回りを高く見積もりすぎていないか</li>
-    <li>減配・無配リスクを考慮しているか</li>
-    <li>十分に分散投資しているか</li>
-    <li>NISAや長期積立も併用するか</li>
-  </ul>
-</section>
+    <div class="faq">
+      <h3>Q．月10万円の配当金にはいくら必要？</h3>
+      <p>税引前で年間120万円が必要です。単純計算では、利回り3％なら約4,000万円、4％なら約3,000万円、5％なら約2,400万円です。</p>
+    </div>
 
-<section class="card related">
-  <h2>関連ツール</h2>
-  <a href="fire-calculator.html">FIRE達成計算機</a>
-  <a href="nisa-simulator.html">NISA積立シミュレーター</a>
-  <a href="real-estate-yield.html">不動産投資 利回り計算機</a>
-  <a href="index.html">社長の計算機トップページ</a>
-</section>
+    <div class="faq">
+      <h3>Q．配当利回りは何％で計算すればいい？</h3>
+      <p>将来の配当は確定しないため、特定の数字が正解とは言えません。複数の利回りで試算し、減配しても生活設計が崩れない余裕を持つことが大切です。</p>
+    </div>
 
+    <div class="faq">
+      <h3>Q．NISAなら配当金は全部非課税？</h3>
+      <p>NISA対象商品の国内課税は一定の条件で非課税になります。国内上場株式等の配当では受取方式にも条件があり、海外ETFでは外国税が残る場合があります。</p>
+    </div>
+
+    <div class="faq">
+      <h3>Q．配当だけで生活するのは現実的？</h3>
+      <p>必要生活費、保有資産、配当利回り、税金、減配、インフレなどで大きく変わります。最初から生活費100％を目指すのではなく、一部を配当で賄う目標から始める考え方もあります。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>関連ツール・記事</h2>
+    <div class="related">
+      <a href="haitou.html">配当とは？</a>
+      <a href="dividend-yield.html">配当利回りとは？</a>
+      <a href="dividend-payout-ratio.html">配当性向とは？</a>
+      <a href="dividend-tax.html">配当金の税金</a>
+      <a href="dividend-reinvestment.html">配当再投資とは？</a>
+      <a href="high-dividend-etf.html">高配当ETFとは？</a>
+      <a href="nisa-simulator.html">NISA積立シミュレーター</a>
+      <a href="fire-calculator.html">FIRE達成計算機</a>
+      <a href="securities-comparison.html">証券会社を比較する</a>
+      <a href="index.html">社長の計算機トップページ</a>
+    </div>
+  </section>
 </main>
 
-<footer>
-  <a href="about.html">運営者情報</a>
-  <a href="privacy.html">プライバシーポリシー</a>
-  <a href="contact.html">お問い合わせ</a>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">社長の計算機</a>
+    <p class="footer-description">経営・税金・資産形成に役立つ無料シミュレーターと実務解説を提供しています。</p>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="index.html">トップページ</a>
+      <a href="about.html">運営者情報</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="editorial-policy.html">編集ポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <p class="footer-note">本サイトの計算結果は簡易試算です。投資には元本割れ・減配等のリスクがあります。最終的な投資判断はご自身の責任で行ってください。</p>
+    <p class="copyright">© 社長の計算機</p>
+  </div>
 </footer>
 
 <script>
+const TAX_RATE = 0.20315;
+
+function yen(n){
+  if(!Number.isFinite(n)) return '-';
+  return Math.round(n).toLocaleString('ja-JP') + '円';
+}
+
+function setMonthly(amount){
+  document.getElementById('monthlyDividend').value = amount;
+  calculateDividend();
+}
+
 function calculateDividend(){
   const monthlyDividend = Number(document.getElementById('monthlyDividend').value);
   const yieldRate = Number(document.getElementById('yieldRate').value);
+  const accountType = document.getElementById('accountType').value;
+  const safetyMargin = Number(document.getElementById('safetyMargin').value);
 
-  if(!monthlyDividend || !yieldRate){
-    document.getElementById('judgement').innerText = '毎月欲しい配当金と想定配当利回りを入力してください。';
+  if(monthlyDividend <= 0 || yieldRate <= 0){
+    document.getElementById('judgement').innerHTML =
+      '<strong>入力を確認：</strong> 毎月ほしい配当金と想定配当利回りを0より大きい数値で入力してください。';
     return;
   }
 
   const annualDividend = monthlyDividend * 12;
   const requiredAsset = annualDividend / (yieldRate / 100);
+  const safeAsset = requiredAsset * (1 + safetyMargin / 100);
+  const afterTaxMonthly = accountType === 'taxable'
+    ? monthlyDividend * (1 - TAX_RATE)
+    : monthlyDividend;
 
-  document.getElementById('requiredAsset').innerText = Math.round(requiredAsset).toLocaleString() + '円';
-  document.getElementById('annualDividend').innerText = annualDividend.toLocaleString() + '円';
-  document.getElementById('monthlyResult').innerText = monthlyDividend.toLocaleString() + '円';
+  document.getElementById('requiredAsset').textContent = yen(requiredAsset);
+  document.getElementById('safeAsset').textContent = yen(safeAsset);
+  document.getElementById('annualDividend').textContent = yen(annualDividend);
+  document.getElementById('afterTaxMonthly').textContent = yen(afterTaxMonthly);
 
-  let comment = '';
-
-  if(monthlyDividend <= 50000){
-    comment = '月5万円前後の配当金は、長期的な資産形成で現実的に目指しやすい水準です。';
-  }else if(monthlyDividend <= 100000){
-    comment = '月10万円の配当金は大きな目標ですが、長期積立と高配当投資を組み合わせることで目指せる水準です。';
-  }else if(monthlyDividend <= 200000){
-    comment = '月20万円の配当金には大きな資産が必要です。利回りだけでなく、分散投資とリスク管理が重要です。';
+  let message = '';
+  if(requiredAsset < 15000000){
+    message = '比較的小さな目標から始めやすい水準です。ただし、高利回りだけを追わず、減配と価格下落を含めて確認しましょう。';
+  }else if(requiredAsset < 40000000){
+    message = '中長期での資産形成が重要になる水準です。積立・配当再投資・NISAなどを組み合わせて考える余地があります。';
+  }else if(requiredAsset < 80000000){
+    message = '大きな資産が必要な水準です。配当だけで生活費を100％賄うより、必要生活費の一部を配当で補う設計も比較してください。';
   }else{
-    comment = '月30万円以上の配当金生活には非常に大きな資産が必要です。減配リスクや生活費の見直しも含めて慎重に計画しましょう。';
+    message = '非常に大きな資産が必要です。利回りを無理に上げて必要資産を下げるのではなく、生活費・目標配当・運用期間を見直して複数ケースを比較しましょう。';
   }
 
-  document.getElementById('judgement').innerText = comment;
-}
-</script>
+  const accountText = accountType === 'taxable'
+    ? '課税口座の参考税引後額は20.315％源泉徴収の単純計算です。'
+    : 'NISAを選択しています。国内上場株式等の配当では受取方式など非課税の条件を確認してください。';
 
+  document.getElementById('judgement').innerHTML =
+    '<strong>結果の読み方：</strong> ' + message + '<br><span style="font-weight:400">' + accountText +
+    ' また、余裕を含む必要資産は減配への安全性を保証するものではありません。</span>';
+}
+
+calculateDividend();
+</script>
 </body>
 </html>
