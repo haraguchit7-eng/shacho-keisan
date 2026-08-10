@@ -1,344 +1,205 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SCHDとは？特徴・配当利回り・メリット・デメリットを初心者向けに解説｜社長の計算機</title>
-
-<meta name="description" content="SCHDとは何か、特徴、配当利回り、メリット・デメリット、VYM・HDV・SPYDとの違い、NISAとの相性まで初心者向けにわかりやすく解説します。">
-
+<title>SCHDとは？特徴・配当・メリット・デメリット・NISAを初心者向けに解説｜社長の計算機</title>
+<meta name="description" content="SCHD（Schwab U.S. Dividend Equity ETF）とは何か、特徴、経費率、メリット・デメリット、NISAとの相性、VYM・HDV・SPYDとの違い、配当金生活での考え方を初心者向けに解説します。">
 <meta name="robots" content="index,follow">
-
 <link rel="canonical" href="https://shacho-keisan.com/schd.html">
-
 <link rel="icon" href="/favicon.ico">
+<meta property="og:site_name" content="社長の計算機">
+<meta property="og:title" content="SCHDとは？特徴・メリット・デメリットを初心者向けに解説">
+<meta property="og:description" content="SCHDの特徴、経費率、NISA、VYM・HDV・SPYDとの違い、配当金生活での考え方まで解説。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shacho-keisan.com/schd.html">
+<meta name="twitter:card" content="summary">
 
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FETE0W66W2');
+gtag('js',new Date());
+gtag('config','G-FETE0W66W2');
 </script>
-
-<!-- Google Adsense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339"
-crossorigin="anonymous"></script>
-
-<meta property="og:type" content="article">
-<meta property="og:title" content="SCHDとは？初心者向け完全ガイド">
-<meta property="og:description" content="米国ETF『SCHD』の特徴・メリット・デメリットを初心者向けに解説">
-<meta property="og:url" content="https://shacho-keisan.com/schd.html">
-<meta property="og:image" content="https://shacho-keisan.com/favicon.ico">
-<meta name="twitter:card" content="summary_large_image">
+<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339" crossorigin="anonymous"></script>
 
 <style>
-
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f8fafc;margin:0;color:#1e293b;line-height:1.9;}
-header{background:#0f172a;padding:18px;}
-header a{color:#fff;text-decoration:none;font-size:24px;font-weight:bold;}
-.container{max-width:960px;margin:auto;padding:40px 20px;}
-.article{background:#fff;padding:40px;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.08);}
-h1{font-size:42px;line-height:1.3;}
-h2{margin-top:45px;border-left:6px solid #2563eb;padding-left:14px;}
-.box{background:#eff6ff;padding:20px;border-radius:12px;margin:25px 0;}
-.warning{background:#fff7ed;padding:20px;border-radius:12px;border:1px solid #fdba74;margin:25px 0;}
-table{width:100%;border-collapse:collapse;margin:25px 0;}
-th,td{border:1px solid #dbeafe;padding:12px;}
-th{background:#2563eb;color:white;}
-.toc{background:#f8fafc;padding:20px;border:1px solid #dbeafe;border-radius:12px;margin:30px 0;}
-.toc a{display:block;margin:8px 0;text-decoration:none;font-weight:bold;color:#2563eb;}
-.cta{background:#0f172a;color:white;padding:24px;border-radius:15px;margin-top:40px;}
-.cta a{display:inline-block;margin-top:15px;background:white;padding:12px 18px;border-radius:10px;font-weight:bold;text-decoration:none;color:#2563eb;}
-.related{margin-top:60px;background:#f8fafc;padding:25px;border-radius:15px;}
-.related a{display:block;margin:10px 0;font-weight:bold;text-decoration:none;}
-
+:root{--navy:#0f172a;--blue:#2563eb;--blue2:#1d4ed8;--soft:#eff6ff;--green:#047857;--green2:#ecfdf5;--orange:#c2410c;--orange2:#fff7ed;--text:#1e293b;--muted:#64748b;--line:#e2e8f0;--bg:#f6f8fb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);line-height:1.9}
+a{color:var(--blue)}
+header{position:sticky;top:0;z-index:100;background:rgba(15,23,42,.98)}
+.header-inner{width:min(1180px,calc(100% - 40px));min-height:68px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.logo a{color:#fff;text-decoration:none;font-size:22px;font-weight:900}
+.site-nav{display:flex;gap:20px}
+.site-nav a{color:#fff;text-decoration:none;font-size:14px}
+.hero{padding:78px 20px 70px;text-align:center;color:#fff;background:radial-gradient(circle at 85% 10%,rgba(96,165,250,.34),transparent 28%),linear-gradient(135deg,#0f172a,#172554 48%,#1d4ed8)}
+.hero-inner{width:min(1000px,100%);margin:auto}
+.eyebrow{display:inline-block;padding:6px 13px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.1);font-size:13px;font-weight:800}
+.hero h1{margin:18px auto 20px;font-size:clamp(34px,5.5vw,56px);line-height:1.25}
+.hero p{max-width:790px;margin:auto;color:#dbeafe;font-size:18px}
+.actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;min-height:50px;align-items:center;padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:850}
+.primary{background:#fff;color:var(--blue2)}
+.secondary{color:#fff;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+.container{width:min(1000px,calc(100% - 40px));margin:auto;padding:48px 0 80px}
+.breadcrumb{margin-bottom:26px;color:var(--muted);font-size:13px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.disclosure,.warning,.good{padding:20px;border-radius:15px;margin:24px 0}
+.disclosure,.warning{background:var(--orange2);border:1px solid #fed7aa}
+.good{background:var(--green2);border:1px solid #a7f3d0}
+.summary{padding:24px;border:1px solid #bfdbfe;border-radius:17px;background:var(--soft)}
+.summary strong{color:#1e40af}
+h2{margin:58px 0 20px;padding-left:14px;border-left:6px solid var(--blue);font-size:clamp(26px,4vw,35px);line-height:1.45}
+h3{margin:28px 0 10px;font-size:21px}
+.table-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:17px;background:#fff}
+table{width:100%;min-width:760px;border-collapse:collapse}
+th,td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{background:var(--navy);color:#fff}
+tbody th{background:#f8fafc}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin:24px 0}
+.card{padding:23px;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+.card h3{margin-top:0}
+.merit{border-top:5px solid var(--green)}
+.demerit{border-top:5px solid var(--orange)}
+.check{padding:23px 25px 23px 46px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.flow div{padding:20px 14px;border:1px solid #bfdbfe;border-radius:15px;background:#fff;text-align:center}
+.flow strong{display:block;color:#1d4ed8;font-size:23px}
+.cta{margin:48px 0;padding:34px;border-radius:21px;color:#fff;text-align:center;background:linear-gradient(135deg,#0f172a,#1d4ed8)}
+.cta h2{margin:0 0 12px;padding:0;border:0;color:#fff}
+.cta p{max-width:700px;margin:0 auto 20px;color:#dbeafe}
+.cta a{display:inline-flex;padding:13px 25px;border-radius:13px;background:#fff;color:#1d4ed8;text-decoration:none;font-weight:900}
+.faq{margin:14px 0;padding:21px;border:1px solid var(--line);border-radius:15px;background:#fff}
+.faq h3{margin:0 0 7px;font-size:19px}
+.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.related a{display:block;padding:14px 15px;border:1px solid var(--line);border-radius:12px;background:#f8fafc;color:var(--text);text-decoration:none;font-weight:750}
+.source-note{font-size:13px;color:var(--muted)}
+footer{padding:46px 20px 30px;color:#cbd5e1;text-align:center;background:var(--navy)}
+footer a{color:#fff;text-decoration:none;margin:0 8px}
+.footer-note{max-width:760px;margin:20px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:#94a3b8;font-size:12px}
+@media(max-width:850px){.site-nav{display:none}.grid,.related{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.header-inner,.container{width:min(100% - 28px,1000px)}.hero{padding:58px 18px 54px}.flow{grid-template-columns:1fr}}
 </style>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"SCHDとは？特徴・配当・メリット・デメリットを初心者向けに解説","mainEntityOfPage":"https://shacho-keisan.com/schd.html","publisher":{"@type":"Organization","name":"社長の計算機"}}
+</script>
 </head>
 
 <body>
+<header><div class="header-inner"><div class="logo"><a href="index.html">社長の計算機</a></div><nav class="site-nav"><a href="#features">特徴</a><a href="#merit">メリット</a><a href="#compare">比較</a><a href="#faq">FAQ</a></nav></div></header>
 
-<header>
+<section class="hero"><div class="hero-inner">
+<span class="eyebrow">高配当ETFガイド</span>
+<h1>SCHDとは？<br>特徴・メリット・デメリットを初心者向けに解説</h1>
+<p>Schwab U.S. Dividend Equity ETF（SCHD）の特徴、経費率、配当の質・持続性、VYM・HDV・SPYDとの違い、NISAや配当金生活での考え方まで整理します。</p>
+<div class="actions"><a href="#features" class="btn primary">SCHDの特徴を見る</a><a href="dividend-income.html" class="btn secondary">必要資産を計算する</a></div>
+</div></section>
 
-<a href="index.html">社長の計算機</a>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">トップページ</a> ＞ <a href="high-dividend-etf.html">高配当ETF</a> ＞ SCHD</div>
+<div class="disclosure"><strong>ご注意：</strong>本記事は一般的な情報提供を目的としており、SCHDその他の金融商品の購入を推奨するものではありません。商品情報は変更されるため、購入前にSchwab Asset Managementおよび証券会社の最新情報をご確認ください。</div>
 
-</header>
+<div class="summary"><strong>この記事の結論</strong><br>SCHDは、高配当利回りだけでなく、継続的な配当実績と企業のファンダメンタルズも重視した指数への連動を目指す米国高配当ETFです。Schwab公式ではDow Jones U.S. Dividend 100 Indexへの連動を目指し、総経費率は0.06％と案内されています。</div>
 
-<div class="container">
+<section id="features">
+<h2>SCHDとは？</h2>
+<p>SCHDは「Schwab U.S. Dividend Equity ETF」のティッカーです。Schwab Asset Managementによると、手数料・経費控除前でDow Jones U.S. Dividend 100 Indexのトータルリターンへ可能な限り連動することを目標としています。</p>
+<p>同指数は、高配当利回りの米国株のうち、継続的に配当を支払ってきた実績があり、財務指標をもとに同業他社に対するファンダメンタルズの強さも考慮して選定する設計です。</p>
+<div class="table-wrap"><table><tbody>
+<tr><th>正式名称</th><td>Schwab U.S. Dividend Equity ETF</td></tr>
+<tr><th>ティッカー</th><td>SCHD</td></tr>
+<tr><th>運用会社</th><td>Schwab Asset Management</td></tr>
+<tr><th>連動対象</th><td>Dow Jones U.S. Dividend 100 Index</td></tr>
+<tr><th>特徴</th><td>高配当利回り、配当継続実績、企業のファンダメンタルズを重視</td></tr>
+<tr><th>総経費率</th><td>0.06％（Schwab公式）</td></tr>
+</tbody></table></div>
+<p class="source-note">参考：Schwab Asset Management「Schwab U.S. Dividend Equity ETF（SCHD）」。指数構成、経費率、分配金等は変更される場合があります。</p>
+</section>
 
-<div class="article">
+<section><h2>SCHDの特徴</h2><div class="grid">
+<article class="card merit"><h3>配当の「高さ」だけで選ばない</h3><p>高配当利回りに加え、継続的な配当実績や企業の財務指標も重視する指数設計です。</p></article>
+<article class="card merit"><h3>100銘柄を対象とする指数</h3><p>Dow Jones U.S. Dividend 100 Indexへの連動を目指し、一定の基準で選ばれた米国配当株へ投資します。</p></article>
+<article class="card merit"><h3>低コスト</h3><p>Schwab公式では総経費率0.06％。長期保有では継続コストも重要な比較材料です。</p></article>
+<article class="card merit"><h3>配当の持続性を比較しやすい</h3><p>単純な現在利回りより、配当実績やファンダメンタルズも見たい人が比較しやすいETFです。</p></article>
+</div></section>
 
-<h1>SCHDとは？特徴・配当利回り・メリット・デメリットを初心者向けに解説</h1>
+<section id="merit"><h2>SCHDのメリット</h2><div class="grid">
+<article class="card merit"><h3>1．配当の質を意識できる</h3><p>高利回りだけでなく、配当継続実績や財務面も選定材料に入る点が特徴です。</p></article>
+<article class="card merit"><h3>2．個別株より分散しやすい</h3><p>複数の米国配当株へまとめて投資でき、1社の減配リスクに集中しにくくなります。</p></article>
+<article class="card merit"><h3>3．経費率が低い</h3><p>0.06％の総経費率は、長期保有を考える際の強みの一つです。</p></article>
+<article class="card merit"><h3>4．再投資との相性を考えやすい</h3><p>配当を生活費に使わない期間は、分配金を再投資して資産形成を続ける考え方があります。</p></article>
+</div></section>
 
-<p>
+<section><h2>SCHDのデメリット・注意点</h2><div class="grid">
+<article class="card demerit"><h3>1．分配金は保証されない</h3><p>構成企業の配当や市場環境により、ETFの分配金は増減します。</p></article>
+<article class="card demerit"><h3>2．高成長株中心ではない</h3><p>配当やファンダメンタルズを重視するため、成長株中心の指数とは値動きの特徴が異なります。</p></article>
+<article class="card demerit"><h3>3．株価下落リスクがある</h3><p>分配金を受け取っても、ETF価格の下落が大きければ資産全体では損失になる場合があります。</p></article>
+<article class="card demerit"><h3>4．為替・外国税の影響</h3><p>米ドル建てETFなので円換算額は為替の影響を受け、分配金には米国での源泉徴収が残る場合があります。</p></article>
+</div></section>
 
-SCHDは、米国企業の中でも<strong>高配当かつ配当成長が期待できる企業</strong>へ投資するETFです。
+<section id="compare"><h2>SCHD・VYM・HDV・SPYDを比較すると？</h2>
+<div class="table-wrap"><table><thead><tr><th>ETF</th><th>比較時の考え方</th><th>特徴</th></tr></thead><tbody>
+<tr><th>SCHD</th><td>配当の質・持続性</td><td>配当実績と企業のファンダメンタルズも重視</td></tr>
+<tr><th>VYM</th><td>幅広い高配当株</td><td>多数の高配当株へ広く分散</td></tr>
+<tr><th>HDV</th><td>高配当＋選別</td><td>比較的高配当の米国株へ投資し、財務状態も意識</td></tr>
+<tr><th>SPYD</th><td>利回り重視</td><td>S&amp;P500の配当利回り上位80銘柄を対象</td></tr>
+</tbody></table></div>
+<p><a href="high-dividend-etf.html">4つの高配当ETFを詳しく比較する →</a></p>
+</section>
 
-近年は日本でも人気が高まり、高配当ETFを検討する投資家から注目されています。
+<section><h2>SCHDで配当金生活を考えるなら</h2>
+<p>SCHDも将来の分配金や利回りが保証される商品ではありません。現在の利回りだけで必要資産を決めず、複数の利回りケースで試算し、減配しても生活設計が崩れない余裕を持つことが重要です。</p>
+<div class="good"><strong>例：月10万円＝年間120万円</strong><br>利回り3％なら約4,000万円、4％なら約3,000万円、5％なら約2,400万円が税引前の単純計算です。</div>
+<div class="cta"><h2>自分の必要資産を計算する</h2><p>毎月ほしい配当金と想定利回りから、必要資産・税引後参考額・減配への余裕を試算できます。</p><a href="dividend-income.html">配当金生活シミュレーターを使う</a></div>
+</section>
 
-</p>
+<section><h2>SCHDとNISA</h2>
+<p>NISAの成長投資枠では対象となる海外ETFを購入できる場合があります。SCHDの取扱いとNISA対象状況は、利用する証券会社の最新情報で確認してください。</p>
+<div class="warning"><strong>NISAでも外国税に注意</strong><br>日本国内の課税が非課税となる場合でも、米国ETFの分配金には米国での源泉徴収が残る場合があります。</div>
+</section>
 
-<div class="box">
-
-<strong>この記事の結論</strong>
-
-<ul>
-
-<li>配当成長を重視したETF</li>
-
-<li>長期投資との相性が良い</li>
-
-<li>増配企業を中心に構成</li>
-
-<li>FIREや配当金生活にも人気</li>
-
+<section><h2>SCHDが向いている人</h2>
+<ul class="check">
+<li>高配当利回りだけでなく配当の持続性も重視したい</li>
+<li>企業のファンダメンタルズも意識したETFを比較したい</li>
+<li>個別配当株を多数管理したくない</li>
+<li>VYM・HDV・SPYDと役割を比較したい</li>
+<li>為替・株価変動・減配を受け入れられる</li>
 </ul>
-
-</div>
-
-<div class="toc">
-
-<strong>目次</strong>
-
-<a href="#what">SCHDとは？</a>
-
-<a href="#feature">特徴</a>
-
-<a href="#merit">メリット</a>
-
-<a href="#demerit">デメリット</a>
-
-<a href="#compare">VYM・HDV・SPYDとの違い</a>
-
-<a href="#faq">よくある質問</a>
-
-</div>
-
-<h2 id="what">SCHDとは？</h2>
-
-<p>
-
-SCHDは、配当実績や財務健全性など一定の基準を満たした米国企業へ投資するETFです。
-
-単純に配当利回りだけではなく、「継続的に配当を増やせる企業」を重視している点が特徴です。
-
-</p>
-
-<h2 id="feature">SCHDの特徴</h2>
-
-<table>
-
-<tr><th>項目</th><th>内容</th></tr>
-
-<tr><td>投資対象</td><td>米国高配当・増配企業</td></tr>
-
-<tr><td>特徴</td><td>配当成長重視</td></tr>
-
-<tr><td>分配</td><td>年4回</td></tr>
-
-<tr><td>向いている人</td><td>長期投資・配当成長を重視する人</td></tr>
-
-</table>
-
-<h2 id="merit">SCHDのメリット</h2>
-
-<ul>
-
-<li>増配企業へ投資できる</li>
-
-<li>長期で配当収入の成長を期待できる</li>
-
-<li>財務健全性を考慮した銘柄選定</li>
-
-<li>配当金生活との相性が良い</li>
-
-</ul>
-
-<h2 id="demerit">SCHDのデメリット</h2>
-
-<ul>
-
-<li>元本保証ではない</li>
-
-<li>株価が下落する可能性がある</li>
-
-<li>為替リスクがある</li>
-
-<li>配当金が減る可能性がある</li>
-
-</ul>
-
-<div class="warning">
-
-<strong>注意</strong>
-
-<p>
-
-SCHDは長期投資向けETFですが、市場環境や企業業績によって価格や分配金は変動します。
-
-投資する際はリスクも理解しましょう。
-
-</p>
-
-</div>
-
-<h2 id="compare">VYM・HDV・SPYD・SCHDの違い</h2>
-
-<table>
-
-<tr>
-
-<th>ETF</th>
-
-<th>特徴</th>
-
-<th>向いている人</th>
-
-</tr>
-
-<tr>
-
-<td>VYM</td>
-
-<td>バランス型</td>
-
-<td>初心者</td>
-
-</tr>
-
-<tr>
-
-<td>HDV</td>
-
-<td>財務健全性重視</td>
-
-<td>安定志向</td>
-
-</tr>
-
-<tr>
-
-<td>SPYD</td>
-
-<td>高利回り重視</td>
-
-<td>配当重視</td>
-
-</tr>
-
-<tr>
-
-<td>SCHD</td>
-
-<td>配当成長重視</td>
-
-<td>長期投資</td>
-
-</tr>
-
-</table>
-
-<div class="cta">
-
-<strong>配当金生活に必要な資産を計算してみましょう</strong>
-
-<p>
-
-目標配当金から必要資産を簡単に計算できます。
-
-</p>
-
-<a href="dividend-income.html">
-
-配当金生活シミュレーター
-
-</a>
-
-</div>
-
-<h2 id="faq">よくある質問</h2>
-
-<h3>SCHDとは？</h3>
-
-<p>
-
-配当成長を重視した米国ETFです。
-
-</p>
-
-<h3>VYMとSCHDはどちらがおすすめ？</h3>
-
-<p>
-
-分散性を重視するならVYM、配当成長を重視するならSCHDが候補になります。
-
-</p>
-
-<h3>SCHDはNISA向き？</h3>
-
-<p>
-
-長期投資との相性はありますが、海外ETF特有の税金や為替リスクも理解した上で検討しましょう。
-
-</p>
-
-<h2>まとめ</h2>
-
-<p>
-
-SCHDは、配当成長を重視した高配当ETFとして人気があります。
-
-VYM・HDV・SPYDと比較し、自分の投資目的に合ったETFを選ぶことが大切です。
-
-</p>
-
-<div class="related">
-
-<h2>関連記事</h2>
-
-<a href="high-dividend-etf.html">高配当ETFとは？</a>
-
+</section>
+
+<section><h2>購入前の4ステップ</h2><div class="flow">
+<div><strong>01</strong>目標配当を決める</div>
+<div><strong>02</strong>必要資産を計算</div>
+<div><strong>03</strong>他ETFと比較</div>
+<div><strong>04</strong>証券会社を確認</div>
+</div><p style="margin-top:20px"><a href="securities-comparison.html">証券会社を比較する →</a></p></section>
+
+<section id="faq"><h2>SCHDのよくある質問</h2>
+<div class="faq"><h3>Q．SCHDとは何ですか？</h3><p>Schwab U.S. Dividend Equity ETFのティッカーで、Dow Jones U.S. Dividend 100 Indexへの連動を目指す米国配当株ETFです。</p></div>
+<div class="faq"><h3>Q．SCHDの経費率は？</h3><p>Schwab公式では総経費率0.06％と案内されています。</p></div>
+<div class="faq"><h3>Q．SCHDの特徴は？</h3><p>高配当利回りに加え、継続的な配当実績や企業のファンダメンタルズも重視する指数への連動を目指す点が特徴です。</p></div>
+<div class="faq"><h3>Q．SCHDはNISAで買えますか？</h3><p>成長投資枠で対象となる海外ETFを購入できる場合があります。最新の取扱いは証券会社で確認してください。</p></div>
+</section>
+
+<section><h2>関連ツール・記事</h2><div class="related">
+<a href="high-dividend-etf.html">VYM・HDV・SPYD・SCHDを比較</a>
 <a href="vym.html">VYMとは？</a>
-
 <a href="hdv.html">HDVとは？</a>
-
 <a href="spyd.html">SPYDとは？</a>
-
-<a href="dividend-growth-stocks.html">増配株とは？</a>
-
-<a href="consecutive-dividend-growth.html">連続増配株とは？</a>
-
 <a href="dividend-income.html">配当金生活シミュレーター</a>
-
-<a href="nisa-simulator.html">NISA積立シミュレーター</a>
-
+<a href="dividend-yield.html">配当利回りとは？</a>
+<a href="dividend-reinvestment.html">配当再投資とは？</a>
+<a href="nisa.html">NISAとは？</a>
+<a href="securities-comparison.html">証券会社を比較する</a>
 <a href="index.html">社長の計算機トップページ</a>
+</div></section>
+</main>
 
-</div>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>© 社長の計算機</p>
-
-<p>
-
-<a href="about.html">運営者情報</a>
-
-<a href="privacy.html">プライバシーポリシー</a>
-
-<a href="contact.html">お問い合わせ</a>
-
-</p>
-
-</footer>
-
+<footer><p><strong>社長の計算機</strong></p><p><a href="index.html">トップページ</a><a href="about.html">運営者情報</a><a href="privacy.html">プライバシーポリシー</a><a href="terms.html">利用規約</a><a href="editorial-policy.html">編集ポリシー</a><a href="contact.html">お問い合わせ</a></p><p class="footer-note">本サイトの情報は一般的な解説です。投資には元本割れ・減配・為替変動等のリスクがあります。最終的な投資判断はご自身の責任で行ってください。</p></footer>
 </body>
 </html>
