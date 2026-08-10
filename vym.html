@@ -1,799 +1,459 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VYMとは？特徴・配当利回り・メリット・デメリットを初心者向けに解説｜社長の計算機</title>
-
-<meta name="description" content="VYMとは何か、配当利回り、メリット・デメリット、NISAとの相性、HDV・SPYDとの違いまで初心者向けにわかりやすく解説します。">
-
+<title>VYMとは？特徴・配当・メリット・デメリット・NISAを初心者向けに解説｜社長の計算機</title>
+<meta name="description" content="VYM（Vanguard High Dividend Yield ETF）とは何か、特徴、経費率、メリット・デメリット、NISAとの相性、HDV・SPYD・SCHDとの違い、配当金生活での考え方を初心者向けに解説します。">
 <meta name="robots" content="index,follow">
-
 <link rel="canonical" href="https://shacho-keisan.com/vym.html">
-
 <link rel="icon" href="/favicon.ico">
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
+<meta property="og:site_name" content="社長の計算機">
+<meta property="og:title" content="VYMとは？特徴・メリット・デメリットを初心者向けに解説">
+<meta property="og:description" content="VYMの特徴、経費率、NISA、他の高配当ETFとの違い、配当金生活での考え方まで解説。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shacho-keisan.com/vym.html">
+<meta name="twitter:card" content="summary">
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FETE0W66W2');
+gtag('js',new Date());
+gtag('config','G-FETE0W66W2');
 </script>
 
-<!-- Google Adsense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339"
-crossorigin="anonymous"></script>
-
-<meta property="og:type" content="article">
-<meta property="og:title" content="VYMとは？初心者向け完全ガイド">
-<meta property="og:description" content="米国高配当ETF『VYM』を初心者向けに徹底解説。">
-<meta property="og:url" content="https://shacho-keisan.com/vym.html">
-<meta property="og:image" content="https://shacho-keisan.com/favicon.ico">
-
-<meta name="twitter:card" content="summary_large_image">
+<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339" crossorigin="anonymous"></script>
 
 <style>
-
+:root{
+  --navy:#0f172a;--blue:#2563eb;--blue-dark:#1d4ed8;--blue-soft:#eff6ff;
+  --green:#047857;--green-soft:#ecfdf5;--orange:#c2410c;--orange-soft:#fff7ed;
+  --text:#1e293b;--muted:#64748b;--line:#e2e8f0;--bg:#f6f8fb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-
-background:#f8fafc;
-
-margin:0;
-
-color:#1e293b;
-
-line-height:1.9;
-
+  margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Noto Sans JP",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.9;
 }
-
-header{
-
-background:#0f172a;
-
-padding:18px;
-
+a{color:var(--blue)}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(15,23,42,.98)}
+.header-inner{
+  width:min(1180px,calc(100% - 40px));min-height:68px;margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
+.logo a{color:#fff;text-decoration:none;font-size:22px;font-weight:900}
+.site-nav{display:flex;gap:20px}
+.site-nav a{color:#fff;text-decoration:none;font-size:14px;opacity:.9}
 
-header a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:24px;
-
-font-weight:bold;
-
+.hero{
+  padding:78px 20px 70px;color:#fff;text-align:center;
+  background:radial-gradient(circle at 85% 10%,rgba(96,165,250,.34),transparent 28%),
+  linear-gradient(135deg,#0f172a 0%,#172554 48%,#1d4ed8 100%);
 }
-
-.container{
-
-max-width:960px;
-
-margin:auto;
-
-padding:40px 20px;
-
+.hero-inner{width:min(1000px,100%);margin:auto}
+.eyebrow{
+  display:inline-block;padding:6px 13px;border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;background:rgba(255,255,255,.1);font-size:13px;font-weight:800;
 }
-
-.article{
-
-background:white;
-
-padding:40px;
-
-border-radius:18px;
-
-box-shadow:0 8px 30px rgba(0,0,0,.08);
-
+.hero h1{max-width:930px;margin:18px auto 20px;font-size:clamp(34px,5.5vw,56px);line-height:1.25}
+.hero p{max-width:790px;margin:auto;color:#dbeafe;font-size:18px}
+.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 22px;
+  border-radius:12px;text-decoration:none;font-weight:850;
 }
+.btn-primary{background:#fff;color:var(--blue-dark)}
+.btn-secondary{color:#fff;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
 
-h1{
-
-font-size:42px;
-
-line-height:1.3;
-
+.container{width:min(1000px,calc(100% - 40px));margin:auto;padding:48px 0 80px}
+.breadcrumb{margin-bottom:26px;color:var(--muted);font-size:13px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.disclosure{
+  margin:0 0 28px;padding:17px 20px;border-left:5px solid #f59e0b;border-radius:12px;
+  background:var(--orange-soft);color:#7c2d12;font-size:14px;
 }
+.summary{padding:24px;border:1px solid #bfdbfe;border-radius:17px;background:var(--blue-soft)}
+.summary strong{color:#1e40af}
 
 h2{
-
-margin-top:45px;
-
-border-left:6px solid #2563eb;
-
-padding-left:14px;
-
+  margin:58px 0 20px;padding-left:14px;border-left:6px solid var(--blue);
+  font-size:clamp(26px,4vw,35px);line-height:1.45;
 }
+h3{margin:28px 0 10px;font-size:21px;line-height:1.5}
 
-.box{
+.table-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:17px;background:#fff}
+table{width:100%;min-width:760px;border-collapse:collapse}
+th,td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{background:var(--navy);color:#fff}
+tbody th{background:#f8fafc}
 
-background:#eff6ff;
-
-padding:20px;
-
-border-radius:12px;
-
-margin:25px 0;
-
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin:24px 0}
+.card{
+  padding:23px;border:1px solid var(--line);border-radius:17px;background:#fff;
+  box-shadow:0 8px 24px rgba(15,23,42,.04);
 }
+.card h3{margin-top:0}
+.merit{border-top:5px solid var(--green)}
+.demerit{border-top:5px solid var(--orange)}
 
-.warning{
+.check-list{padding:23px 25px 23px 46px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.check-list li{margin:7px 0}
+.warning{margin:24px 0;padding:22px;border:1px solid #fed7aa;border-radius:16px;background:var(--orange-soft)}
+.good-box{margin:24px 0;padding:22px;border:1px solid #a7f3d0;border-radius:16px;background:var(--green-soft)}
 
-background:#fff7ed;
-
-padding:20px;
-
-border-radius:12px;
-
-border:1px solid #fdba74;
-
-margin:25px 0;
-
-}
-
-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-margin:25px 0;
-
-}
-
-th,td{
-
-border:1px solid #dbeafe;
-
-padding:12px;
-
-}
-
-th{
-
-background:#2563eb;
-
-color:white;
-
-}
-
-.toc{
-
-background:#f8fafc;
-
-padding:20px;
-
-border:1px solid #dbeafe;
-
-border-radius:12px;
-
-margin:30px 0;
-
-}
-
-.toc a{
-
-display:block;
-
-margin:8px 0;
-
-text-decoration:none;
-
-font-weight:bold;
-
-color:#2563eb;
-
-}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.flow-item{padding:20px 14px;border:1px solid #bfdbfe;border-radius:15px;background:#fff;text-align:center}
+.flow-item strong{display:block;color:#1d4ed8;font-size:23px;margin-bottom:5px}
 
 .cta{
-
-background:#0f172a;
-
-color:white;
-
-padding:24px;
-
-border-radius:15px;
-
-margin-top:40px;
-
+  margin:48px 0;padding:34px;border-radius:21px;color:#fff;text-align:center;
+  background:linear-gradient(135deg,#0f172a,#1d4ed8);
 }
-
+.cta h2{margin:0 0 12px;padding:0;border:0;color:#fff}
+.cta p{max-width:700px;margin:0 auto 20px;color:#dbeafe}
 .cta a{
-
-display:inline-block;
-
-margin-top:15px;
-
-background:white;
-
-padding:12px 18px;
-
-border-radius:10px;
-
-font-weight:bold;
-
-text-decoration:none;
-
-color:#2563eb;
-
+  display:inline-flex;align-items:center;justify-content:center;min-height:55px;padding:13px 25px;
+  border-radius:13px;background:#fff;color:#1d4ed8;text-decoration:none;font-weight:900;
 }
 
-.related{
-
-margin-top:60px;
-
-background:#f8fafc;
-
-padding:25px;
-
-border-radius:15px;
-
-}
-
+.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
 .related a{
-
-display:block;
-
-margin:10px 0;
-
-font-weight:bold;
-
-text-decoration:none;
-
+  display:block;padding:14px 15px;border:1px solid var(--line);border-radius:12px;
+  background:#f8fafc;color:var(--text);text-decoration:none;font-weight:750;
 }
+.source-note{font-size:13px;color:var(--muted)}
 
+.faq{margin:14px 0;padding:21px;border:1px solid var(--line);border-radius:15px;background:#fff}
+.faq h3{margin:0 0 7px;font-size:19px}
+
+.site-footer{padding:46px 20px 30px;color:#cbd5e1;text-align:center;background:var(--navy)}
+.footer-inner{width:min(1100px,100%);margin:auto}
+.footer-logo{color:#fff;text-decoration:none;font-size:22px;font-weight:900}
+.footer-description{max-width:680px;margin:12px auto 22px;color:#94a3b8;font-size:14px}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 18px}
+.footer-nav a{color:#fff;text-decoration:none;font-size:13px}
+.footer-note{
+  max-width:760px;margin:20px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);
+  color:#94a3b8;font-size:12px;
+}
+.copyright{margin:17px 0 0;color:#64748b;font-size:12px}
+
+@media(max-width:850px){
+  .site-nav{display:none}
+  .grid,.related{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr 1fr}
+}
+@media(max-width:540px){
+  .header-inner,.container{width:min(100% - 28px,1000px)}
+  .hero{padding:58px 18px 54px}
+  .flow{grid-template-columns:1fr}
+}
 </style>
 
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"VYMとは？特徴・配当・メリット・デメリットを初心者向けに解説",
+  "mainEntityOfPage":"https://shacho-keisan.com/vym.html",
+  "publisher":{"@type":"Organization","name":"社長の計算機"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"VYMとは何ですか？",
+      "acceptedAnswer":{"@type":"Answer","text":"VYMはVanguard High Dividend Yield ETFのティッカーで、FTSE High Dividend Yield Indexへの連動を目指す米国高配当株ETFです。"}
+    },
+    {
+      "@type":"Question",
+      "name":"VYMの経費率は？",
+      "acceptedAnswer":{"@type":"Answer","text":"Vanguard公式サイトでは、VYMの経費率は2026年2月27日時点で0.04％と案内されています。"}
+    },
+    {
+      "@type":"Question",
+      "name":"VYMはNISAで買えますか？",
+      "acceptedAnswer":{"@type":"Answer","text":"NISAの成長投資枠では対象となる海外ETFを購入できる場合があります。VYMの取扱いとNISA対象状況は利用する証券会社の最新情報を確認してください。"}
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
-
-<header>
-
-<a href="index.html">
-
-社長の計算機
-
-</a>
-
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo"><a href="index.html">社長の計算機</a></div>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="#features">特徴</a>
+      <a href="#merit">メリット</a>
+      <a href="#compare">比較</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
 </header>
 
-<div class="container">
-
-<div class="article">
-
-<h1>
-
-VYMとは？
-
-特徴・配当利回り・メリット・デメリットを初心者向けに解説
-
-</h1>
-
-<p>
-
-VYM（Vanguard High Dividend Yield ETF）は、
-
-世界最大級の資産運用会社「バンガード」が運用する人気の米国高配当ETFです。
-
-高配当株へ分散投資できることから、
-
-配当金生活やFIREを目指す投資家に広く利用されています。
-
-</p>
-
-<div class="box">
-
-<strong>
-
-この記事の結論
-
-</strong>
-
-<ul>
-
-<li>米国高配当ETFの代表格</li>
-
-<li>約400銘柄へ分散投資</li>
-
-<li>初心者にも人気</li>
-
-<li>長期投資との相性が良い</li>
-
-</ul>
-
-</div>
-
-<div class="toc">
-
-<strong>
-
-目次
-
-</strong>
-
-<a href="#what">
-
-VYMとは？
-
-</a>
-
-<a href="#feature">
-
-特徴
-
-</a>
-
-<a href="#merit">
-
-メリット
-
-</a>
-
-<a href="#demerit">
-
-デメリット
-
-</a>
-
-<a href="#compare">
-
-HDV・SPYDとの比較
-
-</a>
-
-<a href="#faq">
-
-よくある質問
-
-</a>
-
-</div>
-
-<h2 id="what">
-
-VYMとは？
-
-</h2>
-
-<p>
-
-VYMは、
-
-米国の高配当企業へまとめて投資できるETFです。
-
-金融・ヘルスケア・生活必需品・エネルギーなど、
-
-幅広い業種へ分散投資されています。
-
-</p>
-
-<p>
-
-個別株を何十社も購入する必要がなく、
-
-1つのETFを保有するだけで分散投資できることが大きな魅力です。
-
-</p>
-
-<h2 id="feature">
-
-VYMの特徴
-
-</h2>
-
-<table>
-
-<tr>
-
-<th>
-
-項目
-
-</th>
-
-<th>
-
-内容
-
-</th>
-
-</tr>
-
-<tr>
-
-<td>
-
-運用会社
-
-</td>
-
-<td>
-
-バンガード
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-投資対象
-
-</td>
-
-<td>
-
-米国高配当株
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-分散投資
-
-</td>
-
-<td>
-
-約400銘柄
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-配当
-
-</td>
-
-<td>
-
-年4回
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-運用コスト
-
-</td>
-
-<td>
-
-比較的低コスト
-
-</td>
-
-</tr>
-<h2 id="merit">
-
-VYMのメリット
-
-</h2>
-
-<h3>① 約400銘柄へ分散投資できる</h3>
-
-<p>
-
-VYMは約400社の米国企業へまとめて投資できます。
-
-個別株のように1社の業績悪化による影響を受けにくく、分散投資しやすいことが特徴です。
-
-</p>
-
-<h3>② 配当金を受け取りながら資産形成できる</h3>
-
-<p>
-
-VYMは年4回の配当金（分配金）が支払われます。
-
-配当金を受け取りながら資産形成を目指せるため、配当金生活やFIREを目指す投資家から人気があります。
-
-</p>
-
-<h3>③ 運用コストが低い</h3>
-
-<p>
-
-VYMはETFの中でも信託報酬（経費率）が比較的低く、長期間保有してもコスト負担を抑えやすい点が魅力です。
-
-</p>
-
-<h3>④ 長期投資に向いている</h3>
-
-<p>
-
-高配当株だけではなく、継続的に利益を生み出している大型企業が多く組み入れられているため、長期保有との相性が良いETFです。
-
-</p>
-
-<h2 id="demerit">
-
-VYMのデメリット
-
-</h2>
-
-<ul>
-
-<li>株価が下落する可能性がある</li>
-
-<li>為替の影響を受ける</li>
-
-<li>配当金が減る可能性がある</li>
-
-<li>超高配当ETFではない</li>
-
-<li>元本保証ではない</li>
-
-</ul>
-
-<div class="warning">
-
-<strong>注意</strong>
-
-<p>
-
-VYMは比較的安定したETFといわれますが、価格変動や為替変動、景気後退による配当減少などのリスクがあります。
-
-投資する際は長期目線で考えることが大切です。
-
-</p>
-
-</div>
-
-<h2 id="compare">
-
-VYM・HDV・SPYDの比較
-
-</h2>
-
-<table>
-
-<tr>
-
-<th>ETF</th>
-
-<th>特徴</th>
-
-<th>向いている人</th>
-
-</tr>
-
-<tr>
-
-<td>VYM</td>
-
-<td>バランス型・分散投資</td>
-
-<td>初心者・長期投資</td>
-
-</tr>
-
-<tr>
-
-<td>HDV</td>
-
-<td>財務優良企業中心</td>
-
-<td>安定志向</td>
-
-</tr>
-
-<tr>
-
-<td>SPYD</td>
-
-<td>高利回り重視</td>
-
-<td>配当金重視</td>
-
-</tr>
-
-</table>
-
-<p>
-
-初心者が最初の1本として選ぶなら、バランスの良いVYMが候補になることが多いです。
-
-一方で、高い利回りを重視するならSPYD、財務健全性を重視するならHDVという選択肢もあります。
-
-</p>
-
-<h2>
-
-VYMはNISAでも人気
-
-</h2>
-
-<p>
-
-VYMは長期投資との相性が良く、NISAを活用して保有する投資家もいます。
-
-ただし、海外ETFには税制や外国税額控除などの注意点もあるため、制度を理解した上で投資しましょう。
-
-</p>
-
-<div class="cta">
-
-<strong>
-
-まずは配当金生活に必要な資産を計算してみましょう
-
-</strong>
-
-<p>
-
-毎月の目標配当金から必要な資産額をシミュレーションできます。
-
-</p>
-
-<a href="dividend-income.html">
-
-配当金生活シミュレーター
-
-</a>
-
-</div>
-
-<h2 id="faq">
-
-よくある質問
-
-</h2>
-
-<h3>
-
-VYMとは何ですか？
-
-</h3>
-
-<p>
-
-米国の高配当企業へ幅広く分散投資できるETFです。
-
-初心者から長期投資家まで人気があります。
-
-</p>
-
-<h3>
-
-VYMの配当金はいつもらえますか？
-
-</h3>
-
-<p>
-
-一般的には年4回分配されます。
-
-最新の分配スケジュールは運用会社や証券会社で確認しましょう。
-
-</p>
-
-<h3>
-
-VYMはNISAで買えますか？
-
-</h3>
-
-<p>
-
-証券会社の取扱状況によりますが、購入できる場合があります。
-
-制度や対象商品は最新情報を確認してください。
-
-</p>
-
-<h3>
-
-VYMとSPYDはどちらがおすすめですか？
-
-</h3>
-
-<p>
-
-安定性や分散投資を重視するならVYM、高い配当利回りを重視するならSPYDが候補になります。
-
-投資目的に応じて選びましょう。
-
-</p>
-
-<h2>
-
-まとめ
-
-</h2>
-
-<p>
-
-VYMは米国高配当ETFの代表的な商品であり、約400銘柄へ分散投資できること、低コストで長期投資に向いていることが大きな魅力です。
-
-</p>
-
-<p>
-
-一方で、株価や為替、配当金の変動リスクもあります。
-
-高配当ETFを選ぶ際は、VYMだけでなくHDVやSPYDなども比較し、自分の投資目的に合った商品を選びましょう。
-
-</p>
-
-<div class="related">
-
-<h2>
-
-関連記事
-
-</h2>
-
-<a href="high-dividend-etf.html">高配当ETFとは？</a>
-
-<a href="hdv.html">HDVとは？（公開予定）</a>
-
-<a href="spyd.html">SPYDとは？（公開予定）</a>
-
-<a href="schd.html">SCHDとは？（公開予定）</a>
-
-<a href="high-dividend-stocks.html">高配当株とは？</a>
-
-<a href="dividend-growth-stocks.html">増配株とは？</a>
-
-<a href="consecutive-dividend-growth.html">連続増配株とは？</a>
-
-<a href="dividend-yield.html">配当利回りとは？</a>
-
-<a href="dividend-payout-ratio.html">配当性向とは？</a>
-
-<a href="dividend-income.html">配当金生活シミュレーター</a>
-
-<a href="nisa-simulator.html">NISA積立シミュレーター</a>
-
-<a href="index.html">社長の計算機トップページ</a>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>© 社長の計算機</p>
-
-<p>
-
-<a href="about.html">運営者情報</a>
-
-<a href="privacy.html">プライバシーポリシー</a>
-
-<a href="contact.html">お問い合わせ</a>
-
-</p>
-
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">高配当ETFガイド</span>
+    <h1>VYMとは？<br>特徴・メリット・デメリットを初心者向けに解説</h1>
+    <p>
+      VYMの投資対象、経費率、配当投資での使い方、HDV・SPYD・SCHDとの違い、
+      NISAや配当金生活とのつながりまで整理します。
+    </p>
+    <div class="hero-actions">
+      <a href="#features" class="btn btn-primary">VYMの特徴を見る</a>
+      <a href="dividend-income.html" class="btn btn-secondary">必要資産を計算する</a>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <div class="breadcrumb">
+    <a href="index.html">トップページ</a> ＞ <a href="high-dividend-etf.html">高配当ETF</a> ＞ VYM
+  </div>
+
+  <div class="disclosure">
+    <strong>ご注意：</strong>
+    本記事は一般的な情報提供を目的としており、VYMその他の金融商品の購入を推奨するものではありません。数値・商品情報は変更されるため、購入前にVanguardおよび証券会社の最新情報をご確認ください。
+  </div>
+
+  <div class="summary">
+    <strong>この記事の結論</strong><br>
+    VYMは、米国の高配当株へ幅広く分散投資したい人が比較しやすいETFです。VanguardはFTSE High Dividend Yield Indexへの連動を目指すと案内しており、2026年2月27日時点の経費率は0.04％です。利回りだけを追う商品ではなく、幅広い銘柄へ分散しながら配当収入を得たい人の候補になります。
+  </div>
+
+  <section id="features">
+    <h2>VYMとは？</h2>
+    <p>
+      VYMは「Vanguard High Dividend Yield ETF」のティッカーです。
+      Vanguardによると、FTSE High Dividend Yield Indexの投資成果への連動を目指します。
+      この指数は、平均を上回る配当利回りを持つ米国株を対象とする設計です。
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><th>正式名称</th><td>Vanguard High Dividend Yield ETF</td></tr>
+          <tr><th>ティッカー</th><td>VYM</td></tr>
+          <tr><th>運用会社</th><td>Vanguard</td></tr>
+          <tr><th>運用スタイル</th><td>インデックス運用</td></tr>
+          <tr><th>連動対象</th><td>FTSE High Dividend Yield Index</td></tr>
+          <tr><th>経費率</th><td>0.04％（Vanguard公式、2026年2月27日時点）</td></tr>
+          <tr><th>投資対象</th><td>米国の高配当株を中心とする幅広い株式</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="source-note">
+      参考：Vanguard「Vanguard High Dividend Yield ETF (VYM)」。商品情報・経費率は将来変更される場合があります。
+    </p>
+  </section>
+
+  <section>
+    <h2>VYMの特徴</h2>
+    <div class="grid">
+      <article class="card merit">
+        <h3>幅広い米国高配当株へ分散</h3>
+        <p>1社の個別株に集中するのではなく、多数の米国株へまとめて投資します。Vanguardの同一ファンドのAdmiral Sharesでは、2026年5月末時点で600銘柄超を保有しています。</p>
+      </article>
+      <article class="card merit">
+        <h3>高配当株の「広さ」を重視</h3>
+        <p>特定の少数銘柄だけに集中する設計ではなく、幅広い高配当株を時価総額加重で保有する考え方です。</p>
+      </article>
+      <article class="card merit">
+        <h3>低コスト</h3>
+        <p>Vanguard公式の経費率は0.04％。長期保有では継続的なコストが小さいことは重要な比較ポイントです。</p>
+      </article>
+      <article class="card merit">
+        <h3>配当収入と資産成長の両方を見る</h3>
+        <p>配当利回りだけでなく、ETF価格の変動を含むトータルリターンで評価する必要があります。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="merit">
+    <h2>VYMのメリット</h2>
+    <div class="grid">
+      <article class="card merit">
+        <h3>1．個別株より分散しやすい</h3>
+        <p>個別企業の減配や業績悪化が資産全体へ与える影響を抑えやすくなります。</p>
+      </article>
+      <article class="card merit">
+        <h3>2．銘柄選定の手間を減らせる</h3>
+        <p>指数のルールに沿って銘柄が組み入れられるため、個別株を1社ずつ選ぶ必要がありません。</p>
+      </article>
+      <article class="card merit">
+        <h3>3．経費率が低い</h3>
+        <p>長期保有では小さな経費率の差も積み重なるため、低コストはメリットです。</p>
+      </article>
+      <article class="card merit">
+        <h3>4．配当再投資にも使いやすい</h3>
+        <p>生活費として使わない期間は、受け取った分配金を再投資し、資産形成を続ける考え方があります。</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>VYMのデメリット・注意点</h2>
+    <div class="grid">
+      <article class="card demerit">
+        <h3>1．分配金は保証されない</h3>
+        <p>構成企業の配当状況や市場環境によって、受け取れる分配金は変動します。</p>
+      </article>
+      <article class="card demerit">
+        <h3>2．株価は下落する</h3>
+        <p>配当を受け取れてもETF価格が下落すれば、資産全体では損失になる場合があります。</p>
+      </article>
+      <article class="card demerit">
+        <h3>3．為替リスクがある</h3>
+        <p>米ドル建てETFなので、日本円で見た資産価値は円高・円安の影響を受けます。</p>
+      </article>
+      <article class="card demerit">
+        <h3>4．高配当だけを最大化するETFではない</h3>
+        <p>「できるだけ高い利回りだけがほしい」という人には、設計が合わない場合があります。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="compare">
+    <h2>VYM・HDV・SPYD・SCHDを比較すると？</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ETF</th><th>比較時の考え方</th><th>特徴</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>VYM</th><td>幅広い高配当株</td><td>分散の広さと低コストを重視して比較しやすい</td></tr>
+          <tr><th>HDV</th><td>高配当＋選別</td><td>比較的高配当の米国株で構成される指数へ連動</td></tr>
+          <tr><th>SPYD</th><td>利回り重視</td><td>S&amp;P500の高配当利回り上位銘柄を重視</td></tr>
+          <tr><th>SCHD</th><td>配当の質・持続性</td><td>配当の質や企業のファンダメンタルズも重視</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><a href="high-dividend-etf.html">4つの高配当ETFを詳しく比較する →</a></p>
+  </section>
+
+  <section>
+    <h2>VYMで月10万円の配当を目指すなら？</h2>
+    <p>
+      配当金生活では「VYMを何株買うか」から考えるより、
+      まず月いくら必要か、どの程度の利回りを想定するかを決めて必要資産を逆算した方が判断しやすくなります。
+    </p>
+
+    <div class="good-box">
+      <strong>例：月10万円＝年間120万円</strong><br>
+      仮に配当利回り3％なら約4,000万円、4％なら約3,000万円、5％なら約2,400万円が税引前の単純計算です。
+      実際のVYMの分配金・利回りは変動するため、固定利回りとして扱わないでください。
+    </div>
+
+    <div class="cta">
+      <h2>自分の必要資産を計算する</h2>
+      <p>毎月ほしい配当と想定利回りから、必要資産・税引後参考額・減配への余裕まで試算できます。</p>
+      <a href="dividend-income.html">配当金生活シミュレーターを使う</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>VYMとNISA</h2>
+    <p>
+      金融庁のNISA制度では、成長投資枠で対象となる上場株式やETFへ投資できます。
+      海外ETFの取扱いとNISA対象状況は証券会社ごとに異なるため、VYMを購入したい場合は利用する証券会社で最新情報を確認してください。
+    </p>
+
+    <div class="warning">
+      <strong>外国税に注意</strong><br>
+      NISAで日本国内の課税が非課税となる場合でも、米国ETFの分配金には米国での源泉徴収が残る場合があります。
+    </div>
+  </section>
+
+  <section>
+    <h2>VYMが向いている人</h2>
+    <ul class="check-list">
+      <li>米国高配当株へ幅広く分散したい</li>
+      <li>個別株を多数管理したくない</li>
+      <li>低コストのETFを長期保有したい</li>
+      <li>配当収入だけでなく資産全体の成長も見たい</li>
+      <li>為替や株価変動を受け入れられる</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>購入前の4ステップ</h2>
+    <div class="flow">
+      <div class="flow-item"><strong>01</strong>目標配当を決める</div>
+      <div class="flow-item"><strong>02</strong>必要資産を計算</div>
+      <div class="flow-item"><strong>03</strong>他ETFと比較</div>
+      <div class="flow-item"><strong>04</strong>証券会社を確認</div>
+    </div>
+    <p style="margin-top:20px"><a href="securities-comparison.html">証券会社を比較する →</a></p>
+  </section>
+
+  <section id="faq">
+    <h2>VYMのよくある質問</h2>
+
+    <div class="faq">
+      <h3>Q．VYMとは何ですか？</h3>
+      <p>Vanguard High Dividend Yield ETFのティッカーで、FTSE High Dividend Yield Indexへの連動を目指す米国株ETFです。</p>
+    </div>
+
+    <div class="faq">
+      <h3>Q．VYMの経費率は？</h3>
+      <p>Vanguard公式サイトでは、2026年2月27日時点で0.04％と案内されています。</p>
+    </div>
+
+    <div class="faq">
+      <h3>Q．VYMは高配当ETFの中で一番おすすめ？</h3>
+      <p>一律に一番とは言えません。VYM・HDV・SPYD・SCHDは指数の設計が違うため、分散、利回り、配当の質、業種構成などを比較する必要があります。</p>
+    </div>
+
+    <div class="faq">
+      <h3>Q．VYMはNISAで買えますか？</h3>
+      <p>成長投資枠で対象となる海外ETFを購入できる場合があります。VYMの最新の取扱い・対象状況は証券会社で確認してください。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>関連ツール・記事</h2>
+    <div class="related">
+      <a href="high-dividend-etf.html">VYM・HDV・SPYD・SCHDを比較</a>
+      <a href="hdv.html">HDVとは？</a>
+      <a href="spyd.html">SPYDとは？</a>
+      <a href="schd.html">SCHDとは？</a>
+      <a href="dividend-income.html">配当金生活シミュレーター</a>
+      <a href="dividend-yield.html">配当利回りとは？</a>
+      <a href="dividend-reinvestment.html">配当再投資とは？</a>
+      <a href="nisa.html">NISAとは？</a>
+      <a href="securities-comparison.html">証券会社を比較する</a>
+      <a href="index.html">社長の計算機トップページ</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">社長の計算機</a>
+    <p class="footer-description">経営・税金・資産形成に役立つ無料シミュレーターと実務解説を提供しています。</p>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="index.html">トップページ</a>
+      <a href="about.html">運営者情報</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="editorial-policy.html">編集ポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <p class="footer-note">本サイトの情報は一般的な解説です。投資には元本割れ・減配・為替変動等のリスクがあります。最終的な投資判断はご自身の責任で行ってください。</p>
+    <p class="copyright">© 社長の計算機</p>
+  </div>
 </footer>
-
 </body>
-
 </html>
