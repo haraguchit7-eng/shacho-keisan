@@ -1,25 +1,358 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>お問い合わせ｜社長の計算機</title>
+<meta name="description" content="社長の計算機へのお問い合わせページです。掲載内容の修正依頼、計算機の不具合報告、広告・提携に関するお問い合わせなどはこちらからご連絡ください。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://shacho-keisan.com/contact.html">
+<link rel="icon" href="/favicon.ico">
+
+<meta property="og:site_name" content="社長の計算機">
+<meta property="og:title" content="お問い合わせ｜社長の計算機">
+<meta property="og:description" content="掲載内容の修正依頼、計算機の不具合報告、広告・提携に関するお問い合わせはこちら。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shacho-keisan.com/contact.html">
+<meta name="twitter:card" content="summary">
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FETE0W66W2');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FETE0W66W2');
 </script>
-<meta charset="UTF-8">
-<title>お問い合わせ</title>
+
+<style>
+:root{
+  --navy:#0f172a;
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --blue-soft:#eff6ff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --bg:#f6f8fb;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Noto Sans JP",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+}
+a{color:var(--blue)}
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(15,23,42,.98);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header-inner{
+  width:min(1180px,calc(100% - 40px));
+  min-height:68px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.logo a{
+  color:#fff;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:900;
+}
+.site-nav{display:flex;gap:20px}
+.site-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  opacity:.9;
+}
+.hero{
+  padding:76px 20px 66px;
+  color:#fff;
+  text-align:center;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(96,165,250,.32),transparent 28%),
+    linear-gradient(135deg,#0f172a 0%,#172554 48%,#1d4ed8 100%);
+}
+.hero-inner{width:min(900px,100%);margin:auto}
+.eyebrow{
+  display:inline-block;
+  padding:6px 13px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  font-size:13px;
+  font-weight:800;
+}
+.hero h1{
+  margin:18px 0 16px;
+  font-size:clamp(34px,5vw,52px);
+  line-height:1.25;
+}
+.hero p{
+  max-width:720px;
+  margin:auto;
+  color:#dbeafe;
+  font-size:17px;
+}
+.container{
+  width:min(920px,calc(100% - 40px));
+  margin:auto;
+  padding:52px 0 80px;
+}
+.breadcrumb{
+  margin-bottom:26px;
+  color:var(--muted);
+  font-size:13px;
+}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.card{
+  margin:0 0 22px;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(15,23,42,.05);
+}
+.card h2{
+  margin:0 0 14px;
+  color:var(--navy);
+  font-size:25px;
+}
+.card h3{
+  margin:22px 0 8px;
+  font-size:19px;
+}
+.contact-box{
+  margin:26px 0 0;
+  padding:26px;
+  text-align:center;
+  border:1px solid #bfdbfe;
+  border-radius:16px;
+  background:var(--blue-soft);
+}
+.contact-box strong{
+  display:block;
+  margin-bottom:8px;
+  color:#1e40af;
+  font-size:16px;
+}
+.mail-link{
+  display:inline-block;
+  margin-top:8px;
+  padding:13px 20px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;
+  text-decoration:none;
+  font-weight:900;
+  word-break:break-all;
+}
+.contact-list{
+  margin:16px 0 0;
+  padding-left:22px;
+}
+.contact-list li{margin:8px 0}
+.note{
+  margin-top:20px;
+  padding:18px 20px;
+  border-left:5px solid #f59e0b;
+  border-radius:12px;
+  background:#fff7ed;
+  color:#7c2d12;
+  font-size:14px;
+}
+.link-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:18px;
+}
+.link-grid a{
+  display:block;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#f8fafc;
+  color:var(--text);
+  text-decoration:none;
+  font-weight:750;
+}
+.site-footer{
+  padding:46px 20px 30px;
+  color:#cbd5e1;
+  text-align:center;
+  background:var(--navy);
+}
+.footer-inner{width:min(1100px,100%);margin:auto}
+.footer-logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:900;
+}
+.footer-description{
+  max-width:680px;
+  margin:12px auto 22px;
+  color:#94a3b8;
+  font-size:14px;
+}
+.footer-nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 18px;
+}
+.footer-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+}
+.copyright{
+  margin:20px 0 0;
+  color:#64748b;
+  font-size:12px;
+}
+@media(max-width:800px){
+  .site-nav{display:none}
+  .link-grid{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .header-inner,.container{width:min(100% - 28px,920px)}
+  .hero{padding:58px 18px 52px}
+  .card{padding:22px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ContactPage",
+  "name":"お問い合わせ",
+  "url":"https://shacho-keisan.com/contact.html",
+  "isPartOf":{
+    "@type":"WebSite",
+    "name":"社長の計算機",
+    "url":"https://shacho-keisan.com/"
+  }
+}
+</script>
 </head>
+
 <body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo"><a href="index.html">社長の計算機</a></div>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">トップ</a>
+      <a href="about.html">運営者情報</a>
+      <a href="editorial-policy.html">編集ポリシー</a>
+      <a href="privacy.html">プライバシー</a>
+    </nav>
+  </div>
+</header>
 
-<h1>お問い合わせ</h1>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Contact</span>
+    <h1>お問い合わせ</h1>
+    <p>
+      掲載内容についてのご意見・修正依頼、計算機の不具合報告、
+      広告・提携に関するご相談などを受け付けています。
+    </p>
+  </div>
+</section>
 
-<p>お問い合わせは下記メールアドレスまでご連絡ください。</p>
+<main class="container">
+  <div class="breadcrumb">
+    <a href="index.html">トップページ</a> ＞ お問い合わせ
+  </div>
 
-<p>777babylon777@gmail.com</p>
+  <section class="card">
+    <h2>お問い合わせ窓口</h2>
+    <p>
+      「社長の計算機」へのお問い合わせは、下記メールアドレスまでお願いいたします。
+      内容を確認のうえ、必要に応じて対応いたします。
+    </p>
 
+    <div class="contact-box">
+      <strong>お問い合わせメール</strong>
+      <a class="mail-link"
+         href="mailto:777babylon777@gmail.com?subject=%E7%A4%BE%E9%95%B7%E3%81%AE%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+        777babylon777@gmail.com
+      </a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>お問い合わせいただける内容</h2>
+    <ul class="contact-list">
+      <li>記事の記載内容に関するご意見・修正依頼</li>
+      <li>計算機・シミュレーターの不具合や表示崩れのご報告</li>
+      <li>リンク切れや誤字・脱字などのご報告</li>
+      <li>広告掲載・アフィリエイト・業務提携に関するご相談</li>
+      <li>その他、当サイトの運営に関するお問い合わせ</li>
+    </ul>
+
+    <div class="note">
+      投資・税務・会計・法律・融資などに関する個別相談や、個別銘柄の売買判断については回答できない場合があります。必要に応じて各分野の専門家へご相談ください。
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>掲載情報の修正依頼について</h2>
+    <p>
+      当サイトでは情報の正確性向上に努めていますが、制度変更、サービス内容の変更、
+      商品条件の改定などにより、掲載内容と最新情報に差異が生じる場合があります。
+    </p>
+    <p>
+      修正が必要な情報を見つけた場合は、対象ページのURLと修正箇所、
+      確認できる公式情報などを添えてご連絡いただけると確認がスムーズです。
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>サイト運営方針について</h2>
+    <p>
+      社長の計算機は、経営・税金・資産形成に関する数字を、
+      誰でも簡単に試算できる計算機と実務解説を提供することを目的に運営しています。
+    </p>
+
+    <div class="link-grid">
+      <a href="about.html">運営者情報を見る</a>
+      <a href="editorial-policy.html">編集ポリシーを見る</a>
+      <a href="privacy.html">プライバシーポリシーを見る</a>
+      <a href="terms.html">利用規約を見る</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">社長の計算機</a>
+    <p class="footer-description">
+      経営・税金・資産形成に役立つ無料シミュレーターと実務解説を提供しています。
+    </p>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="index.html">トップページ</a>
+      <a href="about.html">運営者情報</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="editorial-policy.html">編集ポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <p class="copyright">© 社長の計算機</p>
+  </div>
+</footer>
 </body>
 </html>
