@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>月5万円の配当金に必要な投資額計算機｜いくらあれば毎月5万円もらえる？</title>
+<meta name="description" content="月5万円の配当金を得るにはいくら必要かを無料計算。想定配当利回りを入力するだけで、必要投資額・年間配当金・税引後受取額の目安をシミュレーションできます。">
+<link rel="canonical" href="https://shacho-keisan.com/dividend-50000.html">
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.8}
+header{background:#0f172a;color:#fff;padding:18px 24px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
+.hero{background:linear-gradient(135deg,#102a5c,#2563eb);color:white;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.25;margin:0 0 18px}
+.hero p{font-size:18px;max-width:800px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px}
+.card{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,.06);margin-bottom:32px}
+.input-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;height:54px;border:1px solid #cbd5e1;border-radius:14px;padding:0 14px;font-size:17px;box-sizing:border-box}
+button{margin-top:24px;background:#2563eb;color:white;border:none;border-radius:16px;padding:16px 28px;font-size:18px;font-weight:800;cursor:pointer}
+.result{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.result-box{background:#f8fafc;border-left:6px solid #2563eb;border-radius:16px;padding:22px}
+.result-box span{display:block;color:#64748b;font-size:14px}
+.result-box strong{font-size:22px}
+.judgement{margin-top:24px;background:#eff6ff;border-radius:16px;padding:22px;font-weight:700}
+.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:22px;margin-top:20px}
+h2{font-size:28px;margin-top:48px}
+h3{font-size:22px;margin-top:32px}
+ul{padding-left:22px}
+.related a{display:block;margin:10px 0;color:#2563eb;font-weight:700}
+footer{margin-top:60px;background:#0f172a;color:#cbd5e1;padding:30px 20px;text-align:center}
+footer a{color:#fff;margin:0 10px}
+@media(max-width:900px){.input-grid,.result{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>月5万円の配当金に<br>必要な投資額計算機</h1>
+  <p>
+    毎月5万円、年間60万円の配当金を受け取るには、
+    いくら投資すればよいかを配当利回り別に計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>月5万円の配当金に必要な資産を計算する</h2>
+
+  <div class="input-grid">
+    <div>
+      <label for="yieldRate">想定配当利回り（年率％）</label>
+      <input id="yieldRate" type="number" step="0.1" placeholder="例：4">
+    </div>
+
+    <div>
+      <label for="taxRate">配当への税率（％）</label>
+      <input id="taxRate" type="number" step="0.01" value="20.315">
+    </div>
+  </div>
+
+  <button onclick="calculateDividend50000()">計算する</button>
+
+  <div class="result">
+    <div class="result-box">
+      <span>必要投資額</span>
+      <strong id="requiredAsset">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>年間配当金</span>
+      <strong id="annualDividend">600,000円</strong>
+    </div>
+
+    <div class="result-box">
+      <span>税引後の月間受取額</span>
+      <strong id="afterTaxMonthly">-</strong>
+    </div>
+  </div>
+
+  <div class="judgement" id="judgement">
+    配当利回りを入力すると、月5万円の配当金に必要な投資額が表示されます。
+  </div>
+</section>
+
+<section class="card">
+  <h2>月5万円の配当金にはいくら必要？</h2>
+
+  <p>
+    月5万円の配当金は、年間では60万円です。
+    必要な投資額は、想定する配当利回りによって変わります。
+  </p>
+
+  <ul>
+    <li>利回り3％：約2,000万円</li>
+    <li>利回り4％：約1,500万円</li>
+    <li>利回り5％：約1,200万円</li>
+    <li>利回り6％：約1,000万円</li>
+  </ul>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    高い利回りほど必要資産額は少なくなりますが、減配・株価下落・業績悪化リスクも高まりやすくなります。
+    利回りだけで投資先を選ばないことが重要です。
+  </div>
+</section>
+
+<section class="card">
+  <h2>月5万円の配当金は生活にどれくらい影響する？</h2>
+
+  <p>
+    月5万円の配当収入があれば、年間では60万円のキャッシュフローになります。
+    家賃や通信費、保険料、光熱費など固定費の一部をカバーできる水準です。
+  </p>
+
+  <p>
+    FIREを目指す場合でも、いきなり生活費すべてを配当金でまかなう必要はありません。
+    まずは月1万円、3万円、5万円と段階的に増やす考え方があります。
+  </p>
+</section>
+
+<section class="card">
+  <h2>NISAなら税引後受取額はどうなる？</h2>
+
+  <p>
+    課税口座では、配当金に税金がかかる場合があります。
+    一方、NISA口座で条件を満たせば、配当金を非課税で受け取れる場合があります。
+  </p>
+
+  <p>
+    同じ年間60万円の配当金でも、課税口座とNISAでは手取り額に差が出る可能性があります。
+  </p>
+</section>
+
+<section class="card related">
+  <h2>関連ツール・記事</h2>
+
+  <a href="dividend-income.html">配当金生活シミュレーター</a>
+  <a href="dividend-reinvestment.html">配当金再投資シミュレーター</a>
+  <a href="dividend-yield.html">配当利回りとは？計算方法・目安</a>
+  <a href="nisa-dividend-tax.html">NISAで配当金は非課税？</a>
+  <a href="nisa-simulator.html">NISA積立シミュレーター</a>
+  <a href="index.html">社長の計算機トップページ</a>
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateDividend50000(){
+  const yieldRate = Number(document.getElementById('yieldRate').value || 0);
+  const taxRate = Number(document.getElementById('taxRate').value || 0);
+
+  if(yieldRate <= 0){
+    document.getElementById('judgement').innerText =
+      '配当利回りを0より大きい数字で入力してください。';
+    return;
+  }
+
+  const annualDividend = 600000;
+  const requiredAsset = annualDividend / (yieldRate / 100);
+  const afterTaxAnnual = annualDividend * (1 - taxRate / 100);
+  const afterTaxMonthly = afterTaxAnnual / 12;
+
+  document.getElementById('requiredAsset').innerText =
+    Math.round(requiredAsset).toLocaleString() + '円';
+
+  document.getElementById('afterTaxMonthly').innerText =
+    Math.round(afterTaxMonthly).toLocaleString() + '円';
+
+  let comment = '';
+
+  if(yieldRate < 3){
+    comment = '比較的低い利回り想定のため、必要資産額は大きくなります。安定性重視の運用では現実的な考え方です。';
+  }else if(yieldRate <= 5){
+    comment = '配当金生活を考える際に使われやすい利回り帯です。減配リスクと分散投資も確認しましょう。';
+  }else{
+    comment = '高配当水準です。必要資産額は小さくなりますが、減配・株価下落リスクには十分注意しましょう。';
+  }
+
+  document.getElementById('judgement').innerText = comment;
+}
+</script>
+
+</body>
+</html>
