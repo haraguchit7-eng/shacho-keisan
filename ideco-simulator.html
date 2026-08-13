@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>iDeCo節税シミュレーター｜節税額・将来資産を無料計算</title>
+<meta name="description" content="iDeCoの節税額と将来資産を無料でシミュレーション。毎月の掛金、所得税率、住民税率、想定利回り、運用年数を入力するだけで年間節税額・累計節税額・将来資産を計算できます。">
+<link rel="canonical" href="https://shacho-keisan.com/ideco-simulator.html">
+
+<style>
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  background:#f8fbff;
+  color:#0f172a;
+  line-height:1.8;
+}
+
+header{
+  background:#0f172a;
+  color:#fff;
+  padding:18px 24px;
+}
+
+header a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:22px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#102a5c,#2563eb);
+  color:#fff;
+  padding:72px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:clamp(32px,5vw,54px);
+  line-height:1.25;
+  margin:0 0 18px;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:820px;
+  margin:0 auto;
+}
+
+.container{
+  max-width:1050px;
+  margin:0 auto;
+  padding:48px 20px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #dbeafe;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 10px 30px rgba(15,23,42,.06);
+  margin-bottom:32px;
+}
+
+.input-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+label{
+  font-weight:700;
+  display:block;
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  height:54px;
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  padding:0 14px;
+  font-size:17px;
+  box-sizing:border-box;
+}
+
+button{
+  margin-top:24px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:16px;
+  padding:16px 28px;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.result-box{
+  background:#f8fafc;
+  border-left:6px solid #2563eb;
+  border-radius:16px;
+  padding:22px;
+}
+
+.result-box span{
+  display:block;
+  color:#64748b;
+  font-size:14px;
+}
+
+.result-box strong{
+  font-size:22px;
+}
+
+.judgement{
+  margin-top:24px;
+  background:#eff6ff;
+  border-radius:16px;
+  padding:22px;
+  font-weight:700;
+}
+
+.warning{
+  background:#fff7ed;
+  border:1px solid #fdba74;
+  border-radius:16px;
+  padding:22px;
+  margin-top:20px;
+}
+
+h2{
+  font-size:28px;
+  margin-top:48px;
+}
+
+h3{
+  font-size:22px;
+  margin-top:32px;
+}
+
+ul{
+  padding-left:22px;
+}
+
+.related a{
+  display:block;
+  margin:10px 0;
+  color:#2563eb;
+  font-weight:700;
+}
+
+footer{
+  margin-top:60px;
+  background:#0f172a;
+  color:#cbd5e1;
+  padding:30px 20px;
+  text-align:center;
+}
+
+footer a{
+  color:#fff;
+  margin:0 10px;
+}
+
+@media(max-width:900px){
+  .input-grid,
+  .result{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">社長の計算機</a>
+</header>
+
+<section class="hero">
+  <h1>iDeCo節税<br>シミュレーター</h1>
+  <p>
+    毎月の掛金・税率・運用利回りを入力するだけで、
+    年間節税額・累計節税額・将来資産を無料で計算できます。
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+
+  <h2>iDeCoの節税効果を計算する</h2>
+
+  <div class="input-grid">
+
+    <div>
+      <label for="monthlyContribution">毎月のiDeCo掛金（円）</label>
+      <input id="monthlyContribution" type="number" placeholder="例：23000">
+    </div>
+
+    <div>
+      <label for="incomeTaxRate">所得税率（％）</label>
+      <input id="incomeTaxRate" type="number" step="0.1" placeholder="例：20">
+    </div>
+
+    <div>
+      <label for="residentTaxRate">住民税率（％）</label>
+      <input id="residentTaxRate" type="number" step="0.1" value="10">
+    </div>
+
+    <div>
+      <label for="returnRate">想定運用利回り（年率％）</label>
+      <input id="returnRate" type="number" step="0.1" placeholder="例：5">
+    </div>
+
+    <div>
+      <label for="years">運用年数（年）</label>
+      <input id="years" type="number" placeholder="例：20">
+    </div>
+
+  </div>
+
+  <button onclick="calculateIdeco()">計算する</button>
+
+  <div class="result">
+
+    <div class="result-box">
+      <span>年間掛金</span>
+      <strong id="annualContribution">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>年間節税額</span>
+      <strong id="annualSaving">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>累計節税額</span>
+      <strong id="totalSaving">-</strong>
+    </div>
+
+    <div class="result-box">
+      <span>将来資産</span>
+      <strong id="futureAsset">-</strong>
+    </div>
+
+  </div>
+
+  <div class="judgement" id="judgement">
+    条件を入力すると、iDeCoの節税効果と将来資産が表示されます。
+  </div>
+
+</section>
+
+<section class="card">
+
+  <h2>iDeCoの節税効果とは？</h2>
+
+  <p>
+    iDeCoの掛金は、一定の要件のもとで全額が所得控除の対象になります。
+    そのため、所得税と住民税の負担を軽減できる可能性があります。
+  </p>
+
+  <p>
+    例えば年間27万6,000円を拠出し、所得税率20％・住民税率10％なら、
+    単純計算では年間約8万2,800円の税負担軽減効果になります。
+  </p>
+
+  <div class="warning">
+    <strong>注意：</strong>
+    本シミュレーションは簡易計算です。
+    実際の節税額は課税所得、所得控除、税率、加入区分などにより異なります。
+    iDeCoには加入区分ごとの掛金上限があります。
+  </div>
+
+</section>
+
+<section class="card">
+
+  <h2>iDeCoで確認したい3つのメリット</h2>
+
+  <h3>1. 掛金が所得控除</h3>
+  <p>
+    拠出した掛金が所得控除となるため、所得税・住民税の負担軽減につながります。
+  </p>
+
+  <h3>2. 運用益が非課税</h3>
+  <p>
+    通常の金融商品では運用益に税金がかかる場合がありますが、
+    iDeCoでは制度内の運用益が非課税で再投資されます。
+  </p>
+
+  <h3>3. 老後資金を強制的に積み立てやすい</h3>
+  <p>
+    原則として一定年齢まで引き出しに制限があるため、
+    長期の老後資金形成に向いています。
+  </p>
+
+</section>
+
+<section class="card">
+
+  <h2>NISAとiDeCoはどちらを優先する？</h2>
+
+  <p>
+    iDeCoは節税効果が大きい一方、原則として途中で自由に引き出すことができません。
+    NISAは所得控除はありませんが、資金の自由度が高いという特徴があります。
+  </p>
+
+  <p>
+    そのため、老後資金はiDeCo、途中で使う可能性のある資金はNISA、
+    と目的別に使い分ける考え方があります。
+  </p>
+
+</section>
+
+<section class="card">
+  <h2>iDeCoを始める前に確認すること</h2>
+
+  <ul>
+    <li>自分の掛金上限はいくらか</li>
+    <li>所得税率はいくらか</li>
+    <li>途中で使う可能性のある資金ではないか</li>
+    <li>運用商品と手数料を確認しているか</li>
+    <li>NISAとの資金配分をどうするか</li>
+  </ul>
+
+</section>
+
+<section class="card related">
+
+  <h2>関連ツール</h2>
+
+  <a href="nisa-simulator.html">NISA積立シミュレーター</a>
+  <a href="retirement-fund.html">老後資金計算機</a>
+  <a href="fire-calculator.html">FIRE達成計算機</a>
+  <a href="dividend-income.html">配当金生活シミュレーター</a>
+  <a href="index.html">社長の計算機トップページ</a>
+
+</section>
+
+</main>
+
+<footer>
+  <a href="about.html">運営者情報</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</footer>
+
+<script>
+function calculateIdeco(){
+
+  const monthlyContribution =
+    Number(document.getElementById('monthlyContribution').value || 0);
+
+  const incomeTaxRate =
+    Number(document.getElementById('incomeTaxRate').value || 0) / 100;
+
+  const residentTaxRate =
+    Number(document.getElementById('residentTaxRate').value || 0) / 100;
+
+  const returnRate =
+    Number(document.getElementById('returnRate').value || 0) / 100;
+
+  const years =
+    Number(document.getElementById('years').value || 0);
+
+  if(!monthlyContribution || !years){
+
+    document.getElementById('judgement').innerText =
+      '毎月の掛金と運用年数を入力してください。';
+
+    return;
+  }
+
+  const annualContribution =
+    monthlyContribution * 12;
+
+  const annualSaving =
+    annualContribution *
+    (incomeTaxRate + residentTaxRate);
+
+  const totalSaving =
+    annualSaving * years;
+
+  const months =
+    years * 12;
+
+  const monthlyRate =
+    returnRate / 12;
+
+  let futureAsset = 0;
+
+  for(let i = 0; i < months; i++){
+    futureAsset =
+      futureAsset * (1 + monthlyRate) +
+      monthlyContribution;
+  }
+
+  document.getElementById('annualContribution').innerText =
+    Math.round(annualContribution).toLocaleString() + '円';
+
+  document.getElementById('annualSaving').innerText =
+    Math.round(annualSaving).toLocaleString() + '円';
+
+  document.getElementById('totalSaving').innerText =
+    Math.round(totalSaving).toLocaleString() + '円';
+
+  document.getElementById('futureAsset').innerText =
+    Math.round(futureAsset).toLocaleString() + '円';
+
+  let comment = '';
+
+  if(annualSaving >= 100000){
+    comment =
+      '節税効果が比較的大きい条件です。NISAとの併用や老後資金全体の配分も確認しましょう。';
+  }
+  else if(annualSaving >= 50000){
+    comment =
+      '年間で一定の節税効果が期待できます。長期運用すると、節税と複利の両方の効果が積み上がります。';
+  }
+  else{
+    comment =
+      '節税額は比較的小さめですが、長期積立による資産形成効果もあわせて確認しましょう。';
+  }
+
+  document.getElementById('judgement').innerText =
+    comment;
+}
+</script>
+
+</body>
+</html>
