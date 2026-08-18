@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-FETE0W66W2');
-</script>
-<link rel="icon" href="favicon.ico">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>配当利回りとは？計算方法・目安・高いほど良いのかをわかりやすく解説｜社長の計算機</title>
 
-<meta name="description" content="配当利回りとは何かを初心者向けにわかりやすく解説。計算方法、目安、高配当株との違い、注意点まで詳しく紹介します。">
+<meta name="description" content="配当利回りとは何かを初心者向けに解説。株価と年間配当金を入力して配当利回りを無料計算できます。計算方法、目安、高配当株の注意点、NISA、配当性向との違いまでわかりやすく説明します。">
+
+<meta name="robots" content="index,follow">
 
 <link rel="canonical" href="https://shacho-keisan.com/dividend-yield.html">
+<link rel="icon" href="/favicon.ico">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FETE0W66W2');
+</script>
+
+<!-- Google AdSense -->
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339"
+crossorigin="anonymous"></script>
 
 <style>
+
 body{
 margin:0;
 font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
@@ -55,8 +64,9 @@ box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 h1{
-font-size:42px;
+font-size:clamp(32px,5vw,44px);
 line-height:1.3;
+margin-top:0;
 }
 
 h2{
@@ -78,12 +88,160 @@ border-radius:18px;
 margin:30px 0;
 }
 
+.good{
+background:#f0fdf4;
+border:1px solid #86efac;
+padding:22px;
+border-radius:18px;
+margin:30px 0;
+}
+
 .warning{
 background:#fff7ed;
 border:1px solid #fdba74;
 padding:22px;
 border-radius:18px;
 margin:30px 0;
+}
+
+.calc{
+background:#f8fafc;
+border:1px solid #dbeafe;
+padding:28px;
+border-radius:20px;
+margin:34px 0;
+}
+
+.calc-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.calc label{
+display:block;
+font-weight:800;
+margin-bottom:7px;
+}
+
+.calc input{
+width:100%;
+box-sizing:border-box;
+min-height:52px;
+padding:10px 14px;
+border:1px solid #cbd5e1;
+border-radius:12px;
+font-size:17px;
+}
+
+.calc button{
+width:100%;
+margin-top:20px;
+padding:15px;
+border:0;
+border-radius:13px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+font-size:17px;
+font-weight:900;
+cursor:pointer;
+}
+
+.result{
+margin-top:22px;
+background:#eff6ff;
+border:2px solid #93c5fd;
+padding:22px;
+border-radius:16px;
+}
+
+.result strong{
+display:block;
+font-size:28px;
+color:#1d4ed8;
+margin-top:4px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin:30px 0;
+}
+
+th,td{
+padding:14px;
+border:1px solid #dbeafe;
+text-align:left;
+vertical-align:top;
+}
+
+th{
+background:#2563eb;
+color:#fff;
+}
+
+.toc{
+background:#f8fafc;
+border:1px solid #dbeafe;
+padding:24px;
+border-radius:16px;
+margin:30px 0;
+}
+
+.toc strong{
+display:block;
+margin-bottom:10px;
+}
+
+.toc a{
+display:block;
+margin:7px 0;
+font-weight:700;
+text-decoration:none;
+color:#2563eb;
+}
+
+.guide-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+margin:28px 0;
+}
+
+.guide-card{
+padding:22px;
+border:1px solid #e2e8f0;
+border-radius:16px;
+background:#fff;
+}
+
+.guide-card h3{
+margin-top:0;
+}
+
+.guide-card a{
+color:#2563eb;
+font-weight:800;
+text-decoration:none;
+}
+
+.cta{
+background:linear-gradient(135deg,#0f172a,#2563eb);
+color:#fff;
+padding:28px;
+border-radius:18px;
+margin:44px 0;
+}
+
+.cta a{
+display:inline-block;
+background:#fff;
+color:#2563eb;
+font-weight:800;
+text-decoration:none;
+padding:12px 18px;
+border-radius:12px;
+margin-top:12px;
 }
 
 .related{
@@ -101,6 +259,11 @@ color:#2563eb;
 text-decoration:none;
 }
 
+.note{
+font-size:14px;
+color:#64748b;
+}
+
 footer{
 margin-top:60px;
 background:#0f172a;
@@ -113,6 +276,28 @@ footer a{
 color:white;
 margin:0 10px;
 }
+
+@media(max-width:700px){
+
+.article{
+padding:24px;
+}
+
+.calc-grid,
+.guide-grid{
+grid-template-columns:1fr;
+}
+
+table{
+font-size:14px;
+}
+
+th,td{
+padding:10px;
+}
+
+}
+
 </style>
 
 </head>
@@ -124,239 +309,659 @@ margin:0 10px;
 </header>
 
 <div class="container">
-
 <div class="article">
 
 <h1>配当利回りとは？計算方法・目安・高いほど良いのかをわかりやすく解説</h1>
 
 <p>
-
 配当株投資を始めると必ず目にするのが「配当利回り」です。
-
-しかし、
-
-<strong>利回りが高い株＝良い株</strong>
-
-とは限りません。
-
+配当金がどの程度期待できるのかを確認するうえで重要な指標ですが、
+<strong>配当利回りが高い株＝良い株</strong>とは限りません。
 </p>
 
 <div class="box">
 
-<strong>結論</strong>
+<strong>結論：</strong><br><br>
 
 配当利回りとは、
+<strong>現在の株価に対して年間配当金がどのくらいあるか</strong>
+を表す指標です。<br><br>
 
-<strong>投資した金額に対して年間どれくらい配当金を受け取れるか</strong>
+例えば株価2,000円、年間配当80円なら、
+配当利回りは4％です。<br><br>
 
-を表す指標です。
-
-ただし、高ければ高いほど良いというわけではありません。
+ただし、株価の急落によって利回りだけが高く見える場合もあるため、
+配当利回りだけで投資判断しないことが重要です。
 
 </div>
 
-<h2>配当利回りとは？</h2>
+<div class="toc">
+
+<strong>この記事でわかること</strong>
+
+<a href="#calculator">配当利回りを計算する</a>
+<a href="#what">配当利回りとは？</a>
+<a href="#guide">配当利回りの目安</a>
+<a href="#high">高いほど良い？</a>
+<a href="#check">確認すべきポイント</a>
+<a href="#payout">配当性向との違い</a>
+<a href="#nisa">NISAとの関係</a>
+<a href="#income">配当金生活との関係</a>
+
+</div>
+
+<h2 id="calculator">配当利回り計算機</h2>
 
 <p>
+現在の株価と1株あたり年間配当金を入力すると、
+配当利回りをすぐに計算できます。
+</p>
 
+<div class="calc">
+
+<div class="calc-grid">
+
+<div>
+<label for="stockPrice">現在の株価（円）</label>
+<input
+type="number"
+id="stockPrice"
+min="1"
+step="1"
+value="2000">
+</div>
+
+<div>
+<label for="annualDividend">1株あたり年間配当金（円）</label>
+<input
+type="number"
+id="annualDividend"
+min="0"
+step="0.1"
+value="80">
+</div>
+
+</div>
+
+<button type="button" onclick="calculateYield()">
+配当利回りを計算する
+</button>
+
+<div class="result">
+
+配当利回り
+
+<strong id="yieldResult">4.00％</strong>
+
+<span id="yieldComment">
+株価2,000円、年間配当80円の場合の単純計算です。
+</span>
+
+</div>
+
+</div>
+
+<p class="note">
+※配当金は将来の支払いを保証するものではありません。予想配当を使用する場合、実際の配当額と異なる場合があります。
+</p>
+
+<h2 id="what">配当利回りとは？</h2>
+
+<p>
 配当利回りとは、
-
-株価に対する年間配当金の割合を示す数字です。
-
+現在の株価に対して1年間でどの程度の配当金を受け取れるかを示す割合です。
 </p>
 
 <div class="box">
 
-配当利回り（％）
+<strong>配当利回り（％）</strong><br><br>
 
-＝
-
-年間配当金 ÷ 株価 ×100
+年間配当金 ÷ 株価 × 100
 
 </div>
 
 <p>
-
 例えば、
-
-株価2,000円
-
-年間配当80円なら
-
+株価2,000円で年間配当金が80円なら、
 </p>
 
 <div class="box">
 
-80 ÷ 2,000 ×100
+80円 ÷ 2,000円 × 100<br><br>
 
-＝4%
+＝ <strong>4％</strong>
 
 </div>
 
 <p>
-
 となります。
-
 </p>
 
-<h2>配当利回りの目安</h2>
+<h2>100株持っている場合の配当金は？</h2>
 
-<table style="width:100%;border-collapse:collapse;margin-top:20px;">
+<p>
+先ほどの例で100株保有している場合、
+年間配当金は次のようになります。
+</p>
 
-<tr style="background:#eff6ff;">
-<th style="padding:10px;border:1px solid #ddd;">利回り</th>
-<th style="padding:10px;border:1px solid #ddd;">一般的な目安</th>
+<div class="good">
+
+1株あたり年間配当：80円<br>
+保有株数：100株<br><br>
+
+80円 × 100株<br>
+＝ <strong>年間8,000円</strong>
+
+</div>
+
+<p>
+つまり、配当利回りは「投資額に対してどの程度の配当収入が見込まれるか」を比較するための指標です。
+</p>
+
+<h2 id="guide">配当利回りの目安は何％？</h2>
+
+<p>
+配当利回りに「何％なら絶対に良い」という基準はありません。
+市場環境や業種、企業の成長段階によって適正な水準は異なります。
+</p>
+
+<table>
+
+<tr>
+<th>配当利回り</th>
+<th>見方の一例</th>
 </tr>
 
 <tr>
-<td style="padding:10px;border:1px solid #ddd;">1〜2%</td>
-<td style="padding:10px;border:1px solid #ddd;">やや低め</td>
+<td>1〜2％台</td>
+<td>
+現在の配当収入は比較的小さめ。
+ただし成長投資を優先している企業などもあります。
+</td>
 </tr>
 
 <tr>
-<td style="padding:10px;border:1px solid #ddd;">3〜4%</td>
-<td style="padding:10px;border:1px solid #ddd;">標準的</td>
+<td>3〜4％台</td>
+<td>
+配当投資で比較対象になりやすい水準。
+ただし企業ごとの業績・財務確認が必要です。
+</td>
 </tr>
 
 <tr>
-<td style="padding:10px;border:1px solid #ddd;">5%以上</td>
-<td style="padding:10px;border:1px solid #ddd;">高配当株として注目されることが多い</td>
+<td>5％以上</td>
+<td>
+高配当株として注目されることがありますが、
+株価下落や減配リスクも確認する必要があります。
+</td>
 </tr>
 
 </table>
 
-<h2>利回りが高いほど良い？</h2>
+<div class="warning">
+
+<strong>「5％以上だから買う」は危険です。</strong><br><br>
+
+配当利回りは、配当金だけではなく
+<strong>株価によっても変わります。</strong><br><br>
+
+業績悪化によって株価が急落すると、
+配当額が変わっていなくても計算上の利回りは上昇します。
+
+</div>
+
+<h2 id="high">配当利回りは高いほど良い？</h2>
 
 <p>
-
-答えは
-
-<strong>NO</strong>
-
-です。
-
+答えは<strong>NO</strong>です。
 </p>
 
 <p>
+配当利回りが高くなる理由は一つではありません。
+</p>
 
-利回りが高い理由には
+<div class="guide-grid">
 
+<div class="guide-card">
+
+<h3>良い理由で高い場合</h3>
+
+<p>
+利益やキャッシュフローが安定しており、
+企業が積極的に株主還元を行っている場合です。
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>注意が必要な場合</h3>
+
+<p>
+業績悪化や将来不安で株価が下落し、
+結果として利回りだけが高く見えている場合です。
+</p>
+
+</div>
+
+</div>
+
+<h3>株価が下がると利回りは上がる</h3>
+
+<p>
+例えば年間配当80円の企業を考えます。
+</p>
+
+<table>
+
+<tr>
+<th>株価</th>
+<th>年間配当</th>
+<th>配当利回り</th>
+</tr>
+
+<tr>
+<td>2,000円</td>
+<td>80円</td>
+<td>4.0％</td>
+</tr>
+
+<tr>
+<td>1,600円</td>
+<td>80円</td>
+<td>5.0％</td>
+</tr>
+
+<tr>
+<td>1,000円</td>
+<td>80円</td>
+<td>8.0％</td>
+</tr>
+
+</table>
+
+<p>
+配当金は同じ80円なのに、
+株価が下落するだけで利回りは4％から8％まで上がります。
+</p>
+
+<p>
+そのため、利回りが高い理由を確認することが重要です。
+</p>
+
+<h2 id="check">高配当株で確認すべきポイント</h2>
+
+<p>
+配当利回りを見るときは、
+最低でも次のような項目を合わせて確認したいところです。
 </p>
 
 <ul>
 
-<li>業績が良く配当が多い</li>
+<li>売上や利益が安定しているか</li>
 
-<li>株価が下落して利回りだけ高く見えている</li>
+<li>営業キャッシュフローが安定しているか</li>
+
+<li>配当性向が高すぎないか</li>
+
+<li>借入金が過度に増えていないか</li>
+
+<li>過去に大きな減配を繰り返していないか</li>
+
+<li>会社の配当方針はどうなっているか</li>
+
+<li>一時的な特別配当ではないか</li>
 
 </ul>
 
+<div class="warning">
+
+<strong>配当金の原資も確認する</strong><br><br>
+
+企業が利益を十分に出していないのに、
+無理に高い配当を続けている場合、
+将来的に減配される可能性があります。
+
+</div>
+
+<h2 id="payout">配当利回りと配当性向の違い</h2>
+
 <p>
+配当利回りと一緒に確認したい指標が「配当性向」です。
+</p>
 
-という2つのケースがあります。
+<table>
 
+<tr>
+<th>指標</th>
+<th>何を見る？</th>
+</tr>
+
+<tr>
+<td><strong>配当利回り</strong></td>
+<td>
+株価に対して年間配当金がどの程度あるか
+</td>
+</tr>
+
+<tr>
+<td><strong>配当性向</strong></td>
+<td>
+企業の利益のうち、どの程度を配当に回しているか
+</td>
+</tr>
+
+</table>
+
+<p>
+配当利回りだけを見ると、
+投資家側から見た「現在の配当収益性」は確認できます。
+</p>
+
+<p>
+一方、配当性向を見ることで、
+企業が利益に対してどのくらい配当を出しているのかを確認できます。
+</p>
+
+<p>
+詳しくはこちら。
+</p>
+
+<p>
+<a href="dividend-payout-ratio.html">
+<strong>配当性向とは？目安と見方を確認する →</strong>
+</a>
+</p>
+
+<h2>高配当株と連続増配株は違う</h2>
+
+<p>
+高配当株は「現在の配当利回り」に注目する考え方ですが、
+連続増配株は「配当金が長期的に増えているか」に注目します。
+</p>
+
+<div class="guide-grid">
+
+<div class="guide-card">
+
+<h3>高配当株</h3>
+
+<p>
+現在の株価に対して比較的高い配当金が期待される株式。
+</p>
+
+<a href="high-dividend-stocks.html">
+高配当株を詳しく見る →
+</a>
+
+</div>
+
+<div class="guide-card">
+
+<h3>連続増配株</h3>
+
+<p>
+長期間にわたって配当金を増やしている企業の株式。
+</p>
+
+<a href="dividend-growth-stocks.html">
+連続増配株を詳しく見る →
+</a>
+
+</div>
+
+</div>
+
+<h2 id="nisa">配当利回りとNISA</h2>
+
+<p>
+NISAを利用すると、
+制度上の条件を満たす売却益や配当・分配金が非課税になります。
+</p>
+
+<p>
+そのため、長期の配当投資でもNISAは検討対象になります。
 </p>
 
 <div class="warning">
 
-利回りだけを見て投資すると、
+<strong>国内上場株式の配当金は受取方式にも注意</strong><br><br>
 
-減配や株価下落により大きな損失を受ける可能性があります。
+NISA口座で国内上場株式を保有していても、
+配当金の受取方法によってはNISAの非課税扱いにならない場合があります。
 
 </div>
 
-<h2>確認すべきポイント</h2>
-
-<ul>
-
-<li>利益は安定しているか</li>
-
-<li>配当性向は高すぎないか</li>
-
-<li>借入金は多くないか</li>
-
-<li>営業利益は伸びているか</li>
-
-<li>減配履歴はないか</li>
-
-<li>今後も配当を維持できそうか</li>
-
-</ul>
-
-<h2>NISAとの相性</h2>
-
 <p>
-
-NISA口座で保有すると、
-
-一定条件のもと配当金に対する税負担を抑えられるため、
-
-長期投資との相性が良いと考えられています。
-
+詳しくはこちら。
 </p>
 
-<h2>配当利回りだけでは判断しない</h2>
-
 <p>
-
-投資判断では、
-
-配当利回りだけでなく
-
+<a href="nisa-dividend-tax.html">
+<strong>NISAの配当金が非課税になる条件を見る →</strong>
+</a>
 </p>
 
-<ul>
-
-<li>企業の利益</li>
-
-<li>財務内容</li>
-
-<li>将来性</li>
-
-<li>キャッシュフロー</li>
-
-</ul>
+<h2 id="income">配当利回りから必要資産を逆算する</h2>
 
 <p>
+配当金生活を考える場合、
+配当利回りは「必要資産を逆算するための数字」としても使えます。
+</p>
 
-まで確認することが重要です。
+<p>
+例えば年間120万円、つまり月10万円の配当金を目標にした場合です。
+</p>
 
+<table>
+
+<tr>
+<th>想定配当利回り</th>
+<th>年間配当目標</th>
+<th>必要資産</th>
+</tr>
+
+<tr>
+<td>3％</td>
+<td>120万円</td>
+<td>約4,000万円</td>
+</tr>
+
+<tr>
+<td>4％</td>
+<td>120万円</td>
+<td>約3,000万円</td>
+</tr>
+
+<tr>
+<td>5％</td>
+<td>120万円</td>
+<td>約2,400万円</td>
+</tr>
+
+</table>
+
+<p>
+利回りを高く想定するほど必要資産は少なくなりますが、
+その分リスクの高い銘柄を選んでしまう可能性もあります。
+</p>
+
+<p>
+必要資産を下げるためだけに高い配当利回りを追うのは避けたいところです。
+</p>
+
+<div class="cta">
+
+<strong>配当金生活に必要な資産を計算する</strong>
+
+<p>
+月5万円・10万円・20万円・50万円など、
+毎月欲しい配当金と想定利回りから必要な資産を計算できます。
+</p>
+
+<a href="dividend-income.html">
+配当金生活シミュレーターを使う
+</a>
+
+</div>
+
+<h2>配当利回りについてよくある質問</h2>
+
+<h3>配当利回りは何％なら高いですか？</h3>
+
+<p>
+一律に何％以上なら良いとは言えません。
+市場環境や業種によっても異なります。
+高い利回りだけでなく、利益・財務・配当方針まで確認することが重要です。
+</p>
+
+<h3>配当利回り5％は高いですか？</h3>
+
+<p>
+一般的には高配当として注目されやすい水準ですが、
+利回りが高い理由を確認する必要があります。
+株価下落によって一時的に高く見えている場合もあります。
+</p>
+
+<h3>配当利回り10％ならお得ですか？</h3>
+
+<p>
+利回り10％という数字だけで投資判断するのは危険です。
+非常に高い利回りの場合は、
+大幅な株価下落や減配リスクが織り込まれていないか確認しましょう。
+</p>
+
+<h3>配当利回りは株価が変わると変わりますか？</h3>
+
+<p>
+はい。
+年間配当金が同じでも、株価が上がれば利回りは下がり、
+株価が下がれば利回りは上がります。
+</p>
+
+<h3>配当利回りと配当性向はどちらを見ればいいですか？</h3>
+
+<p>
+両方確認するのがおすすめです。
+配当利回りは投資額に対する配当収益を、
+配当性向は企業利益に対する配当の割合を確認する指標です。
+</p>
+
+<h3>NISAなら配当金は全部非課税ですか？</h3>
+
+<p>
+NISAの対象となる配当等は一定の条件で非課税になりますが、
+国内上場株式の配当金では受取方式にも注意が必要です。
 </p>
 
 <h2>まとめ</h2>
 
 <p>
-
-配当利回りは、
-
-配当株投資を行う上で重要な指標です。
-
-しかし、
-
-高い利回りだけに注目するのではなく、
-
-企業の成長性や財務内容も含めて総合的に判断しましょう。
-
+配当利回りとは、
+現在の株価に対して年間配当金がどの程度あるかを表す指標です。
 </p>
+
+<p>
+計算方法は、
+</p>
+
+<div class="box">
+
+年間配当金 ÷ 株価 × 100
+
+</div>
+
+<p>
+です。
+</p>
+
+<p>
+ただし、配当利回りが高いからといって
+必ず良い投資先とは限りません。
+</p>
+
+<p>
+利益、キャッシュフロー、配当性向、財務状況、
+過去の減配履歴なども確認したうえで判断することが重要です。
+</p>
+
+<div class="cta">
+
+<strong>実際に投資を始める前に証券会社も比較</strong>
+
+<p>
+NISA・国内株・手数料・サービスなどを比較して、
+自分の投資スタイルに合う証券会社を確認できます。
+</p>
+
+<a href="securities-comparison.html">
+証券会社を比較する
+</a>
+
+</div>
 
 <div class="related">
 
 <h2>関連ツール・記事</h2>
 
-<a href="dividend-income.html">
-配当金生活シミュレーター
+<a href="dividend.html">
+配当金とは？
+</a>
+
+<a href="dividend-payment-date.html">
+配当金はいつもらえる？
+</a>
+
+<a href="dividend-receive.html">
+配当金の受け取り方とは？
+</a>
+
+<a href="dividend-tax.html">
+配当金にかかる税金とは？
+</a>
+
+<a href="dividend-payout-ratio.html">
+配当性向とは？
+</a>
+
+<a href="nisa-dividend-tax.html">
+NISAで配当金は非課税？
 </a>
 
 <a href="high-dividend-stocks.html">
 高配当株とは？
 </a>
 
-<a href="fire-calculator.html">
-FIRE達成計算機
+<a href="dividend-growth-stocks.html">
+連続増配株とは？
 </a>
 
-<a href="nisa-simulator.html">
-NISA積立シミュレーター
+<a href="high-dividend-etf.html">
+高配当ETFとは？
+</a>
+
+<a href="dividend-reinvestment.html">
+配当金再投資シミュレーター
+</a>
+
+<a href="dividend-income.html">
+配当金生活シミュレーター
+</a>
+
+<a href="dividend-50000.html">
+月5万円の配当金に必要な資産
+</a>
+
+<a href="dividend-100000.html">
+月10万円の配当金に必要な資産
+</a>
+
+<a href="dividend-50man.html">
+月50万円の配当金に必要な資産
+</a>
+
+<a href="securities-comparison.html">
+証券会社を比較する
 </a>
 
 <a href="index.html">
@@ -366,18 +971,79 @@ NISA積立シミュレーター
 </div>
 
 </div>
-
 </div>
 
 <footer>
 
+<p>© 社長の計算機</p>
+
+<p>
 <a href="about.html">運営者情報</a>
-
 <a href="privacy.html">プライバシーポリシー</a>
-
 <a href="contact.html">お問い合わせ</a>
+</p>
 
 </footer>
+
+<script>
+
+function calculateYield(){
+
+const stockPrice =
+Number(document.getElementById('stockPrice').value);
+
+const annualDividend =
+Number(document.getElementById('annualDividend').value);
+
+const result =
+document.getElementById('yieldResult');
+
+const comment =
+document.getElementById('yieldComment');
+
+if(stockPrice <= 0 || annualDividend < 0){
+
+result.textContent = '-';
+
+comment.textContent =
+'株価は0より大きい数字、年間配当金は0以上を入力してください。';
+
+return;
+
+}
+
+const yieldRate =
+annualDividend / stockPrice * 100;
+
+result.textContent =
+yieldRate.toFixed(2) + '％';
+
+let text = '';
+
+if(yieldRate < 2){
+
+text =
+'比較的低い利回りです。ただし、成長企業などでは配当より事業投資を重視している場合があります。';
+
+}else if(yieldRate < 5){
+
+text =
+'配当投資で比較対象になりやすい水準です。企業業績や配当性向も合わせて確認しましょう。';
+
+}else{
+
+text =
+'高い利回りです。株価下落や減配リスクによって利回りが高く見えていないか確認しましょう。';
+
+}
+
+comment.textContent = text;
+
+}
+
+calculateYield();
+
+</script>
 
 </body>
 </html>
