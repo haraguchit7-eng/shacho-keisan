@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>配当金にかかる税金とは？税率20.315％・確定申告・NISAの注意点を解説｜社長の計算機</title>
-<meta name="description" content="配当金にかかる税金、税率20.315％、確定申告が必要なケース、NISAで非課税にするための注意点を初心者向けに解説します。">
+<title>配当金の税金はいくら？税率20.315％・確定申告・NISAを初心者向けに解説｜社長の計算機</title>
+<meta name="description" content="配当金の税金はいくらかかる？上場株式等の配当にかかる20.315％の税率、手取り額、確定申告、総合課税・申告分離課税、NISA、外国株の注意点を初心者向けに解説します。">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://shacho-keisan.com/dividend-tax.html">
 <link rel="icon" href="/favicon.ico">
@@ -21,190 +21,690 @@ gtag('config','G-FETE0W66W2');
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339" crossorigin="anonymous"></script>
 
 <style>
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.9}
-header{background:#0f172a;padding:18px 20px}
-header a{color:#fff;text-decoration:none;font-size:24px;font-weight:800}
-.container{max-width:960px;margin:auto;padding:40px 20px}
-.article{background:#fff;padding:42px;border-radius:22px;box-shadow:0 8px 30px rgba(15,23,42,.06)}
-h1{font-size:clamp(32px,5vw,46px);line-height:1.3}
-h2{margin-top:52px;border-left:6px solid #2563eb;padding-left:14px}
-h3{margin-top:32px}
-.box{background:#eff6ff;padding:22px;border-radius:14px;margin:30px 0}
-.warning{background:#fff7ed;border:1px solid #fdba74;padding:22px;border-radius:14px;margin:30px 0}
-table{width:100%;border-collapse:collapse;margin:30px 0}
-th,td{border:1px solid #dbeafe;padding:14px;text-align:left}
-th{background:#2563eb;color:#fff}
-.cta{background:linear-gradient(135deg,#0f172a,#2563eb);color:#fff;padding:28px;border-radius:18px;margin:44px 0}
-.cta a{display:inline-block;background:#fff;color:#2563eb;font-weight:800;text-decoration:none;padding:12px 18px;border-radius:12px;margin-top:12px}
-.related{margin-top:60px;padding:28px;background:#f8fafc;border-radius:18px}
-.related a{display:block;margin:12px 0;font-weight:700;text-decoration:none;color:#2563eb}
-footer{margin-top:60px;padding:30px;background:#0f172a;text-align:center;color:#fff}
-footer a{color:#fff;margin:0 10px}
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+background:#f8fafc;
+color:#1e293b;
+line-height:1.9
+}
+
+header{
+background:#0f172a;
+padding:18px 20px
+}
+
+header a{
+color:#fff;
+text-decoration:none;
+font-size:24px;
+font-weight:800
+}
+
+.container{
+max-width:960px;
+margin:auto;
+padding:40px 20px
+}
+
+.article{
+background:#fff;
+padding:42px;
+border-radius:22px;
+box-shadow:0 8px 30px rgba(15,23,42,.06)
+}
+
+h1{
+font-size:clamp(32px,5vw,46px);
+line-height:1.3;
+margin-top:0
+}
+
+h2{
+margin-top:52px;
+border-left:6px solid #2563eb;
+padding-left:14px
+}
+
+h3{
+margin-top:32px
+}
+
+.box{
+background:#eff6ff;
+padding:22px;
+border-radius:14px;
+margin:30px 0
+}
+
+.good{
+background:#f0fdf4;
+border:1px solid #86efac;
+padding:22px;
+border-radius:14px;
+margin:30px 0
+}
+
+.warning{
+background:#fff7ed;
+border:1px solid #fdba74;
+padding:22px;
+border-radius:14px;
+margin:30px 0
+}
+
+.toc{
+background:#f8fafc;
+border:1px solid #dbeafe;
+padding:24px;
+border-radius:16px;
+margin:30px 0
+}
+
+.toc strong{
+display:block;
+margin-bottom:10px
+}
+
+.toc a{
+display:block;
+margin:7px 0;
+color:#2563eb;
+font-weight:700;
+text-decoration:none
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin:30px 0
+}
+
+th,td{
+border:1px solid #dbeafe;
+padding:14px;
+text-align:left;
+vertical-align:top
+}
+
+th{
+background:#2563eb;
+color:#fff
+}
+
+.cta{
+background:linear-gradient(135deg,#0f172a,#2563eb);
+color:#fff;
+padding:28px;
+border-radius:18px;
+margin:44px 0
+}
+
+.cta a{
+display:inline-block;
+background:#fff;
+color:#2563eb;
+font-weight:800;
+text-decoration:none;
+padding:12px 18px;
+border-radius:12px;
+margin-top:12px
+}
+
+.related{
+margin-top:60px;
+padding:28px;
+background:#f8fafc;
+border-radius:18px
+}
+
+.related a{
+display:block;
+margin:12px 0;
+font-weight:700;
+text-decoration:none;
+color:#2563eb
+}
+
+.note{
+font-size:14px;
+color:#64748b
+}
+
+footer{
+margin-top:60px;
+padding:30px;
+background:#0f172a;
+text-align:center;
+color:#fff
+}
+
+footer a{
+color:#fff;
+margin:0 10px
+}
+
+@media(max-width:700px){
+
+.article{
+padding:24px
+}
+
+table{
+font-size:14px
+}
+
+th,td{
+padding:10px
+}
+
+}
 </style>
 </head>
 
 <body>
-<header><a href="index.html">社長の計算機</a></header>
+
+<header>
+<a href="index.html">社長の計算機</a>
+</header>
 
 <div class="container">
 <article class="article">
 
-<h1>配当金にかかる税金とは？税率20.315％・確定申告・NISAの注意点を解説</h1>
+<h1>配当金の税金はいくら？税率20.315％・確定申告・NISAを初心者向けに解説</h1>
 
 <p>
-株式投資で配当金を受け取ると、通常は税金がかかります。
-配当金生活や高配当株投資を考えるなら、税引前ではなく「税引後の手取り」で考えることが大切です。
+株式投資で配当金を受け取ると、通常は税金が差し引かれます。
+そのため、配当金生活や高配当株投資を考えるときは、
+「年間配当金」だけでなく<strong>税引後にいくら残るのか</strong>を見ることが重要です。
 </p>
 
 <div class="box">
-<strong>結論：</strong><br>
-上場株式等の配当金には、原則として<strong>20.315％</strong>の税金がかかります。
-ただし、NISA口座で条件を満たせば、配当金を非課税で受け取れる場合があります。
+<strong>結論：</strong><br><br>
+
+個人が受け取る上場株式等の配当等は、
+通常<strong>20.315％</strong>の税率で源泉徴収されます。<br><br>
+
+内訳は、
+
+<ul>
+<li>所得税・復興特別所得税：15.315％</li>
+<li>住民税：5％</li>
+</ul>
+
+です。<br>
+
+一方、NISA口座で条件を満たして受け取る配当金については、
+非課税になる場合があります。
 </div>
 
-<h2>配当金にかかる税率</h2>
+<div class="toc">
+<strong>この記事でわかること</strong>
+<a href="#rate">配当金の税率</a>
+<a href="#takehome">税引後はいくら残る？</a>
+<a href="#return">確定申告は必要？</a>
+<a href="#method">3つの課税方法</a>
+<a href="#loss">株の損失と損益通算できる？</a>
+<a href="#nisa">NISAなら非課税？</a>
+<a href="#foreign">外国株の配当金</a>
+<a href="#life">配当金生活と税金</a>
+</div>
+
+<h2 id="rate">配当金にかかる税率は20.315％</h2>
+
+<p>
+個人が受け取る上場株式等の配当等については、
+通常、配当金が支払われる時点で税金が源泉徴収されます。
+</p>
 
 <table>
 <tr>
-<th>項目</th>
+<th>税金</th>
 <th>税率</th>
 </tr>
+
 <tr>
 <td>所得税・復興特別所得税</td>
 <td>15.315％</td>
 </tr>
+
 <tr>
 <td>住民税</td>
 <td>5％</td>
 </tr>
+
 <tr>
-<td>合計</td>
-<td>20.315％</td>
+<td><strong>合計</strong></td>
+<td><strong>20.315％</strong></td>
 </tr>
 </table>
 
-<h2>配当金100万円なら税金はいくら？</h2>
-
 <p>
-年間100万円の配当金を受け取る場合、20.315％で計算すると、税金は約203,150円です。
-</p>
-
-<div class="box">
-100万円 × 20.315％ ＝ 約203,150円
-</div>
-
-<p>
-つまり、税引後の手取りは約796,850円になります。
-</p>
-
-<h2>配当金は確定申告が必要？</h2>
-
-<p>
-上場株式等の配当金は、源泉徴収されている場合、確定申告不要制度を選べるケースがあります。
-</p>
-
-<p>
-ただし、確定申告をすることで、配当控除を使える場合や、株式の譲渡損失と損益通算できる場合があります。
-</p>
-
-<h2>総合課税と申告分離課税の違い</h2>
-
-<table>
-<tr>
-<th>課税方法</th>
-<th>特徴</th>
-</tr>
-<tr>
-<td>総合課税</td>
-<td>給与など他の所得と合算して税額を計算。配当控除を使える場合がある</td>
-</tr>
-<tr>
-<td>申告分離課税</td>
-<td>他の所得と分けて20.315％で課税。株式の譲渡損失と損益通算できる場合がある</td>
-</tr>
-<tr>
-<td>申告不要</td>
-<td>源泉徴収だけで完結させる方法。確定申告をしない選択</td>
-</tr>
-</table>
-
-<h2>NISAなら配当金は非課税になる？</h2>
-
-<p>
-NISA口座で保有する株式や投資信託から得られる配当金・分配金は、条件を満たせば非課税になります。
-</p>
-
-<p>
-ただし、国内上場株式の配当金をNISAで非課税にするには、配当金の受取方法を<strong>株式数比例配分方式</strong>にしておく必要があります。
+つまり、通常の課税口座で受け取る場合、
+表示されている配当金がそのまま全額手元に残るわけではありません。
 </p>
 
 <div class="warning">
 <strong>注意：</strong><br>
-NISA口座で国内株式を保有していても、配当金の受取方法が株式数比例配分方式でない場合、配当金が課税されることがあります。
+この記事では主に、個人が受け取る国内の上場株式等の配当を前提に説明しています。
+非上場株式、外国株、法人による受取などでは税務上の扱いが異なる場合があります。
 </div>
 
-<h2>外国株の配当金はどうなる？</h2>
+<h2 id="takehome">配当金の税引後はいくら残る？</h2>
 
 <p>
-米国株など外国株の配当金は、現地で源泉徴収されたうえで、日本でも課税される場合があります。
+20.315％が源泉徴収される前提で、
+税引後の手取り額を単純計算してみましょう。
+</p>
+
+<table>
+<tr>
+<th>税引前の配当金</th>
+<th>税額の目安</th>
+<th>税引後の手取り目安</th>
+</tr>
+
+<tr>
+<td>10万円</td>
+<td>20,315円</td>
+<td>79,685円</td>
+</tr>
+
+<tr>
+<td>50万円</td>
+<td>101,575円</td>
+<td>398,425円</td>
+</tr>
+
+<tr>
+<td>100万円</td>
+<td>203,150円</td>
+<td>796,850円</td>
+</tr>
+
+<tr>
+<td>300万円</td>
+<td>609,450円</td>
+<td>2,390,550円</td>
+</tr>
+
+<tr>
+<td>600万円</td>
+<td>1,218,900円</td>
+<td>4,781,100円</td>
+</tr>
+</table>
+
+<p class="note">
+※20.315％を単純に掛けた概算です。実際の税額は課税方法、口座、確定申告などによって異なる場合があります。
+</p>
+
+<h3>配当金100万円なら？</h3>
+
+<div class="box">
+<strong>税引前配当：</strong>1,000,000円<br>
+<strong>税金：</strong>約203,150円<br>
+<strong>手取り：</strong>約796,850円
+</div>
+
+<p>
+配当金生活を考えるときに重要なのは、
+「年間100万円の配当をもらう」ことと
+「年間100万円を手取りで受け取る」ことは違うという点です。
+</p>
+
+<h2>手取り100万円の配当金を得るには？</h2>
+
+<p>
+20.315％が差し引かれると仮定した場合、
+手取り100万円を得るために必要な税引前配当金は概算で約125.5万円です。
+</p>
+
+<div class="good">
+<strong>計算イメージ</strong><br><br>
+
+1,000,000円 ÷（1 − 0.20315）<br>
+＝ 約1,254,939円<br><br>
+
+つまり、約125.5万円の税引前配当が必要という計算です。
+</div>
+
+<h2 id="return">配当金は確定申告が必要？</h2>
+
+<p>
+上場株式等の配当等については、
+支払時に税金が源泉徴収されているため、
+一定の場合には<strong>申告不要制度</strong>を選択できます。
 </p>
 
 <p>
-外国税額控除を使えるケースもありますが、NISA口座では扱いが異なる場合があります。
-外国株・海外ETFに投資する場合は、証券会社や税務署で確認しましょう。
-</p>
-
-<h2>配当金生活は税引後で考える</h2>
-
-<p>
-配当金生活を目指す場合、重要なのは税引前の配当金ではなく、実際に手元に残る税引後の金額です。
+つまり、配当金を受け取った人が必ず確定申告しなければならない、
+というわけではありません。
 </p>
 
 <p>
-例えば、手取りで月10万円の配当金が欲しい場合、通常口座では税金を考慮して、税引前では年間150万円前後の配当金が必要になることがあります。
+一方で、確定申告をすることで、
+配当控除を利用できる場合や、
+上場株式等の譲渡損失と損益通算できる場合があります。
+</p>
+
+<div class="warning">
+<strong>「確定申告した方が得」とは一概に言えません。</strong><br><br>
+
+所得金額、他の所得、株式の損益、社会保険料などによって結果が変わる可能性があります。
+確定申告を選択する場合は、自分の状況に応じて判断する必要があります。
+</div>
+
+<h2 id="method">配当金の3つの課税方法</h2>
+
+<p>
+上場株式等の配当等では、
+一定の場合に申告不要、総合課税、申告分離課税といった選択肢があります。
+</p>
+
+<table>
+<tr>
+<th>方法</th>
+<th>主な特徴</th>
+</tr>
+
+<tr>
+<td><strong>申告不要</strong></td>
+<td>
+源泉徴収で課税関係を完結させる方法。
+確定申告をしない選択。
+</td>
+</tr>
+
+<tr>
+<td><strong>総合課税</strong></td>
+<td>
+給与など他の所得と合算して所得税を計算。
+一定の国内株式等の配当では配当控除を利用できる場合がある。
+</td>
+</tr>
+
+<tr>
+<td><strong>申告分離課税</strong></td>
+<td>
+他の所得とは分けて課税。
+一定の上場株式等の譲渡損失との損益通算などができる場合がある。
+</td>
+</tr>
+</table>
+
+<h3>総合課税が向いているのは？</h3>
+
+<p>
+一定の国内株式等の配当では、
+総合課税を選択することで配当控除を利用できる場合があります。
+</p>
+
+<p>
+ただし、総合課税では給与など他の所得と合算されるため、
+所得状況によって税負担が変わります。
+</p>
+
+<h3>申告分離課税が向いているのは？</h3>
+
+<p>
+上場株式等の売却で損失が出ている場合などは、
+申告分離課税を選択することで、
+一定の要件のもと配当等と譲渡損失を損益通算できる場合があります。
+</p>
+
+<h2 id="loss">株の損失と配当金は損益通算できる？</h2>
+
+<p>
+上場株式等の譲渡で損失が発生している場合、
+一定の要件を満たして確定申告を行うことで、
+上場株式等の配当等と損益通算できる場合があります。
+</p>
+
+<div class="box">
+<strong>例えば</strong><br><br>
+
+上場株式等の譲渡損失：▲50万円<br>
+対象となる配当等：50万円<br><br>
+
+一定の要件を満たして損益通算できれば、
+税負担が変わる可能性があります。
+</div>
+
+<p>
+ただし、対象となる所得や申告方法には条件があります。
+実際に確定申告する場合は、国税庁の最新情報や税理士などへ確認してください。
+</p>
+
+<h2 id="nisa">NISAなら配当金は非課税になる？</h2>
+
+<p>
+NISA口座では、
+制度の対象となる投資から得た売却益や配当・分配金について、
+一定の条件のもとで非課税になります。
+</p>
+
+<p>
+ただし、国内上場株式の配当金については、
+<strong>株式数比例配分方式</strong>で受け取ることが重要です。
+</p>
+
+<div class="good">
+<strong>NISAで国内上場株式の配当金を非課税で受け取りたい</strong><br><br>
+
+NISA口座で株を保有<br>
+＋<br>
+<strong>株式数比例配分方式で配当金を受け取る</strong>
+</div>
+
+<div class="warning">
+<strong>注意：</strong><br>
+NISA口座で国内上場株式を保有していても、
+配当金の受取方式によってはNISAの非課税扱いにならない場合があります。
+</div>
+
+<p>
+詳しくはこちらで解説しています。
+</p>
+
+<p>
+<a href="nisa-dividend-tax.html">
+<strong>NISAの配当金が非課税になる条件を見る →</strong>
+</a>
+</p>
+
+<p>
+受取方式そのものについてはこちら。
+</p>
+
+<p>
+<a href="dividend-receive.html">
+<strong>配当金の4つの受け取り方を見る →</strong>
+</a>
+</p>
+
+<h2 id="foreign">米国株など外国株の配当金は？</h2>
+
+<p>
+米国株などの外国株から配当金を受け取る場合は、
+日本株とは税金の仕組みが異なる場合があります。
+</p>
+
+<p>
+外国で税金が源泉徴収されたうえで、
+日本でも課税されるケースがあるためです。
+</p>
+
+<p>
+課税口座では一定の場合に外国税額控除を利用できることがありますが、
+対象や計算方法には条件があります。
+</p>
+
+<div class="warning">
+<strong>NISAでも外国での課税までゼロになるとは限りません。</strong><br><br>
+
+NISAによる非課税は日本国内の税制上の取扱いです。
+投資先の国で源泉徴収される税金がある場合、
+NISAを利用していても外国で課税されることがあります。
+</div>
+
+<h2 id="life">配当金生活は「税引後」で考える</h2>
+
+<p>
+配当金生活を目指す場合は、
+税引前の配当額ではなく、
+<strong>実際に生活費として使える手取り額</strong>から逆算することが重要です。
+</p>
+
+<h3>手取り月10万円欲しい場合</h3>
+
+<p>
+月10万円なら年間の手取り目標は120万円です。
+</p>
+
+<p>
+20.315％が差し引かれると単純仮定すると、
+必要な税引前配当は約150.6万円になります。
+</p>
+
+<div class="box">
+年間手取り目標：1,200,000円<br><br>
+
+1,200,000円 ÷（1 − 0.20315）<br>
+＝ 約1,505,929円<br><br>
+
+<strong>税引前で年間約150.6万円の配当が必要</strong>
+</div>
+
+<p>
+さらに、仮に配当利回り4％で考えると、
+単純計算では約3,765万円の投資元本が必要になります。
+</p>
+
+<p class="note">
+※税率20.315％、配当利回り4％が一定であると仮定した単純計算です。将来の配当や利回りを保証するものではありません。
 </p>
 
 <div class="cta">
-<strong>配当金生活に必要な資産を計算してみましょう</strong>
+
+<strong>自分の場合はいくら必要？</strong>
+
 <p>
-税金を考慮しながら、毎月いくらの配当金を目指すかを確認しましょう。
+月5万円・10万円・20万円・50万円など、
+目標配当金と想定利回りから必要な資産額を計算できます。
 </p>
-<a href="dividend-income.html">配当金生活シミュレーターを使う</a>
+
+<a href="dividend-income.html">
+配当金生活シミュレーターを使う
+</a>
+
 </div>
+
+<h2>配当金の税金でよくある質問</h2>
+
+<h3>配当金の税率は必ず20.315％ですか？</h3>
+
+<p>
+個人が受け取る上場株式等の配当等では、
+通常20.315％が源泉徴収されます。
+ただし、配当の種類や確定申告で選択する課税方法などによって扱いが異なる場合があります。
+</p>
+
+<h3>配当金100万円の手取りはいくらですか？</h3>
+
+<p>
+20.315％を単純に差し引く場合、
+税額は203,150円、手取りは796,850円です。
+</p>
+
+<h3>配当金だけでも確定申告が必要ですか？</h3>
+
+<p>
+上場株式等の配当等では、
+一定の場合に申告不要制度を選択できます。
+そのため、配当金を受け取ったから必ず確定申告が必要というわけではありません。
+</p>
+
+<h3>NISAの配当金にも税金がかかりますか？</h3>
+
+<p>
+NISAの対象となる配当・分配金は一定の条件のもと非課税になります。
+国内上場株式の配当金については、受取方式にも注意してください。
+</p>
+
+<h3>配当金と株の損失を相殺できますか？</h3>
+
+<p>
+一定の上場株式等の配当等について申告分離課税を選択するなど、
+要件を満たすことで上場株式等の譲渡損失と損益通算できる場合があります。
+</p>
+
+<h3>外国株なら税金はどうなりますか？</h3>
+
+<p>
+投資先の国で源泉徴収されたうえで、
+日本でも課税される場合があります。
+外国税額控除を利用できる場合もありますが、NISAでは扱いが異なるため注意が必要です。
+</p>
 
 <h2>まとめ</h2>
 
 <p>
-配当金には、通常20.315％の税金がかかります。
-ただし、NISAを活用すれば、条件を満たした範囲で非課税にできる場合があります。
+個人が受け取る上場株式等の配当等には、
+通常<strong>20.315％</strong>の税金が源泉徴収されます。
 </p>
 
 <p>
-配当投資では、配当利回りだけでなく、税金・NISA・受取方法・確定申告の扱いまで理解しておくことが大切です。
+そのため配当投資では、
+「配当利回り4％だから年間○万円」という税引前の計算だけではなく、
+実際に手元へ残る税引後の金額まで考えることが重要です。
+</p>
+
+<p>
+また、確定申告では、
+申告不要・総合課税・申告分離課税などによって結果が変わる場合があります。
+NISAを利用する場合も、国内上場株式の配当金については受取方式を確認しておきましょう。
+</p>
+
+<p class="note">
+本ページは一般的な制度の解説を目的としています。個別の税務判断については、国税庁の最新情報や税理士等の専門家へご確認ください。
 </p>
 
 <div class="related">
+
 <h2>関連記事</h2>
+
 <a href="dividend.html">配当金とは？</a>
+<a href="dividend-payment-date.html">配当金はいつもらえる？</a>
 <a href="dividend-receive.html">配当金の受け取り方とは？</a>
 <a href="nisa-dividend-tax.html">NISAで配当金は非課税？</a>
 <a href="dividend-yield.html">配当利回りとは？</a>
+<a href="dividend-payout-ratio.html">配当性向とは？</a>
+<a href="high-dividend-stocks.html">高配当株とは？</a>
+<a href="dividend-growth-stocks.html">連続増配株とは？</a>
 <a href="dividend-income.html">配当金生活シミュレーター</a>
-<a href="sbi-securities.html">SBI証券とは？</a>
-<a href="rakuten-securities.html">楽天証券とは？</a>
+<a href="dividend-reinvestment.html">配当金再投資シミュレーター</a>
+<a href="dividend-50000.html">月5万円の配当金に必要な資産</a>
+<a href="dividend-100000.html">月10万円の配当金に必要な資産</a>
+<a href="dividend-50man.html">月50万円の配当金に必要な資産</a>
+<a href="securities-comparison.html">証券会社を比較する</a>
 <a href="index.html">社長の計算機トップページ</a>
+
 </div>
 
 </article>
 </div>
 
 <footer>
+
 <p>© 社長の計算機</p>
+
 <p>
 <a href="about.html">運営者情報</a>
 <a href="privacy.html">プライバシーポリシー</a>
 <a href="contact.html">お問い合わせ</a>
 </p>
+
 </footer>
 
 </body>
