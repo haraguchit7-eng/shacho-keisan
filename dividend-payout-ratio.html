@@ -1,244 +1,1094 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-FETE0W66W2');
-</script>
-<link rel="icon" href="favicon.ico">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>配当性向とは？高いほど良い？初心者向けにわかりやすく解説｜社長の計算機</title>
-<meta name="description" content="配当性向とは何かを初心者向けに解説。計算方法、目安、高い場合・低い場合の見方、高配当株投資で確認すべきポイントをわかりやすく紹介します。">
+<title>配当性向とは？計算方法・目安・高いほど良いのかを初心者向けに解説｜社長の計算機</title>
+
+<meta name="description" content="配当性向とは何かを初心者向けに解説。純利益と配当金総額を入力して配当性向を無料計算できます。計算方法、目安、100％超の意味、配当利回りとの違い、高配当株を見るポイントまでわかりやすく説明します。">
+
+<meta name="robots" content="index,follow">
+
 <link rel="canonical" href="https://shacho-keisan.com/dividend-payout-ratio.html">
+<link rel="icon" href="/favicon.ico">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FETE0W66W2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FETE0W66W2');
+</script>
+
+<!-- Google AdSense -->
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7727189974775339"
+crossorigin="anonymous"></script>
 
 <style>
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#f8fbff;color:#0f172a;line-height:1.9}
-header{background:#0f172a;padding:18px 24px}
-header a{color:#fff;text-decoration:none;font-weight:800;font-size:22px}
-.container{max-width:920px;margin:0 auto;padding:50px 20px}
-.article{background:#fff;border:1px solid #dbeafe;border-radius:24px;padding:40px;box-shadow:0 10px 30px rgba(15,23,42,.06)}
-h1{font-size:clamp(32px,5vw,46px);line-height:1.3;margin-bottom:24px}
-h2{font-size:28px;margin-top:48px;border-left:6px solid #2563eb;padding-left:14px}
-h3{font-size:22px;margin-top:32px}
-p{margin:18px 0}
-ul{padding-left:24px}
-.box{background:#eff6ff;border-radius:18px;padding:24px;margin:32px 0}
-.warning{background:#fff7ed;border:1px solid #fdba74;border-radius:18px;padding:24px;margin:32px 0}
-.table-wrap{overflow-x:auto;margin:28px 0}
-table{width:100%;border-collapse:collapse;background:#fff}
-th,td{border:1px solid #dbeafe;padding:14px;text-align:left;vertical-align:top}
-th{background:#eff6ff}
-.related{margin-top:48px;padding:28px;background:#f8fafc;border-radius:20px}
-.related a{display:block;color:#2563eb;font-weight:700;margin:12px 0;text-decoration:none}
-footer{margin-top:60px;background:#0f172a;color:#cbd5e1;text-align:center;padding:30px 20px}
-footer a{color:#fff;margin:0 10px}
-@media(max-width:700px){.article{padding:24px}}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+background:#f8fbff;
+color:#0f172a;
+line-height:1.9;
+}
+
+header{
+background:#0f172a;
+padding:18px 24px;
+}
+
+header a{
+color:#fff;
+text-decoration:none;
+font-weight:800;
+font-size:22px;
+}
+
+.container{
+max-width:920px;
+margin:0 auto;
+padding:50px 20px;
+}
+
+.article{
+background:#fff;
+border:1px solid #dbeafe;
+border-radius:24px;
+padding:40px;
+box-shadow:0 10px 30px rgba(15,23,42,.06);
+}
+
+h1{
+font-size:clamp(32px,5vw,46px);
+line-height:1.3;
+margin:0 0 24px;
+}
+
+h2{
+font-size:28px;
+margin-top:52px;
+border-left:6px solid #2563eb;
+padding-left:14px;
+}
+
+h3{
+font-size:22px;
+margin-top:32px;
+}
+
+p{
+margin:18px 0;
+}
+
+ul{
+padding-left:24px;
+}
+
+.box{
+background:#eff6ff;
+border-radius:18px;
+padding:24px;
+margin:32px 0;
+}
+
+.good{
+background:#f0fdf4;
+border:1px solid #86efac;
+border-radius:18px;
+padding:24px;
+margin:32px 0;
+}
+
+.warning{
+background:#fff7ed;
+border:1px solid #fdba74;
+border-radius:18px;
+padding:24px;
+margin:32px 0;
+}
+
+.toc{
+background:#f8fafc;
+border:1px solid #dbeafe;
+padding:24px;
+border-radius:16px;
+margin:30px 0;
+}
+
+.toc strong{
+display:block;
+margin-bottom:10px;
+}
+
+.toc a{
+display:block;
+margin:7px 0;
+font-weight:700;
+color:#2563eb;
+text-decoration:none;
+}
+
+.calc{
+background:#f8fafc;
+border:1px solid #dbeafe;
+padding:28px;
+border-radius:20px;
+margin:34px 0;
+}
+
+.calc-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.calc label{
+display:block;
+font-weight:800;
+margin-bottom:7px;
+}
+
+.calc input{
+width:100%;
+box-sizing:border-box;
+min-height:52px;
+padding:10px 14px;
+border:1px solid #cbd5e1;
+border-radius:12px;
+font-size:17px;
+}
+
+.calc button{
+width:100%;
+margin-top:20px;
+padding:15px;
+border:0;
+border-radius:13px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+font-size:17px;
+font-weight:900;
+cursor:pointer;
+}
+
+.result{
+margin-top:22px;
+background:#eff6ff;
+border:2px solid #93c5fd;
+padding:22px;
+border-radius:16px;
+}
+
+.result strong{
+display:block;
+font-size:30px;
+color:#1d4ed8;
+margin:5px 0;
+}
+
+.table-wrap{
+overflow-x:auto;
+margin:28px 0;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#fff;
+}
+
+th,td{
+border:1px solid #dbeafe;
+padding:14px;
+text-align:left;
+vertical-align:top;
+}
+
+th{
+background:#eff6ff;
+}
+
+.guide-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+margin:28px 0;
+}
+
+.guide-card{
+border:1px solid #e2e8f0;
+border-radius:16px;
+padding:22px;
+background:#fff;
+}
+
+.guide-card h3{
+margin-top:0;
+}
+
+.guide-card a{
+font-weight:800;
+color:#2563eb;
+text-decoration:none;
+}
+
+.cta{
+background:linear-gradient(135deg,#0f172a,#2563eb);
+color:#fff;
+padding:28px;
+border-radius:18px;
+margin:44px 0;
+}
+
+.cta a{
+display:inline-block;
+background:#fff;
+color:#2563eb;
+font-weight:800;
+text-decoration:none;
+padding:12px 18px;
+border-radius:12px;
+margin-top:12px;
+}
+
+.related{
+margin-top:50px;
+background:#f8fafc;
+padding:30px;
+border-radius:18px;
+}
+
+.related a{
+display:block;
+margin:12px 0;
+font-weight:bold;
+color:#2563eb;
+text-decoration:none;
+}
+
+.note{
+font-size:14px;
+color:#64748b;
+}
+
+footer{
+margin-top:60px;
+background:#0f172a;
+color:#cbd5e1;
+text-align:center;
+padding:30px 20px;
+}
+
+footer a{
+color:#fff;
+margin:0 10px;
+}
+
+@media(max-width:700px){
+
+.article{
+padding:24px;
+}
+
+.calc-grid,
+.guide-grid{
+grid-template-columns:1fr;
+}
+
+table{
+font-size:14px;
+}
+
+th,td{
+padding:10px;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <a href="index.html">社長の計算機</a>
+<a href="index.html">社長の計算機</a>
 </header>
 
 <main class="container">
 
 <article class="article">
 
-<h1>配当性向とは？高いほど良い？初心者向けにわかりやすく解説</h1>
+<h1>配当性向とは？計算方法・目安・高いほど良いのかを初心者向けに解説</h1>
 
 <p>
-高配当株や配当金投資について調べると、「配当性向」という言葉を目にすることがあります。
+高配当株や配当金投資について調べると、
+「配当性向」という言葉をよく目にします。
 </p>
 
 <p>
-配当利回りが「株価に対してどれくらい配当をもらえるか」を見る指標なのに対して、
-配当性向は「会社の利益のうち、どれくらいを配当に回しているか」を見る指標です。
-</p>
-
-<div class="box">
-<strong>結論：</strong>
-配当性向は、配当が無理なく続けられるかを確認するための重要な指標です。
-高ければ良いわけではなく、利益とのバランスを見ることが大切です。
-</div>
-
-<h2>配当性向とは？</h2>
-
-<p>
-配当性向とは、会社が稼いだ利益のうち、どれくらいを株主への配当に回しているかを表す割合です。
+配当利回りが「株価に対してどのくらい配当を受け取れるか」を見る指標なのに対し、
+配当性向は<strong>会社が稼いだ利益のうち、どのくらいを配当に回しているか</strong>を見る指標です。
 </p>
 
 <div class="box">
-配当性向（％）＝ 配当金総額 ÷ 当期純利益 × 100
+
+<strong>結論：</strong><br><br>
+
+配当性向は、
+企業が利益のうち何％を株主への配当に使っているのかを見る指標です。<br><br>
+
+ただし、
+
+<strong>配当性向が高い＝良い会社</strong>
+
+ではありません。<br><br>
+
+配当の継続性を見るためには、
+配当性向だけでなく利益・キャッシュフロー・財務・配当方針まで合わせて確認することが重要です。
+
+</div>
+
+<div class="toc">
+
+<strong>この記事でわかること</strong>
+
+<a href="#calculator">配当性向を計算する</a>
+<a href="#what">配当性向とは？</a>
+<a href="#guide">配当性向の目安</a>
+<a href="#high">高いとどうなる？</a>
+<a href="#over100">100％超は危険？</a>
+<a href="#low">低い会社は悪い？</a>
+<a href="#yield">配当利回りとの違い</a>
+<a href="#check">高配当株を見るポイント</a>
+
+</div>
+
+<h2 id="calculator">配当性向計算機</h2>
+
+<p>
+当期純利益と配当金総額を入力すると、
+配当性向を自動計算できます。
+</p>
+
+<div class="calc">
+
+<div class="calc-grid">
+
+<div>
+<label for="netIncome">当期純利益（円）</label>
+<input
+type="number"
+id="netIncome"
+min="1"
+step="10000"
+value="1000000000">
+</div>
+
+<div>
+<label for="totalDividend">配当金総額（円）</label>
+<input
+type="number"
+id="totalDividend"
+min="0"
+step="10000"
+value="300000000">
+</div>
+
+</div>
+
+<button type="button" onclick="calculatePayout()">
+配当性向を計算する
+</button>
+
+<div class="result">
+
+配当性向
+
+<strong id="payoutResult">30.0％</strong>
+
+<span id="payoutComment">
+純利益10億円、配当総額3億円の場合の単純計算です。
+</span>
+
+</div>
+
+</div>
+
+<p class="note">
+※単純計算による参考値です。企業によって配当方針や使用する利益指標が異なる場合があります。実際の投資判断では各社の決算資料・IR情報をご確認ください。
+</p>
+
+<h2 id="what">配当性向とは？</h2>
+
+<p>
+配当性向とは、
+会社が稼いだ利益のうち、
+どの程度を株主への配当に回しているかを表す割合です。
+</p>
+
+<div class="box">
+
+<strong>配当性向（％）</strong><br><br>
+
+配当金総額 ÷ 当期純利益 × 100
+
 </div>
 
 <p>
-たとえば、会社の純利益が10億円で、配当金総額が3億円なら、配当性向は30%です。
+例えば、
+当期純利益が10億円、
+年間の配当金総額が3億円なら、
+</p>
+
+<div class="box">
+
+3億円 ÷ 10億円 × 100<br><br>
+
+＝ <strong>30％</strong>
+
+</div>
+
+<p>
+となります。
 </p>
 
 <p>
-この場合、利益の30%を株主へ配当し、残り70%を会社の内部留保や成長投資に回していると考えられます。
+単純に考えると、
+利益の30％を株主へ配当し、
+残りの70％を内部留保や成長投資などへ回していることになります。
 </p>
 
-<h2>配当性向の目安</h2>
+<h2>1株あたりの数字でも計算できる</h2>
 
 <p>
-配当性向の適正水準は業種や会社の成長段階によって異なります。
-ただし、初心者が見る目安としては次のように考えられます。
+配当性向は、
+1株あたり配当金と1株あたり利益（EPS）から計算することもできます。
+</p>
+
+<div class="box">
+
+1株あたり配当金 ÷ 1株あたり利益（EPS） × 100
+
+</div>
+
+<p>
+例えばEPSが200円、
+年間配当金が60円なら、
+</p>
+
+<div class="good">
+
+60円 ÷ 200円 × 100<br><br>
+
+＝ <strong>配当性向30％</strong>
+
+</div>
+
+<p>
+企業の決算資料ではEPSや1株配当が掲載されていることも多いため、
+個人投資家が確認しやすい方法です。
+</p>
+
+<h2 id="guide">配当性向の目安は何％？</h2>
+
+<p>
+配当性向に「何％なら必ず安全」という基準はありません。
+業種、企業の成長段階、財務状況、配当方針などによって適切な水準は異なります。
+</p>
+
+<p>
+そのうえで、数字を見るための一つの参考として整理すると次のようになります。
 </p>
 
 <div class="table-wrap">
+
 <table>
-  <tr>
-    <th>配当性向</th>
-    <th>見方の目安</th>
-  </tr>
-  <tr>
-    <td>20〜40%</td>
-    <td>比較的バランスが良い水準と見られやすい</td>
-  </tr>
-  <tr>
-    <td>50〜70%</td>
-    <td>株主還元に積極的。ただし利益変動時は注意</td>
-  </tr>
-  <tr>
-    <td>80%以上</td>
-    <td>利益の大半を配当に回している状態。継続性を確認したい</td>
-  </tr>
-  <tr>
-    <td>100%以上</td>
-    <td>利益以上に配当している状態。減配リスクに注意</td>
-  </tr>
+
+<tr>
+<th>配当性向</th>
+<th>見方の一例</th>
+</tr>
+
+<tr>
+<td>0〜20％台</td>
+<td>
+配当へ回す割合は比較的小さい。成長投資を優先している企業などもあります。
+</td>
+</tr>
+
+<tr>
+<td>20〜40％台</td>
+<td>
+利益の一部を還元しつつ、企業内にも利益を残している状態。
+</td>
+</tr>
+
+<tr>
+<td>50〜70％台</td>
+<td>
+株主還元の割合が比較的大きい。利益が減少した場合の余裕も確認したい水準。
+</td>
+</tr>
+
+<tr>
+<td>80〜100％</td>
+<td>
+利益の大半を配当へ回している状態。利益・キャッシュフロー・財務の確認がより重要。
+</td>
+</tr>
+
+<tr>
+<td>100％超</td>
+<td>
+当期利益を上回る配当となっている計算。背景を詳しく確認する必要があります。
+</td>
+</tr>
+
 </table>
+
 </div>
-
-<h2>配当性向が高いと良いのか？</h2>
-
-<p>
-配当性向が高い会社は、株主への還元を重視しているように見えます。
-しかし、高ければ高いほど良いというわけではありません。
-</p>
-
-<p>
-利益の多くを配当に回している場合、会社に残る資金が少なくなります。
-そのため、将来の設備投資、研究開発、借入返済、事業拡大に使えるお金が限られる可能性があります。
-</p>
-
-<h3>配当性向が高い会社で注意すべきこと</h3>
-
-<ul>
-  <li>今後も利益が安定して出るか</li>
-  <li>無理な配当をしていないか</li>
-  <li>借入金が多すぎないか</li>
-  <li>成長投資に必要な資金を残せているか</li>
-  <li>一時的な特別利益で配当していないか</li>
-</ul>
 
 <div class="warning">
-<strong>注意：</strong>
-配当性向が100%を超えている場合、利益以上の配当をしている可能性があります。
-継続的に続けるのは難しいケースもあるため、減配リスクを確認しましょう。
+
+<strong>この表だけで「安全・危険」を決めないでください。</strong><br><br>
+
+同じ配当性向50％でも、
+成熟企業と高成長企業では意味が異なる場合があります。
+
 </div>
 
-<h2>配当性向が低い会社は悪いのか？</h2>
+<h2 id="high">配当性向が高いほど良い？</h2>
 
 <p>
-配当性向が低い会社は、配当が少ないように見えるかもしれません。
-しかし、必ずしも悪いとは限りません。
+配当性向が高い企業は、
+利益の多くを株主へ還元していることになります。
 </p>
 
 <p>
-成長企業の場合、利益を配当に回すよりも、事業投資や研究開発に使った方が将来の企業価値向上につながることがあります。
+配当投資をしている人から見ると魅力的に感じるかもしれませんが、
+高ければ高いほど良いわけではありません。
 </p>
 
-<h3>配当性向が低い会社の見方</h3>
+<div class="guide-grid">
+
+<div class="guide-card">
+
+<h3>メリット</h3>
+
+<p>
+利益に対して株主還元へ回している割合が高く、
+配当を重視する姿勢が数字に表れる場合があります。
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>注意点</h3>
+
+<p>
+利益の多くを配当に使うと、
+成長投資・設備投資・借入返済などへ使える資金が少なくなる可能性があります。
+</p>
+
+</div>
+
+</div>
+
+<h3>利益が減ったときにどうなるか</h3>
+
+<p>
+年間配当金が同じでも、
+利益が減少すると配当性向は上昇します。
+</p>
+
+<table>
+
+<tr>
+<th>当期純利益</th>
+<th>配当総額</th>
+<th>配当性向</th>
+</tr>
+
+<tr>
+<td>10億円</td>
+<td>3億円</td>
+<td>30％</td>
+</tr>
+
+<tr>
+<td>6億円</td>
+<td>3億円</td>
+<td>50％</td>
+</tr>
+
+<tr>
+<td>3億円</td>
+<td>3億円</td>
+<td>100％</td>
+</tr>
+
+</table>
+
+<p>
+配当金を変えなくても、
+利益が10億円から3億円へ減れば配当性向は30％から100％になります。
+</p>
+
+<p>
+つまり、
+<strong>配当性向の急上昇は利益悪化によって起きている可能性もある</strong>
+ということです。
+</p>
+
+<h2 id="over100">配当性向100％超は危険？</h2>
+
+<p>
+配当性向が100％を超えると、
+単純計算では当期利益を上回る配当をしていることになります。
+</p>
+
+<div class="warning">
+
+<strong>100％超だから即「危険」とは限りません。</strong><br><br>
+
+例えば、
 
 <ul>
-  <li>成長投資に資金を使っているか</li>
-  <li>利益が増えているか</li>
-  <li>将来の増配余地があるか</li>
-  <li>株価成長を重視している会社か</li>
+<li>一時的に利益が落ち込んだ</li>
+<li>特別配当を実施した</li>
+<li>過去の利益や現預金を使って株主還元した</li>
+<li>一時的な損失で当期利益が小さくなった</li>
+</ul>
+
+などの可能性があります。
+
+</div>
+
+<p>
+ただし、配当性向100％超が継続している場合は、
+現在の配当を長期間維持できるのかを確認した方がよいでしょう。
+</p>
+
+<h3>確認したいポイント</h3>
+
+<ul>
+
+<li>当期利益が一時的に減っただけなのか</li>
+
+<li>営業キャッシュフローは黒字か</li>
+
+<li>現預金に余裕があるか</li>
+
+<li>借入金が大きく増えていないか</li>
+
+<li>今回だけ特別配当が含まれていないか</li>
+
+<li>企業が今後の配当方針をどう説明しているか</li>
+
+</ul>
+
+<h2>赤字企業の配当性向はどう見る？</h2>
+
+<p>
+当期純利益が赤字の場合、
+通常の配当性向の計算では適切に評価できません。
+</p>
+
+<p>
+分母となる利益がマイナスになるため、
+配当性向という数字だけでは配当の継続性を判断しにくくなるからです。
+</p>
+
+<div class="warning">
+
+赤字でも配当を実施する企業はあります。<br><br>
+
+この場合は、
+
+<strong>配当性向ではなく、現預金・キャッシュフロー・財務・配当方針</strong>
+
+などを詳しく確認しましょう。
+
+</div>
+
+<h2 id="low">配当性向が低い会社は悪い？</h2>
+
+<p>
+配当性向が低い会社を見ると、
+「株主還元に消極的なのでは？」と思うかもしれません。
+</p>
+
+<p>
+しかし、配当性向が低いこと自体が悪いわけではありません。
+</p>
+
+<p>
+特に成長企業では、
+利益を配当に使うよりも、
+
+</p>
+
+<ul>
+
+<li>新規事業</li>
+<li>設備投資</li>
+<li>研究開発</li>
+<li>人材採用</li>
+<li>M&amp;A</li>
+
 </ul>
 
 <p>
-配当性向が低くても、利益成長が続いている会社であれば、将来的に増配する可能性もあります。
+などに再投資した方が、
+将来の企業価値を高められる場合があります。
 </p>
 
-<h2>高配当株を見るときは配当性向も確認する</h2>
+<div class="good">
+
+<strong>配当性向が低い企業を見るポイント</strong>
+
+<ul>
+
+<li>売上・利益が成長しているか</li>
+
+<li>利益を何に再投資しているか</li>
+
+<li>再投資によって企業価値が高まっているか</li>
+
+<li>将来的な増配余地があるか</li>
+
+</ul>
+
+</div>
+
+<h2 id="yield">配当性向と配当利回りの違い</h2>
 
 <p>
-高配当株を選ぶとき、多くの人は配当利回りに注目します。
-しかし、配当利回りだけでは配当の安全性まではわかりません。
+この2つは名前が似ていますが、
+見ているものは大きく異なります。
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>項目</th>
+<th>配当利回り</th>
+<th>配当性向</th>
+</tr>
+
+<tr>
+<td>何を見る？</td>
+<td>株価に対する配当金</td>
+<td>企業利益に対する配当金</td>
+</tr>
+
+<tr>
+<td>主な計算式</td>
+<td>年間配当金 ÷ 株価 × 100</td>
+<td>配当金総額 ÷ 当期純利益 × 100</td>
+</tr>
+
+<tr>
+<td>投資家から見た意味</td>
+<td>現在の配当収益性を見る</td>
+<td>利益に対する配当負担を見る</td>
+</tr>
+
+<tr>
+<td>大きく変動する要因</td>
+<td>株価・配当金</td>
+<td>利益・配当金</td>
+</tr>
+
+</table>
+
+</div>
+
+<p>
+高配当株を見るときは、
+どちらか一方ではなく両方を見ることが重要です。
 </p>
 
 <p>
-配当利回りが高くても、配当性向が極端に高い場合、利益に対して無理な配当をしている可能性があります。
+配当利回りについてはこちら。
+</p>
+
+<p>
+<a href="dividend-yield.html">
+<strong>配当利回り計算機を使う →</strong>
+</a>
+</p>
+
+<h2 id="check">高配当株は「利回り × 配当性向 × 利益」で見る</h2>
+
+<p>
+例えば配当利回りが6％ある株を見つけても、
+それだけでは配当が安全なのかわかりません。
 </p>
 
 <div class="box">
-高配当株を見るときは、  
-<strong>配当利回り × 配当性向 × 利益の安定性</strong>  
-をセットで確認することが大切です。
+
+<strong>高配当株を見る基本セット</strong><br><br>
+
+配当利回り<br>
+＋<br>
+配当性向<br>
+＋<br>
+利益・キャッシュフロー<br>
+＋<br>
+財務状況<br>
+＋<br>
+配当方針
+
 </div>
 
-<h2>配当性向と配当利回りの違い</h2>
+<h3>配当利回りが高く、配当性向も高い場合</h3>
 
-<div class="table-wrap">
-<table>
-  <tr>
-    <th>項目</th>
-    <th>配当利回り</th>
-    <th>配当性向</th>
-  </tr>
-  <tr>
-    <td>見るもの</td>
-    <td>投資金額に対する配当額</td>
-    <td>利益に対する配当額</td>
-  </tr>
-  <tr>
-    <td>計算式</td>
-    <td>年間配当金 ÷ 株価 ×100</td>
-    <td>配当金総額 ÷ 当期純利益 ×100</td>
-  </tr>
-  <tr>
-    <td>主な目的</td>
-    <td>投資効率を見る</td>
-    <td>配当の持続性を見る</td>
-  </tr>
-</table>
+<p>
+現在の配当収入は魅力的に見えても、
+利益に対する配当負担が大きく、
+減配余地を確認したいケースです。
+</p>
+
+<h3>配当利回りは低めでも配当性向に余裕がある場合</h3>
+
+<p>
+現在の配当収入は小さくても、
+利益成長とともに将来増配する余地がある可能性があります。
+</p>
+
+<p>
+そのため配当投資では、
+「今いくらもらえるか」と「将来も続けられるか」の両方を見ることが重要です。
+</p>
+
+<h2>連続増配株を見るときにも役立つ</h2>
+
+<p>
+毎年のように配当を増やしている「連続増配株」でも、
+配当性向は確認したい指標です。
+</p>
+
+<p>
+利益成長に伴って増配しているなら比較的自然ですが、
+利益が伸びていないのに配当だけを増やしている場合、
+配当性向が上昇していく可能性があります。
+</p>
+
+<p>
+詳しくはこちら。
+</p>
+
+<p>
+<a href="dividend-growth-stocks.html">
+<strong>連続増配株とは？メリット・注意点を見る →</strong>
+</a>
+</p>
+
+<h2>配当金生活でも配当性向は重要</h2>
+
+<p>
+配当金生活を目指す場合、
+配当利回りだけで必要資産を計算するのではなく、
+その配当が継続する可能性まで考える必要があります。
+</p>
+
+<p>
+例えば月10万円の配当を前提に生活設計をしても、
+保有企業が大幅に減配すれば予定していた収入が得られません。
+</p>
+
+<p>
+そのため、
+配当性向・利益・キャッシュフローなどを見ながら、
+一つの銘柄だけに依存しないことも重要です。
+</p>
+
+<div class="cta">
+
+<strong>配当金生活に必要な資産を計算する</strong>
+
+<p>
+月5万円・10万円・20万円・50万円など、
+毎月欲しい配当金と想定利回りから必要資産を計算できます。
+</p>
+
+<a href="dividend-income.html">
+配当金生活シミュレーターを使う
+</a>
+
 </div>
+
+<h2>配当性向についてよくある質問</h2>
+
+<h3>配当性向は何％が理想ですか？</h3>
+
+<p>
+一律に理想的な数字はありません。
+企業の業種、成長段階、利益の安定性、財務状況などによって適切な水準は異なります。
+</p>
+
+<h3>配当性向30％は低いですか？</h3>
+
+<p>
+30％だけを見て低い・高いとは判断できません。
+利益成長や企業の配当方針、成長投資への資金配分なども確認しましょう。
+</p>
+
+<h3>配当性向50％は高いですか？</h3>
+
+<p>
+利益の半分を配当に回している状態です。
+企業によっては一般的な水準ですが、
+利益が安定しているか、将来の投資資金を確保できているかも確認したいところです。
+</p>
+
+<h3>配当性向100％を超えると減配しますか？</h3>
+
+<p>
+必ず減配するとは限りません。
+ただし当期利益を上回る配当となっているため、
+その理由と継続性を確認することが重要です。
+</p>
+
+<h3>赤字なのに配当を出す会社はありますか？</h3>
+
+<p>
+あります。
+過去に蓄積した利益や現預金などを使って配当を実施する場合があります。
+この場合は通常の配当性向だけで判断せず、
+財務やキャッシュフローも確認しましょう。
+</p>
+
+<h3>配当利回りと配当性向はどちらが重要ですか？</h3>
+
+<p>
+目的が異なるため両方確認するのが基本です。
+配当利回りは株価に対する配当収益を、
+配当性向は企業利益に対する配当負担を見る指標です。
+</p>
 
 <h2>まとめ</h2>
 
 <p>
-配当性向は、会社が利益のうちどれくらいを配当に回しているかを示す重要な指標です。
+配当性向とは、
+会社が稼いだ利益のうち、
+どの程度を株主への配当に回しているかを示す指標です。
+</p>
+
+<div class="box">
+
+配当金総額 ÷ 当期純利益 × 100
+
+</div>
+
+<p>
+で計算できます。
 </p>
 
 <p>
-高配当株投資では、配当利回りだけでなく、配当性向も確認することで、配当の継続性を判断しやすくなります。
+しかし、
+「30％なら安全」「80％なら危険」というように、
+配当性向だけで投資判断することはできません。
 </p>
 
 <p>
-配当性向が高すぎる場合は減配リスクに注意し、低い場合は成長投資や将来の増配余地を確認しましょう。
+配当利回り、利益、キャッシュフロー、財務状況、
+過去の配当実績、企業の配当方針まで合わせて確認することが重要です。
 </p>
+
+<div class="cta">
+
+<strong>実際に投資する証券会社も比較</strong>
+
+<p>
+NISA・国内株・手数料・サービスなどを比較して、
+自分の投資スタイルに合う証券会社を確認できます。
+</p>
+
+<a href="securities-comparison.html">
+証券会社を比較する
+</a>
+
+</div>
 
 <div class="related">
+
 <h2>関連ツール・記事</h2>
 
-<a href="dividend-income.html">配当金生活シミュレーター</a>
-<a href="high-dividend-stocks.html">高配当株とは？初心者向けにわかりやすく解説</a>
-<a href="dividend-yield.html">配当利回りとは？計算方法・目安を解説</a>
-<a href="fire-calculator.html">FIRE達成計算機</a>
-<a href="nisa-simulator.html">NISA積立シミュレーター</a>
-<a href="index.html">社長の計算機トップページ</a>
+<a href="dividend.html">
+配当金とは？
+</a>
+
+<a href="dividend-yield.html">
+配当利回り計算機
+</a>
+
+<a href="dividend-payment-date.html">
+配当金はいつもらえる？
+</a>
+
+<a href="dividend-receive.html">
+配当金の受け取り方とは？
+</a>
+
+<a href="dividend-tax.html">
+配当金にかかる税金とは？
+</a>
+
+<a href="nisa-dividend-tax.html">
+NISAで配当金は非課税？
+</a>
+
+<a href="high-dividend-stocks.html">
+高配当株とは？
+</a>
+
+<a href="dividend-growth-stocks.html">
+連続増配株とは？
+</a>
+
+<a href="high-dividend-etf.html">
+高配当ETFとは？
+</a>
+
+<a href="dividend-reinvestment.html">
+配当金再投資シミュレーター
+</a>
+
+<a href="dividend-income.html">
+配当金生活シミュレーター
+</a>
+
+<a href="dividend-50000.html">
+月5万円の配当金に必要な資産
+</a>
+
+<a href="dividend-100000.html">
+月10万円の配当金に必要な資産
+</a>
+
+<a href="dividend-50man.html">
+月50万円の配当金に必要な資産
+</a>
+
+<a href="securities-comparison.html">
+証券会社を比較する
+</a>
+
+<a href="index.html">
+社長の計算機トップページ
+</a>
 
 </div>
 
@@ -247,10 +1097,97 @@ footer a{color:#fff;margin:0 10px}
 </main>
 
 <footer>
-  <a href="about.html">運営者情報</a>
-  <a href="privacy.html">プライバシーポリシー</a>
-  <a href="contact.html">お問い合わせ</a>
+
+<p>© 社長の計算機</p>
+
+<p>
+<a href="about.html">運営者情報</a>
+<a href="privacy.html">プライバシーポリシー</a>
+<a href="contact.html">お問い合わせ</a>
+</p>
+
 </footer>
+
+<script>
+
+function calculatePayout(){
+
+const netIncome =
+Number(document.getElementById('netIncome').value);
+
+const totalDividend =
+Number(document.getElementById('totalDividend').value);
+
+const result =
+document.getElementById('payoutResult');
+
+const comment =
+document.getElementById('payoutComment');
+
+if(netIncome <= 0){
+
+result.textContent = '-';
+
+comment.textContent =
+'当期純利益が0以下の場合、この計算式では通常の配当性向を適切に評価できません。';
+
+return;
+
+}
+
+if(totalDividend < 0){
+
+result.textContent = '-';
+
+comment.textContent =
+'配当金総額は0以上の数字を入力してください。';
+
+return;
+
+}
+
+const payout =
+totalDividend / netIncome * 100;
+
+result.textContent =
+payout.toFixed(1) + '％';
+
+let text = '';
+
+if(payout < 20){
+
+text =
+'利益に対する配当の割合は比較的小さい水準です。成長投資や内部留保の使い道も確認しましょう。';
+
+}else if(payout < 50){
+
+text =
+'利益の一部を配当に回しつつ、企業内にも利益を残している水準です。';
+
+}else if(payout < 80){
+
+text =
+'株主還元の割合が比較的大きい水準です。利益の安定性も合わせて確認しましょう。';
+
+}else if(payout <= 100){
+
+text =
+'利益の大部分を配当に回している水準です。減益時にも維持できるか確認しましょう。';
+
+}else{
+
+text =
+'当期利益を上回る配当となる計算です。一時的な要因か、配当の継続性に問題がないか詳しく確認しましょう。';
+
+}
+
+comment.textContent = text;
+
+}
+
+calculatePayout();
+
+</script>
 
 </body>
 </html>
